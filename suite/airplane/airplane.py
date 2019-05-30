@@ -67,13 +67,18 @@ class airplane(object):
 			sum_pass += 1
 			os.system('echo The connection is Passed.(PASS) >> ping_server.txt')
 			print('The connection is Passed.(PASS)')
-		elif '75% packet loss' in str(stdout):
-			self._get_value(16)
+		elif '25% packet loss' in str(stdout):
+			self._get_value(14)
 			sum_pass += 1
 			os.system('echo The connection is Passed.(PASS) >> ping_server.txt')
 			print('The connection is Passed.(PASS)')
-		elif '25% packet loss' in str(stdout):
-			self._get_value(16)
+		elif '50% packet loss' in str(stdout):
+			self._get_value(12)
+			sum_pass += 1
+			os.system('echo The connection is Passed.(PASS) >> ping_server.txt')
+			print('The connection is Passed.(PASS)')
+		elif '75% packet loss' in str(stdout):
+			self._get_value(10)
 			sum_pass += 1
 			os.system('echo The connection is Passed.(PASS) >> ping_server.txt')
 			print('The connection is Passed.(PASS)')
