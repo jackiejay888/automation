@@ -7,43 +7,69 @@ Created on 2019/05/28
 '''
 
 from selenium import webdriver
+import time, os
 
 class roaming_cisco(object):
 
-	def launch_chrome(self):
-		global driver
+	def setup(self):
+		self._taskkill('chromedriver.exe')
+		self.driver = webdriver.ChromeOptions()  # Maximization of Chrome browser
+		self.driver.add_argument('--start-maximized')
+		self.driver.add_argument('-incognito')  # Open in incognito mode
+		multi_dl_prefs = {}
+		multi_dl_prefs['profile.default_content_settings.multiple-automatic-downloads'] = 1
+		self.driver.add_experimental_option(
+			'prefs', multi_dl_prefs)  # Enable multiple download
+		self.driver = webdriver.Chrome(chrome_options=self.driver)
+
+	def launch(self):
 		try:
-			options = webdriver.ChromeOptions()  # Maximization of Chrome browser
-			options.add_argument('--start-maximized')
-			options.add_argument('-incognito')  # Open in incognito mode
-			multi_dl_prefs = {}
-			multi_dl_prefs['profile.default_content_settings.multiple-automatic-downloads'] = 1
-			options.add_experimental_option('prefs', multi_dl_prefs)  # Enable multiple download
-			driver = webdriver.Chrome(chrome_options=options)
-			driver.get('http://Cisco:Cisco@192.168.0.21:80/')
-			driver.implicitly_wait(20)
-			alert = driver.switch_to_alert()  # Switch to Alert elemnet
-			alert.accept()  # Make the accpet of pop up
+			driver = self.driver
+			user_passwd = 'Cisco'
+			host_ip = '192.168.0.21'
+			port = '80'
+			str_link = 'ap_network-if_802-11_c.shtml'
+			hyperlink = 'http://' + user_passwd + ':' + user_passwd + \
+				'@' + host_ip + ':' + port + '/' + str_link
+			driver.get(hyperlink)
+			driver.implicitly_wait(30)
+			self.setting()
 			pass
 		except Exception as e:
 			raise e
 
-	def action(self):
-		print('Action')
+	def setting(self):
+		driver = self.driver
+		driver.find_element_by_name('radio_gain_cf').click()
+		driver.find_element_by_name('text_resultant_ant_gain').send_keys('100')
+		driver.find_element_by_name('apply').click()
+		self.accept_next_alert = True
+		self._alert()
+		time.sleep(35)
 
-
-	def shutdown_chrome(self):
+	def _alert(self):
 		try:
-			driver.implicitly_wait(5)
-			driver.close()
+			alert = self.driver.switch_to_alert()
+			if self.accept_next_alert:
+				alert.accept()
+			else:
+				alert.dismiss()
 			pass
-		except Exception as e:
-			raise e
+		finally:
+			self.accept_next_alert = True
 
-	def taskkill(self, name):
+	def _taskkill(self, name):
 		os.system('taskkill /f /im ' + name)
 
+	def shutdown(self):
+		self.driver.quit()
+
+
 if __name__ == '__main__':
-	cisco = roaming_cisco()
-	cisco.launch_chrome()
-	# cisco.shutdown_chrome()
+	# input_cycle = int(input('Please input the \'Cycle Times\' you want : '))
+	input_cycle = 1
+	for loop in range(input_cycle):
+		cisco = roaming_cisco()
+		cisco.setup()
+		cisco.launch()
+		cisco.shutdown()

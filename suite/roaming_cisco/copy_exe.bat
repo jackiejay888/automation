@@ -1,7 +1,7 @@
 D:
 cd D:\code\automation\suite\roaming_cisco
-del /f /q D:\code\automation\suite\roaming_cisco\wifi*.exe
-copy dist\wifi_roaming_cisco.exe .\wifi_roaming_cisco.exe
+del /f /q D:\code\automation\suite\roaming_cisco\roaming*.exe
+copy dist\roaming_cisco.exe .\roaming_cisco.exe
 del /f /q D:\code\automation\suite\roaming_cisco\*.log
 del /f /q D:\code\automation\suite\roaming_cisco\*.txt
 del /f /q D:\code\automation\suite\roaming_cisco\*.spec
