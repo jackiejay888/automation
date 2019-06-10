@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-Created on 2019/05/21
+Created on 2019/06/10
 
 @author: ZL Chen
 @title: The Wireless WAN should be worked after the airplane mode is switch on/off.
