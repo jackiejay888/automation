@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 Created on 2019/05/21
+Modified on 2019/06/11
 
 @author: ZL Chen
 @title: The Wireless LAN should be worked after the airplane mode is switch on/off.
@@ -10,7 +11,6 @@ import os
 import time
 import subprocess
 from subprocess import check_output
-from uiautomator import device as d
 
 
 class airplane_wlan(object):
@@ -25,29 +25,6 @@ class airplane_wlan(object):
 
 	def kill_extension_file(self, filename_extension):
 		os.system('del /f /q *.' + filename_extension)
-
-	# APP for back to the desktop -> click the Setting -> click the Wi-Fi button
-	def app_launch(self):
-		try:
-			d.press.home()
-			if d(description='Apps').exists:
-				d(description='Apps').click()
-			time.sleep(1)
-			if d(description='Settings').exists:
-				d(description='Settings').click()
-			time.sleep(1)
-			d(scrollable=True).scroll.to(text='Wi‑Fi')
-			if d(text='Wi‑Fi').exists:
-				d(text='Wi‑Fi').click()
-		except:
-			raise Exception('The \'' + 'Apps' + 'or' +
-							'Wi‑Fi' + '\' doe NOT found')
-
-	# screenshot the android
-	def screenshot(self, screenshot):
-		now = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
-		path = '.\\' + screenshot + '_' + now + '.jpg'
-		d.screenshot(path)
 
 	# ping the google servier by adb shell command
 	def adb_command_set(self, value):
@@ -141,10 +118,32 @@ class airplane_wlan(object):
 		except:
 			raise Exception('The stop airplane is not finished.')
 
+	# screenshot on mobile
+	def screen(self, cmd):
+		screenExecute = subprocess.Popen(
+			str(cmd), stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+		stdout, stderr = screenExecute.communicate()
+		# print(stdout)
+		# print(stderr)
+
+	# Save the screenshot to PC
+	def save_to_local(self, cmd):
+		screenExecute = subprocess.Popen(
+			str(cmd), stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+		stdout, stderr = screenExecute.communicate()
+		print(stdout)
+		# print(stderr)
+
+	def screen_time(self, screenshot):
+		now = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
+		path = screenshot + '_' + now + '.jpg'
+		return path
+
 
 if __name__ == '__main__':
 	print('------------------------------------------------------------------------------')
 	print('Created on 2019/05/23')
+	print('Modified on 2019/06/11')
 	print('Author: ZL Chen')
 	print('Title: The Wi-Fi should be worked after the airplane mode is switch on/off.')
 	print('------------------------------------------------------------------------------')
@@ -153,7 +152,6 @@ if __name__ == '__main__':
 	airplane.kill_extension_file('jpg')
 	cycle_time = int(input('Please input the \'Cycle Times\' you want : '))
 	for cycle in range(cycle_time):
-		airplane.app_launch()
 		os.system(
 			'echo ------------------------------------------------------------------------------ >> ping_server.txt')
 		print(
@@ -162,9 +160,17 @@ if __name__ == '__main__':
 				  str(cycle + 1) + ' >> ping_server.txt')
 		print('Cycle Times: ' + str(cycle + 1))
 		airplane.start_airplane()
-		airplane.screenshot('airplane_on_' + str(cycle + 1))
+		screen_time = airplane.screen_time('airplane_on_' + str(cycle + 1))
+		airplane.screen(
+			r'adb shell /system/bin/screencap -p /mnt/sdcard/' + screen_time)
+		airplane.save_to_local(r'adb pull /mnt/sdcard/' +
+							   screen_time + ' ./' + screen_time)
 		airplane.stop_airplane()
-		airplane.screenshot('airplane_off_' + str(cycle + 1))
+		screen_time = airplane.screen_time('airplane_off_' + str(cycle + 1))
+		airplane.screen(
+			r'adb shell /system/bin/screencap -p /mnt/sdcard/' + screen_time)
+		airplane.save_to_local(r'adb pull /mnt/sdcard/' +
+							   screen_time + ' ./' + screen_time)
 		airplane.adb_command_set('ping -w 4 8.8.8.8')
 		airplane.adb_response_get('0% packet loss')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
