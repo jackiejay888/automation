@@ -1,7 +1,6 @@
 D:
 cd D:\code\automation\suite\airplane_wwan
-del /f /q D:\code\automation\suite\airplane_wwan\air*.exe
-copy dist\airplane_wwan.exe .\airplane_wwan.exe
+copy /Y dist\airplane*.exe .
 del /f /q D:\code\automation\suite\airplane_wwan\*.log
 del /f /q D:\code\automation\suite\airplane_wwan\*.txt
 del /f /q D:\code\automation\suite\airplane_wwan\*.spec

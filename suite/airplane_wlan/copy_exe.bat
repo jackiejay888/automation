@@ -1,7 +1,6 @@
 D:
 cd D:\code\automation\suite\airplane_wlan
-del /f /q D:\code\automation\suite\airplane_wlan\air*.exe
-copy dist\airplane_wlan.exe .\airplane_wlan.exe
+copy /Y dist\airplane*.exe .
 del /f /q D:\code\automation\suite\airplane_wlan\*.log
 del /f /q D:\code\automation\suite\airplane_wlan\*.txt
 del /f /q D:\code\automation\suite\airplane_wlan\*.spec
