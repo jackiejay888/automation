@@ -153,7 +153,7 @@ if __name__ == '__main__':
 	print('Modified on 2019/06/11')
 	print('Add the ConfigParser on 2019/06/12')
 	print('Author: ZL Chen')
-	print('Title: The Wi-Fi should be worked after the airplane mode is switch on/off.')
+	print('Title: The Wireless WAN should be worked after the airplane mode is switch on/off.')
 	print('------------------------------------------------------------------------------')
 	airplane = airplane_wwan_multiple()
 	airplane.kill_extension_file('txt')
