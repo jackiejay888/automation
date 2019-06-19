@@ -145,7 +145,7 @@ if __name__ == '__main__':
 	print('Created on 2019/05/23')
 	print('Modified on 2019/06/11')
 	print('Author: ZL Chen')
-	print('Title: The Wi-Fi should be worked after the airplane mode is switch on/off.')
+	print('Title: The Wireless LAN should be worked after the airplane mode is switch on/off.')
 	print('------------------------------------------------------------------------------')
 	airplane = airplane_wlan_single()
 	airplane.kill_extension_file('txt')
