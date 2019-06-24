@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 Created on 2019/06/14
+Modify the _get_value and Add the adb_command_get method on 2019/06/24
 
 @author: ZL Chen
 @title: The Wireless LAN should be worked after the airplane mode is switch on/off.
@@ -69,19 +70,16 @@ class airplane_ethernet_single(object):
 			print('The connection is Failed.(FAIL)')
 
 	def _get_value(self, round_times):
-		try:
-			for get in range(round_times):
-				if get == 8 or get == 15:
-					echo = str(lines[get]).split('b\'')[1]
-					os.system('echo ' + echo + ' >> ping_server.txt')
-				if get == 0 or get == 2 or get == 4 or get == 6 or get == 10 or get == 12 or get == 14:
-					echo = str(lines[get]).split('b\'')[1]
-					os.system('echo ' + echo + ' >> ping_server.txt')
-				if get == 1 or get == 3 or get == 5 or get == 7 or get == 9 or get == 11 or get == 13:
-					echo = str(lines[get]).split('b\'')[1]
-					os.system('echo ' + echo + ' >> ping_server.txt')
-		except:
-			raise Exception('Cannot get the response message.')
+		for get in range(round_times):
+			if get == 8 or get == 15:
+				echo = str(lines[get]).split('b\'')[1]
+				os.system('echo ' + echo + ' >> ping_server.txt')
+			if get == 0 or get == 2 or get == 4 or get == 6 or get == 10 or get == 12 or get == 14:
+				echo = str(lines[get]).split('b\'')[1]
+				os.system('echo ' + echo + ' >> ping_server.txt')
+			if get == 1 or get == 3 or get == 5 or get == 7 or get == 9 or get == 11 or get == 13:
+				echo = str(lines[get]).split('b\'')[1]
+				os.system('echo ' + echo + ' >> ping_server.txt')
 
 	def _adb_shell(self, shell_cmds):
 		global stdout
@@ -211,4 +209,5 @@ if __name__ == '__main__':
 	print('Total Cycle Times: ' + str(cycle_time) + ', Passed: ' +
 		  str(sum_pass) + ', Failed: ' + str(sum_fail))
 	os.system('.\\backup_log.bat')
+	airplane.adb_command_set('rm /mnt/sdcard/airplane_*.jpg')
 	airplane.kill_exe('adb')
