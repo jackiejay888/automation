@@ -117,7 +117,7 @@ class airplane_ethernet_multiple(object):
 	# adb conncet by ethernet
 	def ethernet(self):
 		try:
-			self._adb_connect('disconnect', ' ')
+			self._adb_connect('disconnect', config.get('ip', 'ip_address'))
 			self._adb_connect('connect', config.get('ip', 'ip_address'))
 			time.sleep(6)
 			print('The ethernet is finished.')
