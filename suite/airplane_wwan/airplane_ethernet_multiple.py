@@ -202,7 +202,7 @@ if __name__ == '__main__':
 		airplane.save_to_local(r'adb -s ' + config.get('ip', 'ip_address') + ' pull /mnt/sdcard/' +
 							   screen_time + ' ./' + screen_time)
 		airplane.adb_command_set(config.get(
-			'ip', 'ip_address'), 'ping -w 4 8.8.8.8')
+			'ip', 'ip_address'), 'ping -I wlan0 -w 4 8.8.8.8')
 		airplane.adb_response_get('0% packet loss')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 				  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
@@ -212,7 +212,6 @@ if __name__ == '__main__':
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(cycle_time) + ', Passed: ' +
 		  str(sum_pass) + ', Failed: ' + str(sum_fail))
-	os.system('.\\backup_log.bat')
+	# os.system('.\\backup_log.bat')
 	airplane.adb_command_set(config.get(
 		'ip', 'ip_address'), 'rm /mnt/sdcard/airplane_*.jpg')
-	airplane.kill_exe('adb')
