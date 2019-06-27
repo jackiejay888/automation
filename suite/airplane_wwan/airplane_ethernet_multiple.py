@@ -212,6 +212,6 @@ if __name__ == '__main__':
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(cycle_time) + ', Passed: ' +
 		  str(sum_pass) + ', Failed: ' + str(sum_fail))
-	# os.system('.\\backup_log.bat')
+	os.system('.\\backup_log.bat')
 	airplane.adb_command_set(config.get(
 		'ip', 'ip_address'), 'rm /mnt/sdcard/airplane_*.jpg')
