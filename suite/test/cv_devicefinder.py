@@ -61,8 +61,8 @@ if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	opencv = cv_devicefinder()
 	for count in range(2):
-		for wait in range(10):
-			time.sleep(1)
+		for wait in range(5):
+			time.sleep(2)
 			print('Waiting...')
 		opencv.screenshot('screenshot_' + str(count + 1) + '.jpg')
 		print('Screenshot the ' + '\'screenshot_' + str(count + 1) + '.jpg\'')
