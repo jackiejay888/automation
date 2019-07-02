@@ -36,7 +36,7 @@ class cv(object):
 		(score, self.diff) = compare_ssim(
 			self.gray_original, self.gray_other, full=True)
 		self.diff = (self.diff * 255).astype('uint8')
-		print('SSIM: {}'.format(score))
+		# print('SSIM: {}'.format(score))
 		if score == 1.0:
 			return True
 		else:
@@ -51,10 +51,11 @@ class cv(object):
 		for c in cnts:
 			(x, y, w, h) = cv2.boundingRect(c)
 			cv2.rectangle(self.image_original, (x, y),
-						  (x+w, y+h), (0, 0, 255), 2)
-			cv2.rectangle(self.image_other, (x, y), (x+w, y+h), (0, 0, 255), 2)
-		cv2.imwrite('result.jpg', self.image_other)
+						  (x + w, y + h), (0, 0, 255), 2)
+			cv2.rectangle(self.image_other, (x, y),
+						  (x + w, y + h), (0, 0, 255), 2)
 		if boolean == False:
+			cv2.imwrite('result.jpg', self.image_other)
 			cv2.imshow('result', self.image_other)
 			cv2.waitKey(0)
 			raise Exception('The compare image is failed.')
@@ -73,7 +74,7 @@ if __name__ == '__main__':
 		print('Compare Times: ' + str(count + 1))
 		if count == screenshot_count:
 			break
-		for loop in range(5):
+		for loop in range(1):
 			print('Waiting.')
 			time.sleep(1)
 		cv.screenshot('other_' + str(count + 1) + '.jpg')
