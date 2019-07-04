@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>cisco</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">roaming</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://192.168.0.21/<datalist><option>http://192.168.0.21/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=NETWORK INTERFACES<datalist><option>link=NETWORK INTERFACES</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='ASSOCIATION'])[1]/following::a[2]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='NETWORK MAP'])[1]/following::a[4]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='SECURITY'])[1]/preceding::a[2]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='SERVICES'])[1]/preceding::a[4]</option><option>//a[contains(text(),'NETWORK INTERFACES')]</option><option>//a[contains(@href, 'ap_network-if.shtml')]</option><option>//tr[13]/td[2]/a[2]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='GigabitEthernet'])[1]/following::sup[1]<datalist><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='GigabitEthernet'])[1]/following::sup[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='SECURITY'])[1]/preceding::sup[2]</option><option>//sup</option><option>css=sup</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=SETTINGS<datalist><option>link=SETTINGS</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='DETAILED&amp;nbsp;STATUS'])[1]/following::a[2]</option><option>//a[contains(text(),'SETTINGS')]</option><option>xpath=(//a[@onclick='setRadioLinkCookieThisRadio()'])[3]</option><option>//a[contains(@href, 'ap_network-if_802-11_c.shtml')]</option><option>//td[6]/div/a[2]</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">roaming_settings</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://192.168.0.21/ap_network-if_802-11_c.shtml<datalist><option>http://192.168.0.21/ap_network-if_802-11_c.shtml</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=radio_gain_cf<datalist><option>name=radio_gain_cf</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='External Antenna Configuration:'])[1]/following::input[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Right (Primary)'])[2]/following::input[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Enable'])[15]/preceding::input[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Disable'])[16]/preceding::input[2]</option><option>//input[@name='radio_gain_cf']</option><option>//tr[34]/td[2]/input</option><option>css=input[name="radio_gain_cf"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=text_resultant_ant_gain<datalist><option>name=text_resultant_ant_gain</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Disable'])[16]/following::input[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='(-128 - 128)'])[1]/preceding::input[1]</option><option>//input[@name='text_resultant_ant_gain']</option><option>//tr[35]/td[2]/input</option><option>css=input[name="text_resultant_ant_gain"]</option></datalist></td><td>20</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=apply<datalist><option>name=apply</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='(HHHH.HHHH.HHHH)'])[5]/following::input[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Copyright (c) 1992-2007 by Cisco Systems, Inc.'])[1]/preceding::input[2]</option><option>//input[@name='apply']</option><option>//span/input</option><option>css=input[name="apply"]</option></datalist></td><td></td>
+</tr>
+<tr><td>assertConfirmation</td><td>WARNING:
+The settings shown on this page will be updated.
+Click 'OK' to continue.<datalist><option>WARNING:
+The settings shown on this page will be updated.
+Click 'OK' to continue.</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
