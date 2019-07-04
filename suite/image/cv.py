@@ -61,7 +61,6 @@ class cv(object):
 			os.system('.\\backup_log.bat')
 			raise Exception('The compare image is failed.')
 		else:
-			os.system('.\\backup_log.bat')
 			print('The compare image is passed.')
 			pass
 
@@ -83,3 +82,4 @@ if __name__ == '__main__':
 		cv.screenshot('other_' + str(count + 1) + '.jpg')
 		print('Screenshot the others_' + str(count + 1) + '.jpg')
 		cv.compare_image('original.jpg', 'other_' + str(count + 1) + '.jpg')
+	os.system('.\\backup_log.bat')
