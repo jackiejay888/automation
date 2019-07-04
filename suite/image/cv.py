@@ -58,8 +58,10 @@ class cv(object):
 			cv2.imwrite('result.jpg', self.image_other)
 			cv2.imshow('result', self.image_other)
 			cv2.waitKey(0)
+			os.system('.\\backup_log.bat')
 			raise Exception('The compare image is failed.')
 		else:
+			os.system('.\\backup_log.bat')
 			print('The compare image is passed.')
 			pass
 
@@ -67,17 +69,17 @@ class cv(object):
 if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	cv = cv()
-	screenshot_count = int(input('Please input the compare times you want: '))
+	screenshot_count = int(input('Please input the compare times: '))
+	wait_time = int(input('Please input the waiting times: '))
 	cv.screenshot('original.jpg')
 	print('Screenshot the original.jpg')
 	for count in range(screenshot_count):
 		print('Compare Times: ' + str(count + 1))
 		if count == screenshot_count:
 			break
-		for loop in range(1):
+		for loop in range(wait_time):
 			print('Waiting.')
 			time.sleep(1)
 		cv.screenshot('other_' + str(count + 1) + '.jpg')
 		print('Screenshot the others_' + str(count + 1) + '.jpg')
 		cv.compare_image('original.jpg', 'other_' + str(count + 1) + '.jpg')
-	os.system('.\\backup_log.bat')
