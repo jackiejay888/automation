@@ -67,7 +67,7 @@ class cv_compare(object):
 		else:
 			print('The compare image is passed.')
 			pass
-
+			
 
 if __name__ == '__main__':
 	cv_original = cv_original()
