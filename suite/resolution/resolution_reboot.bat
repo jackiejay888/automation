@@ -41,7 +41,7 @@ if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 ::START
 ::::::::::::::::::::::::::::
 
-timeout /t 10
+timeout /t 15
 
 for /f "delims=" %%# in  ('"wmic path Win32_VideoController  get CurrentHorizontalResolution,CurrentVerticalResolution /format:value"') do (
   set "%%#">nul
@@ -49,8 +49,10 @@ for /f "delims=" %%# in  ('"wmic path Win32_VideoController  get CurrentHorizont
 
 echo The resolution is %CurrentHorizontalResolution% * %CurrentVerticalResolution%
 
-echo The resolution is %CurrentHorizontalResolution% * %CurrentVerticalResolution% >> resolution.txt
+echo The resolution is %CurrentHorizontalResolution% * %CurrentVerticalResolution% >> resolution_reboot.txt
 
 echo The system will be reboot...
 
-pause
+timeout /t 5
+
+shutdown /r /t 0
