@@ -41,10 +41,20 @@ if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 ::START
 ::::::::::::::::::::::::::::
 
-timeout /t 15
+timeout /t 1
 
-for /f "delims=" %%# in  ('"wmic path Win32_VideoController  get CurrentHorizontalResolution,CurrentVerticalResolution /format:value"') do (
-  set "%%#">nul
+for /f %%i in (counter.txt) do ( 
+	echo Counts: %%i, Date: %date%, Time: %time%
+	echo Counts: %%i, Date: %date%, Time: %time% >> resolution_reboot.txt
+	set counter=%%i
+)
+
+set /a counter+=1
+echo %counter% > counter.txt
+
+for /f "delims=" %%# in  (
+	'"wmic path Win32_VideoController  get CurrentHorizontalResolution,CurrentVerticalResolution /format:value"') do (
+	set "%%#">nul
 )
 
 echo The resolution is %CurrentHorizontalResolution% * %CurrentVerticalResolution%

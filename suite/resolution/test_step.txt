@@ -1,0 +1,5 @@
+1. Execute the format.bat or format_reboot.bat
+2. Copy the format.bat or format_reboot.bat to te startup folder.
+2. Copy the resolution.txt or resolution_reboot.txt to the startup folder.
+3. Copy the counter.txt to the startup folder.
+3. The resolution result under the resolution.txt or resolution_reboot.txt
