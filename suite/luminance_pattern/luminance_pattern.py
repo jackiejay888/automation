@@ -27,7 +27,7 @@ class luminance_pattern(object):
 
 	def initial(self, shape_width, shape_height, ppi, aliquots, background_color):
 		global circle_pixel
-		circle_pixel = 22.5 / ppi
+		circle_pixel = float(config.get('luminance_pattern', 'radius')) / ppi
 		choose = input('*Do you want to join the distance edge. (y/n)? ')
 		if choose == 'n':
 			tu.hideturtle()
@@ -51,6 +51,7 @@ class luminance_pattern(object):
 		height = shape_height / aliquots
 		tu.setup(width=shape_width, height=shape_height,
 				 startx=None, starty=None)
+		tu.home()
 		tu.pensize(5)
 		tu.bgcolor(color)
 		if color == 'white':
