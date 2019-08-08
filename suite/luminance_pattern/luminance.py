@@ -5,7 +5,9 @@ Created on 2019/08/07
 @Author: ZL Chen
 '''
 
-import os, imgkit, configparser
+import os
+import imgkit
+import configparser
 
 config = configparser.ConfigParser()
 config.read('luminance.config')
@@ -57,7 +59,8 @@ class luminance(object):
 
 			start = '<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body bgcolor=\"' + \
 				str(fill_color)+'\">\n'
-			resolution = '<svg width=\"'+str(w)+'\" height=\"' + str(h) + '\">\n'
+			resolution = '<svg width=\"' + \
+				str(w)+'\" height=\"' + str(h) + '\">\n'
 			end = '</svg>\n</body>\n</html>\n'
 
 			if ask_edge_point == 'y':
@@ -96,7 +99,16 @@ class luminance(object):
 				print('('+str(coordinate_x[0])+','+str(coordinate_y[2])+')')
 				print('('+str(coordinate_x[2])+','+str(coordinate_y[0])+')')
 				print('('+str(coordinate_x[2])+','+str(coordinate_y[2])+')')
-				return '<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
+				return '<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
 			elif point == 9:
 				print('('+str(coordinate_x[1])+','+str(coordinate_y[1])+')')
 				print('('+str(coordinate_x[1])+','+str(coordinate_y[1])+')')
@@ -104,7 +116,24 @@ class luminance(object):
 				print('('+str(coordinate_x[1])+','+str(coordinate_y[2])+')')
 				print('('+str(coordinate_x[0])+','+str(coordinate_y[1])+')')
 				print('('+str(coordinate_x[2])+','+str(coordinate_y[1])+')')
-				return '<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />'
+				return '<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[1])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
+					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius) + \
+					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
 			else:
 				raise Exception('Failed.')
 		except Exception as e:
@@ -122,7 +151,22 @@ class luminance(object):
 			print('('+str(edge_x[2])+','+str(edge_y[0])+')')
 			print('('+str(edge_x[2])+','+str(edge_y[1])+')')
 			print('('+str(edge_x[2])+','+str(edge_y[2])+')')
-			return '<circle cx=\"'+str(edge_x[0])+'\" cy=\"'+str(edge_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[0])+'\" cy=\"'+str(edge_y[1])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[0])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[1])+'\" cy=\"'+str(edge_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[1])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[0])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[1])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'+'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius)+'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />'
+			return '<circle cx=\"'+str(edge_x[0])+'\" cy=\"'+str(edge_y[0])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[0])+'\" cy=\"'+str(edge_y[1])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[0])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[1])+'\" cy=\"'+str(edge_y[0])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[1])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[0])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[1])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
+				'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius) + \
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
 		except Exception as e:
 			raise e
 
@@ -143,4 +187,4 @@ if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	luminance = luminance()
 	luminance.initial()
-	luminance.htmltoimage()
+	# luminance.htmltoimage()
