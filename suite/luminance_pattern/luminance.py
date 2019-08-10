@@ -52,7 +52,6 @@ class luminance(object):
 				'Input the background color. (1 or 2 or 3 or 4 or 5)\n1.white 2.green 3.red 4.blue 5.black: '))
 			solid_radius = float(config.get('luminance', 'radius')) / ppi
 			ask_edge_point = input('Edge point (y/n) ? ')
-			ask_edge_dis = input('MM or Pixel (mm or pixel) ? ')
 
 			stroke_color = self.stroke_color(fill_color)
 			fill_color = self.fill_color(fill_color)
@@ -64,6 +63,7 @@ class luminance(object):
 			end = '</svg>\n</body>\n</html>\n'
 
 			if ask_edge_point == 'y':
+				ask_edge_dis = input('MM or Pixel (mm or pixel) ? ')
 				if ask_edge_dis == 'mm':
 					edge = float(input('Edge (mm) ? ')) / ppi
 				if ask_edge_dis == 'pixel':
