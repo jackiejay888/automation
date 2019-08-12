@@ -57,7 +57,7 @@ class luminance(object):
 			fill_color = self.fill_color(fill_color)
 
 			start = '<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body bgcolor=\"' + \
-				str(fill_color)+'\">\n'
+					str(fill_color)+'\">\n'
 			resolution = '<svg width=\"' + \
 				str(w)+'\" height=\"' + str(h) + '\">\n'
 			end = '</svg>\n</body>\n</html>\n'
