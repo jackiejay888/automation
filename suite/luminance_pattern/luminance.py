@@ -52,7 +52,6 @@ class luminance(object):
 				'Input the background color. (1 or 2 or 3 or 4 or 5)\n1.white 2.green 3.red 4.blue 5.black: '))
 			solid_radius = float(config.get('luminance', 'radius')) / ppi
 			ask_edge_point = input('Edge point (y/n) ? ')
-			ask_edge_dis = input('MM or Pixel (mm or pixel) ? ')
 
 			stroke_color = self.stroke_color(fill_color)
 			fill_color = self.fill_color(fill_color)
@@ -64,6 +63,7 @@ class luminance(object):
 			end = '</svg>\n</body>\n</html>\n'
 
 			if ask_edge_point == 'y':
+				ask_edge_dis = input('MM or Pixel (mm or pixel) ? ')
 				if ask_edge_dis == 'mm':
 					edge = float(input('Edge (mm) ? ')) / ppi
 				if ask_edge_dis == 'pixel':
@@ -108,7 +108,9 @@ class luminance(object):
 					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[0])+'\" r=\"'+str(solid_radius) + \
 					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
 					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[2])+'\" r=\"'+str(solid_radius) + \
-					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
+					'\" stroke=\"' + \
+					str(stroke_color)+'\" stroke-width=\"2' + \
+					'\" fill=\"'+str(fill_color) + '\" />\n'
 			elif point == 9:
 				print('('+str(coordinate_x[1])+','+str(coordinate_y[1])+')')
 				print('('+str(coordinate_x[1])+','+str(coordinate_y[1])+')')
@@ -133,7 +135,9 @@ class luminance(object):
 					'<circle cx=\"'+str(coordinate_x[0])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius) + \
 					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n' + \
 					'<circle cx=\"'+str(coordinate_x[2])+'\" cy=\"'+str(coordinate_y[1])+'\" r=\"'+str(solid_radius) + \
-					'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
+					'\" stroke=\"' + \
+					str(stroke_color)+'\" stroke-width=\"2' + \
+					'\" fill=\"'+str(fill_color) + '\" />\n'
 			else:
 				raise Exception('Failed.')
 		except Exception as e:
@@ -166,20 +170,16 @@ class luminance(object):
 				'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[1])+'\" r=\"'+str(solid_radius) + \
 				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color)+'\" />\n' + \
 				'<circle cx=\"'+str(edge_x[2])+'\" cy=\"'+str(edge_y[2])+'\" r=\"'+str(solid_radius) + \
-				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2'+'\" fill=\"'+str(fill_color) + '\" />\n'
+				'\" stroke=\"'+str(stroke_color)+'\" stroke-width=\"2' + \
+				'\" fill=\"'+str(fill_color) + '\" />\n'
 		except Exception as e:
 			raise e
 
-	def htmltoimage(self):
-		# luminance = open('luminance.html').read()
-		# imgkit.from_string(luminance, 'luminance.jpg')
-
-		# print(fp.text)
-		# print(type(fp.text))
-		with open('luminance.html') as luminance:
-			imgkit.from_file(luminance, 'luminance.jpg')
-		# with open('luminance_edge.html') as luminance_edge:
-		# 	imgkit.from_file(luminance_edge, 'luminance_edge.jpg')
+	def htmltoimage(self, value):
+		if os.path.isfile(value + '.html'):
+			imgkit.from_file(value + '.html', value + '.jpg')
+		else:
+			pass
 
 
 if __name__ == '__main__':
@@ -187,4 +187,5 @@ if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	luminance = luminance()
 	luminance.initial()
-	# luminance.htmltoimage()
+	luminance.htmltoimage('luminance')
+	luminance.htmltoimage('luminance_edge')
