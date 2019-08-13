@@ -45,12 +45,12 @@ class luminance(object):
 			w = int(config.get('luminance', 'w'))
 			h = int(config.get('luminance', 'h'))
 			aliquots = int(config.get('luminance', 'aliquots'))
-			ppi = float(config.get('luminance', 'ppi'))
+			pixel_pitch = float(config.get('luminance', 'pixel_pitch'))
 			point = int(input('Point (1 or 5 or 9) : '))
 
 			fill_color = int(input(
 				'Input the background color. (1 or 2 or 3 or 4 or 5)\n1.white 2.green 3.red 4.blue 5.black: '))
-			solid_radius = float(config.get('luminance', 'radius')) / ppi
+			solid_radius = float(config.get('luminance', 'radius')) / pixel_pitch
 			ask_edge_point = input('Edge point (y/n) ? ')
 
 			stroke_color = self.stroke_color(fill_color)
@@ -65,7 +65,7 @@ class luminance(object):
 			if ask_edge_point == 'y':
 				ask_edge_dis = input('MM or Pixel (mm or pixel) ? ')
 				if ask_edge_dis == 'mm':
-					edge = float(input('Edge (mm) ? ')) / ppi
+					edge = float(input('Edge (mm) ? ')) / pixel_pitch
 				if ask_edge_dis == 'pixel':
 					edge = float(input('Edge (pixel) ? '))
 				body_edge = self.calculator_edge(
