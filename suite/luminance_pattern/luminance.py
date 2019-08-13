@@ -189,3 +189,4 @@ if __name__ == '__main__':
 	luminance.initial()
 	luminance.htmltoimage('luminance')
 	luminance.htmltoimage('luminance_edge')
+	os.system('del /f /q *.html')
