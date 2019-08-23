@@ -85,8 +85,11 @@ class wireless_switch(object):
 			raise e
 
 	def close_the_browser(self):
+		for loop in range(5):
+			time.sleep(1)
 		driver.implicitly_wait(5)
 		driver.close()
+		print('The browser is closed.')
 
 	# ping the google server by windows command
 	def windows_command_set(self, windows_cmds):
@@ -158,25 +161,31 @@ class wireless_switch(object):
 			  str(sum_pass) + ', Failed: ' + str(sum_fail))
 
 	def reconnect_wifi(self):
-		for loop in range(10):
+		print('Counting Down the number of secs...')
+		time.sleep(10)
+		for loop in range(15):
+			os.system('netsh wlan disconnect')
 			time.sleep(1)
-			print('Waiting...', 10-loop)
-		os.system('netsh wlan disconncet')
-		os.system('netsh wlan connect name=\"siot_dqa\"')
+			os.system('netsh wlan connect name=\"siot_dqa\"')
+			time.sleep(1)
 
 	def screenshot(self, times):
 		now = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
 		path = times + '_' + now + '.jpg'
 		ImageGrab.grab().save(path)
 
+	def kill_file(self):
+		os.system('del /f /q *.txt')
+		os.system('del /f /q *.log')
+		os.system('del /f /q *.jpg')
+		os.system('taskkill /f /im chromedriver.exe')
+
 
 if __name__ == '__main__':
-	os.system('del /f /q *.txt')
-	os.system('del /f /q *.log')
-	os.system('del /f /q *.jpg')
 	times = int(input('Cycle times: '))
 	frequence = input('Frequence (2.4 or 5): ')
 	ws = wireless_switch()
+	ws.kill_file()
 	for cycle in range(int(times)):
 		ws.run_script(cycle, frequence, 'N only')
 		ws.run_script(cycle, frequence, 'Legacy')
