@@ -37,6 +37,7 @@ class wireless_switch(object):
 			driver.find_element_by_id('login_filed')
 		except:
 			for refresh in range(10):
+				self.reconnect_wifi()
 				self.close_the_browser()
 				driver = webdriver.Chrome(chrome_options=options)
 				driver.get('http://router.asus.com')
@@ -74,18 +75,23 @@ class wireless_switch(object):
 					u'(.//*[normalize-space(text()) and normalize-space(.)=\'頻段\'])[1]/following::select[1]')).select_by_visible_text("5GHz")
 			driver.find_element_by_xpath(
 				u'(.//*[normalize-space(text()) and normalize-space(.)=\'頻段\'])[1]/following::select[1]').click()
+			element = driver.find_element_by_id(
+				'wl_ssid').get_attribute('value')
 			driver.find_element_by_name('wl_nmode_x').click()
 			Select(driver.find_element_by_name('wl_nmode_x')
 				   ).select_by_visible_text(mode)
 			driver.find_element_by_name('wl_nmode_x').click()
+			if mode == 'N/AC mixed':
+				mode = 'N_AC mixed'
 			self.screenshot('cycle_' + str(cycle+1) +
 							'_' + frequence + '_' + mode)
 			driver.find_element_by_id('applyButton').click()
+			return element
 		except Exception as e:
 			raise e
 
 	def close_the_browser(self):
-		for loop in range(5):
+		for loop in range(10):
 			time.sleep(1)
 		driver.implicitly_wait(5)
 		driver.close()
@@ -150,9 +156,9 @@ class wireless_switch(object):
 	def run_script(self, cycle, frequence, mode):
 		self.initial()
 		self.login()
-		self.switch_mode(cycle, frequence, mode)
+		ssid_name = self.switch_mode(cycle, frequence, mode)
 		self.close_the_browser()
-		self.reconnect_wifi()
+		self.reconnect_wifi(ssid_name)
 		self.windows_command_set('ping -w 4 ' + '8.8.8.8')
 		self.windows_response_get('0%')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
@@ -160,32 +166,34 @@ class wireless_switch(object):
 		print('Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail))
 
-	def reconnect_wifi(self):
+	def reconnect_wifi(self, ssid_name):
 		print('Counting Down the number of secs...')
-		time.sleep(10)
-		for loop in range(15):
-			os.system('netsh wlan disconnect')
-			time.sleep(1)
-			os.system('netsh wlan connect name=\"siot_dqa\"')
-			time.sleep(1)
+		try:
+			for loop in range(5):
+				time.sleep(1)
+				os.system('netsh wlan disconnect')
+				os.system('netsh wlan disconnect')
+				time.sleep(1)
+				os.system('netsh wlan connect name=\"' + ssid_name + '\"')
+				os.system('netsh wlan connect name=\"' + ssid_name + '\"')
+				time.sleep(5)
+		except Exception as e:
+			raise e
 
 	def screenshot(self, times):
 		now = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
 		path = times + '_' + now + '.jpg'
 		ImageGrab.grab().save(path)
 
-	def kill_file(self):
-		os.system('del /f /q *.txt')
-		os.system('del /f /q *.log')
-		os.system('del /f /q *.jpg')
-		os.system('taskkill /f /im chromedriver.exe')
-
 
 if __name__ == '__main__':
+	ws = wireless_switch()
+	os.system('del /f /q *.txt')
+	os.system('del /f /q *.log')
+	os.system('del /f /q *.jpg')
+	os.system('taskkill /f /im chromedriver.exe')
 	times = int(input('Cycle times: '))
 	frequence = input('Frequence (2.4 or 5): ')
-	ws = wireless_switch()
-	ws.kill_file()
 	for cycle in range(int(times)):
 		ws.run_script(cycle, frequence, 'N only')
 		ws.run_script(cycle, frequence, 'Legacy')
