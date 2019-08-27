@@ -21,7 +21,7 @@ class wireless_switch(object):
 	sum_pass = 0
 	sum_fail = 0
 
-	def initial(self):
+	def initial(self, ssid_name):
 		global driver
 		options = webdriver.ChromeOptions()  # Maximization of Chrome browser
 		options.add_argument('--start-maximized')
@@ -37,8 +37,8 @@ class wireless_switch(object):
 			driver.find_element_by_id('login_filed')
 		except:
 			for refresh in range(10):
-				self.reconnect_wifi()
 				self.close_the_browser()
+				self.reconnect_wifi(ssid_name)
 				driver = webdriver.Chrome(chrome_options=options)
 				driver.get('http://router.asus.com')
 				driver.implicitly_wait(5)  # Wait for catch the windows
@@ -75,8 +75,6 @@ class wireless_switch(object):
 					u'(.//*[normalize-space(text()) and normalize-space(.)=\'頻段\'])[1]/following::select[1]')).select_by_visible_text("5GHz")
 			driver.find_element_by_xpath(
 				u'(.//*[normalize-space(text()) and normalize-space(.)=\'頻段\'])[1]/following::select[1]').click()
-			element = driver.find_element_by_id(
-				'wl_ssid').get_attribute('value')
 			driver.find_element_by_name('wl_nmode_x').click()
 			Select(driver.find_element_by_name('wl_nmode_x')
 				   ).select_by_visible_text(mode)
@@ -86,7 +84,6 @@ class wireless_switch(object):
 			self.screenshot('cycle_' + str(cycle+1) +
 							'_' + frequence + '_' + mode)
 			driver.find_element_by_id('applyButton').click()
-			return element
 		except Exception as e:
 			raise e
 
@@ -153,10 +150,10 @@ class wireless_switch(object):
 		except:
 			raise Exception('Cannot get the response message.')
 
-	def run_script(self, cycle, frequence, mode):
-		self.initial()
+	def run_script(self, cycle, frequence, mode, ssid_name):
+		self.initial(ssid_name)
 		self.login()
-		ssid_name = self.switch_mode(cycle, frequence, mode)
+		self.switch_mode(cycle, frequence, mode)
 		self.close_the_browser()
 		self.reconnect_wifi(ssid_name)
 		self.windows_command_set('ping -w 4 ' + '8.8.8.8')
@@ -169,7 +166,7 @@ class wireless_switch(object):
 	def reconnect_wifi(self, ssid_name):
 		print('Counting Down the number of secs...')
 		try:
-			for loop in range(5):
+			for loop in range(3):
 				time.sleep(1)
 				os.system('netsh wlan disconnect')
 				os.system('netsh wlan disconnect')
@@ -193,12 +190,13 @@ if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	os.system('taskkill /f /im chromedriver.exe')
 	times = int(input('Cycle times: '))
-	frequence = input('Frequence (2.4 or 5): ')
+	frequence = input('Frequence (ex: 2.4 or 5): ')
+	ssid_name = input('SSID name (ex: siot_dqa): ')
 	for cycle in range(int(times)):
-		ws.run_script(cycle, frequence, 'N only')
-		ws.run_script(cycle, frequence, 'Legacy')
+		ws.run_script(cycle, frequence, 'N only', ssid_name)
+		ws.run_script(cycle, frequence, 'Legacy', ssid_name)
 		if frequence == '5':
-			ws.run_script(cycle, frequence, 'N/AC mixed')
+			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name)
 	os.system('echo ' + 'Total Cycle Times: ' + str(times) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(times) + ', Passed: ' +
