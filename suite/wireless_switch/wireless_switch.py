@@ -52,10 +52,10 @@ class wireless_switch(object):
 				print('Switch Failed, please make sure the AP is launched.')
 				raise
 
-	def login(self):
+	def login(self, user_name, password):
 		try:
-			driver.find_element_by_id('login_username').send_keys('admin')
-			driver.find_element_by_name('login_passwd').send_keys('ad20151225')
+			driver.find_element_by_id('login_username').send_keys(user_name)
+			driver.find_element_by_name('login_passwd').send_keys(password)
 			driver.find_element_by_css_selector(
 				'#login_filed > div.button').click()
 		except Exception as e:
@@ -150,9 +150,9 @@ class wireless_switch(object):
 		except:
 			raise Exception('Cannot get the response message.')
 
-	def run_script(self, cycle, frequence, mode, ssid_name):
+	def run_script(self, cycle, frequence, mode, ssid_name, user_name, password):
 		self.initial(ssid_name)
-		self.login()
+		self.login(user_name, password)
 		self.switch_mode(cycle, frequence, mode)
 		self.close_the_browser()
 		self.reconnect_wifi(ssid_name)
@@ -192,11 +192,13 @@ if __name__ == '__main__':
 	times = int(input('Cycle times: '))
 	frequence = input('Frequence (ex: 2.4 or 5): ')
 	ssid_name = input('SSID name (ex: siot_dqa): ')
+	user_name = input('AP\'s user name (ex: admin): ')
+	password = input('AP\'s password (ex: xxxxxxxx): ')
 	for cycle in range(int(times)):
-		ws.run_script(cycle, frequence, 'N only', ssid_name)
-		ws.run_script(cycle, frequence, 'Legacy', ssid_name)
+		ws.run_script(cycle, frequence, 'N only', ssid_name, user_name, password)
+		ws.run_script(cycle, frequence, 'Legacy', ssid_name, user_name, password)
 		if frequence == '5':
-			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name)
+			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name, user_name, password)
 	os.system('echo ' + 'Total Cycle Times: ' + str(times) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(times) + ', Passed: ' +
