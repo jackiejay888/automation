@@ -36,7 +36,8 @@ class wireless_switch(object):
 		try:
 			driver.find_element_by_id('login_filed')
 		except:
-			for refresh in range(10):
+			# for refresh in range(10):
+			while True:
 				self.close_the_browser()
 				self.reconnect_wifi(ssid_name)
 				driver = webdriver.Chrome(chrome_options=options)
@@ -48,9 +49,9 @@ class wireless_switch(object):
 					break
 				except:
 					pass
-			if refresh == 9:
-				print('Switch Failed, please make sure the AP is launched.')
-				raise
+			# if refresh == 9:
+			# 	print('Switch Failed, please make sure the AP is launched.')
+			# 	raise
 
 	def login(self, user_name, password):
 		try:
