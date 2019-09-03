@@ -167,12 +167,10 @@ class wireless_switch(object):
 	def reconnect_wifi(self, ssid_name):
 		print('Counting Down the number of secs...')
 		try:
-			for loop in range(3):
+			for loop in range(2):
 				time.sleep(1)
 				os.system('netsh wlan disconnect')
-				os.system('netsh wlan disconnect')
 				time.sleep(1)
-				os.system('netsh wlan connect name=\"' + ssid_name + '\"')
 				os.system('netsh wlan connect name=\"' + ssid_name + '\"')
 				time.sleep(5)
 		except Exception as e:
