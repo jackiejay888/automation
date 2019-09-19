@@ -145,15 +145,14 @@ class wifi_roaming(object):
 			start_time_secs = datetime.datetime.now()
 			logging.warning('Start time is: %s' % start_time)
 			for percentage in range(30):
-				wait_string = driver.find_element_by_css_selector(
-					'#proceeding_main_txt')
 				reboot_percentage = driver.find_element_by_css_selector(
 					'#proceeding_txt')
 				time.sleep(3)
 				os.system('arp_clear.bat')  # Clear the arp cache
 				# Seconds of Start Time for cache the ip address
 				ipv4_start_time_secs = datetime.datetime.now()
-				if reboot_percentage.text == '5% 處理中' or reboot_percentage.text == '6% 處理中':
+				time.sleep(4)
+				if reboot_percentage.text:
 					print('The start time of ip address catched : ' +
 						  str(ipv4_start_time_secs))
 					logging.warning(
