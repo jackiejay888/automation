@@ -194,10 +194,11 @@ if __name__ == '__main__':
 	user_name = input('AP\'s user name (ex: admin): ')
 	password = input('AP\'s password (ex: xxxxxxxx): ')
 	for cycle in range(int(times)):
-		ws.run_script(cycle, frequence, 'N only', ssid_name, user_name, password)
-		ws.run_script(cycle, frequence, 'Legacy', ssid_name, user_name, password)
+		if frequence == '2.4':
+			ws.run_script(cycle, frequence, 'N only', ssid_name, user_name, password)
 		if frequence == '5':
-			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name, user_name, password)
+			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name, user_name, password)		
+		ws.run_script(cycle, frequence, 'Legacy', ssid_name, user_name, password)
 	os.system('echo ' + 'Total Cycle Times: ' + str(times) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(times) + ', Passed: ' +
