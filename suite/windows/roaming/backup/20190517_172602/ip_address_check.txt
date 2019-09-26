@@ -1,0 +1,4 @@
+
+Interface: 192.168.50.104 --- 0x5
+  Internet Address      Physical Address      Type
+  192.168.50.196        40-b0-76-37-bc-78     dynamic   
