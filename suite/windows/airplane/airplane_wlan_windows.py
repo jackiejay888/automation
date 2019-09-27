@@ -108,11 +108,11 @@ if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	os.system('del /f /q *.txt')
 	times = int(input('Cycle times: '))
-	ip = input('IP address: ')
+	gateway = input('Please input the gateway : ')
 	for cycle in range(int(times)):
 		windows = airplane_wlan_windows()
 		windows.run(str(cycle+1))
-		windows.windows_command_set('ping -w 4 ' + ip)
+		windows.windows_command_set('ping -w 4 ' + gateway)
 		windows.windows_response_get('0% loss')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 				  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')

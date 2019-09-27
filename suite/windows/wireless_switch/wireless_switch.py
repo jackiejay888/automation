@@ -151,13 +151,13 @@ class wireless_switch(object):
 		except:
 			raise Exception('Cannot get the response message.')
 
-	def run_script(self, cycle, frequence, mode, ssid_name, user_name, password):
+	def run_script(self, cycle, frequence, mode, ssid_name, user_name, password, gateway):
 		self.initial(ssid_name)
 		self.login(user_name, password)
 		self.switch_mode(cycle, frequence, mode)
 		self.close_the_browser()
 		self.reconnect_wifi(ssid_name)
-		self.windows_command_set('ping -w 4 ' + '8.8.8.8')
+		self.windows_command_set('ping -w 4 ' + gateway)
 		self.windows_response_get('0%')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 				  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
@@ -193,12 +193,13 @@ if __name__ == '__main__':
 	ssid_name = input('SSID name (ex: siot_dqa): ')
 	user_name = input('AP\'s user name (ex: admin): ')
 	password = input('AP\'s password (ex: xxxxxxxx): ')
+	gateway = input('Security Gateway : ')
 	for cycle in range(int(times)):
 		if frequence == '2.4':
-			ws.run_script(cycle, frequence, 'N only', ssid_name, user_name, password)
+			ws.run_script(cycle, frequence, 'N only', ssid_name, user_name, password, gateway)
 		if frequence == '5':
-			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name, user_name, password)		
-		ws.run_script(cycle, frequence, 'Legacy', ssid_name, user_name, password)
+			ws.run_script(cycle, frequence, 'N/AC mixed', ssid_name, user_name, password, gateway)		
+		ws.run_script(cycle, frequence, 'Legacy', ssid_name, user_name, password, gateway)
 	os.system('echo ' + 'Total Cycle Times: ' + str(times) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(times) + ', Passed: ' +

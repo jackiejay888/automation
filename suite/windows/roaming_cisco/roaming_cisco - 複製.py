@@ -222,19 +222,19 @@ class roaming_cisco(object):
 		logging.info('Finished the ipv4 thread, the thread is stoped.')
 		pass
 
-	def ping_server(self, cycle, switch):
+	def ping_server(self, cycle, switch, gateway):
 		global thread_ping
 		os.system('echo Cycle :' + str(cycle+1) +
 				  ' , ' + switch + ' >> ping.txt')
-		thread_ping = threading.Thread(target=self._ping_session)
+		thread_ping = threading.Thread(target=self._ping_session, args=(gateway,))
 		thread_ping.start()
 		pass
 
-	def _ping_session(self):
+	def _ping_session(self, gateway):
 		global lock
 		lock = threading.Lock()
 		lock.acquire()
-		os.system('ping 8.8.8.8 -t >> ping.txt')
+		os.system('ping ' + gateway + ' -t >> ping.txt')
 
 	def ping_done(self):
 		lock.release()
@@ -263,13 +263,14 @@ if __name__ == '__main__':
 	logging.info(
 		'Verify the test cases of Repeater Mode should be worked after the repeater is interrupted.')
 	User_Cycle = input('Please input the \'Cycle Times\' you want : ')
+	gateway = input('Please input the gateway : ')
 	for cycle in range(int(User_Cycle)):
 		logging.info('Cycle : ' + str(cycle + 1))
 		logging.info('#------------------------------------------------------------------------------------------#')
 		logging.info('A switch to B.')
 		wifi_roaming.open_the_browser('0')
 		# wifi_roaming.login()
-		# wifi_roaming.ping_server(cycle, 'A switch to B.')
+		# wifi_roaming.ping_server(cycle, 'A switch to B.', gateway)
 		# wifi_roaming.mac_address_check()
 		# wifi_roaming.reboot()
 		# wifi_roaming.close_the_browser()
@@ -288,7 +289,7 @@ if __name__ == '__main__':
 		# logging.info('B switch to A.')
 		# wifi_roaming.open_the_browser('0')
 		# wifi_roaming.login()
-		# wifi_roaming.ping_server(cycle, 'B switch to A.')
+		# wifi_roaming.ping_server(cycle, 'B switch to A.', gateway)
 		# wifi_roaming.mac_address_check()
 		# wifi_roaming.reboot()
 		# wifi_roaming.close_the_browser()

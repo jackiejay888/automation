@@ -159,6 +159,7 @@ if __name__ == '__main__':
 	airplane.kill_extension_file('txt')
 	airplane.kill_extension_file('jpg')
 	cycle_time = int(input('Please input the \'Cycle Times\' you want : '))
+	gateway = input('Please input the gateway : ')
 	for cycle in range(cycle_time):
 		os.system(
 			'echo ------------------------------------------------------------------------------ >> ping_server.txt')
@@ -180,7 +181,7 @@ if __name__ == '__main__':
 			r'adb -s ' + config.get('sn', 'sn') + ' shell /system/bin/screencap -p /mnt/sdcard/' + screen_time)
 		airplane.save_to_local(r'adb -s ' + config.get('sn', 'sn') + ' pull /mnt/sdcard/' +
 							   screen_time + ' ./' + screen_time)
-		airplane.adb_command_set(config.get('sn', 'sn'), 'ping -w 4 8.8.8.8')
+		airplane.adb_command_set(config.get('sn', 'sn'), 'ping -w 4 ' + gateway)
 		airplane.adb_response_get('0% packet loss')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 				  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
