@@ -51,7 +51,9 @@ class luminance(object):
 		global fill_color, stroke_color
 		try:
 			w = int(input('Input the width (pixel) : '))
+			w = w - 8
 			h = int(input('Input the height (pixel) : '))
+			h = h - 21
 			aliquots = int(input('Input the aliquots : '))
 			pixel_pitch = float(input('Input the pixel_pitch : '))
 			point = int(input('Point (1 or 5 or 9) : '))
