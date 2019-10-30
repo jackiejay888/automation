@@ -1,15 +1,15 @@
 '''
-Created on 2019/10/24
+Created on xxxx/xx/xx
 
 @Title: Coding the GPU performance by tensorflow lib base on python.
 @Author: ZL Chen
 '''
 
-class tensorflow(object):
+class tensorflow_nv(object):
 
-	def initial(self):
+	def run(self):
 		pass
 
 if __name__ == '__main__':
-	tensorflow = tensorflow()
-	tensorflow.initial()
+	tensorflow = tensorflow_nv()
+	tensorflow.run()
