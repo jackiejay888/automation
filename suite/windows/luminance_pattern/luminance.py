@@ -57,7 +57,7 @@ class luminance(object):
 			aliquots = int(input('Input the aliquots : '))
 			pixel_pitch = float(input('Input the pixel_pitch : '))
 			point = int(input('Point (1 or 5 or 9) : '))
-			solid_radius = 22.5 / pixel_pitch
+			solid_radius = 21.5 / pixel_pitch
 			ask_edge_point = input('Edge point (y/n) ? ')
 
 			if ask_edge_point == 'y':
