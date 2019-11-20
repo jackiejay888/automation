@@ -15,7 +15,9 @@ class AppWindow(QDialog):
 		super().__init__()
 		self.ui = Ui_Form()
 		self.ui.setupUi(self)
+
 		self.show()
+
 
 
 app = QApplication(sys.argv)
