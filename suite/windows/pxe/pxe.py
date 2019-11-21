@@ -42,6 +42,8 @@ class pxe(object):
 				content = line.split('\n')[0]
 				if content == '<EventID Qualifiers="49409">772</EventID>':
 					count = count + 1
+				if content == '<EventID Qualifiers="49152">8198</EventID>':
+					count = count + 1
 			os.system('echo Error: ' +
 					  str(count) + ' >> application.txt')
 		except Exception as e:
