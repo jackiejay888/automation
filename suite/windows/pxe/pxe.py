@@ -78,6 +78,6 @@ class pxe(object):
 
 if __name__ == '__main__':
 	pxe = pxe()
-	os.system('del /f /q ' + '*_result*')
+	os.system('del /f /q ' + '*.evtx *.txt')
 	pxe.operational()
 	pxe.application()
