@@ -1,8 +1,4 @@
-Total pass times: 18 
-Start time: 2019-11-22 05:10:47 
-End time: 2019-11-22 07:36:38 
-Take the Number of days and hours : 0 days and 2.43 hours 
-Total pass times: 18 
-Start time: 2019-11-22 05:10:47 
-End time: 2019-11-22 07:36:38 
-Take the Number of days and hours : 0 days and 2.43 hours 
+Total pass times: 1 
+Start time: 2019-11-29 03:50:05 
+End time: 2019-11-29 03:58:19 
+Take the Number of days and hours : 0 days and 0.14 hours 

@@ -61,7 +61,6 @@ class pxe(object):
 					times = content.split('<')[1].split('>')[0].split(
 						'TimeCreated SystemTime=')[1].split('\"')[1].split('.')[0]
 					timer.append(times)
-			timer[-1] = '2019-11-23 13:08:27'
 			self.timer(timer[0], timer[-1], 'application_result')
 		except Exception as e:
 			raise e
