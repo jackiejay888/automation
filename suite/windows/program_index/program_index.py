@@ -63,13 +63,16 @@ class Ui_Form(object):
         self.lineEdit_2.setGeometry(QtCore.QRect(100, 20, 421, 20))
         self.lineEdit_2.setText("")
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label = QtWidgets.QLabel(Form)
+        self.label.setGeometry(QtCore.QRect(170, 140, 81, 16))
+        self.label.setObjectName("label")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Advantech_DQA (ZL)"))
+        Form.setWindowTitle(_translate("Form", "Advantech_DQA"))
         self.pushButton.setText(_translate("Form", "Download"))
         self.label_1.setText(_translate("Form", "FTP Server IP"))
         self.label_2.setText(_translate("Form", "Download To"))
@@ -78,3 +81,4 @@ class Ui_Form(object):
         self.pushButton_2.setText(_translate("Form", "Open"))
         self.pushButton_3.setText(_translate("Form", "Search"))
         self.checkBox.setText(_translate("Form", "Latest"))
+        self.label.setText(_translate("Form", "TextLabel"))
