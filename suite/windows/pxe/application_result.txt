@@ -1,5 +1,5 @@
-Total ip connection error times: 236 
-Total license error times: 8 
-Start time: 2019-11-29 03:48:33 
-End time: 2019-11-23 13:08:27 
-Take the Number of days and hours : -6 days and 9.33 hours 
+Total ip connection error times: 6411 
+Total license error times: 100 
+Start time: 2019-11-29 05:53:30 
+End time: 2019-11-29 08:45:31 
+Take the Number of days and hours : 0 days and 2.87 hours 
