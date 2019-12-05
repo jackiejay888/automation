@@ -17,11 +17,8 @@ class AppWindow(QDialog):
 		self.ui.setupUi(self)
 
 		# # 綁上與點擊事件對應的function，所有東西都在ui底下！！
-		self.ui.pushButton.clicked.connect(self.pushButton_Click)
+		# self.ui.pushButton_4.clicked.connect()
 		self.show()
-
-	def pushButton_Click(self):
-		self.ui.label.setText('Hi, ZL.')
 
 
 app = QApplication(sys.argv)
