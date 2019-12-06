@@ -110,6 +110,7 @@ if __name__ == '__main__':
 	times = int(input('Cycle times: '))
 	gateway = input('Please input the gateway : ')
 	for cycle in range(int(times)):
+		os.system('rd /s /q "C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\"')
 		windows = airplane_wlan_windows_sikuli()
 		windows.run(str(cycle+1))
 		windows.windows_command_set('ping -w 4 ' + gateway)
