@@ -107,10 +107,11 @@ class airplane_wwan_windows_sikuli(object):
 if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	os.system('del /f /q *.txt')
+	os.system('rd /s /q "C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\"')
+	time.sleep(5)
 	times = int(input('Cycle times: '))
 	gateway = input('Please input the gateway : ')
 	for cycle in range(int(times)):
-		os.system('rd /s /q "C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\"')
 		windows = airplane_wwan_windows_sikuli()
 		windows.run(str(cycle+1))
 		windows.windows_command_set('ping -w 4 ' + gateway)
