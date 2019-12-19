@@ -1,3 +1,10 @@
+'''
+Created on 2019/12/19
+
+@Title: Coding the ProgramIndex support to the test tool edition update.
+@Author: ZL Chen
+'''
+
 import sys
 from PyQt5.QtWidgets import QDialog, QApplication
 from zl_program_index import Ui_Form  # MyFirstUI 是你的.py檔案名字
@@ -10,6 +17,7 @@ class AppWindow(QDialog):
 		self.ui = Ui_Form()
 		self.ui.setupUi(self)
 
+		#--------------------------------#
 		self.ui.pushButton.clicked.connect(self.pushButton_Click)
 		self.show()
 

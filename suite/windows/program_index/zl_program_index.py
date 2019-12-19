@@ -18,7 +18,7 @@ class Ui_Form(object):
         self.pushButton.setGeometry(QtCore.QRect(50, 60, 75, 23))
         self.pushButton.setObjectName("pushButton")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(50, 110, 47, 12))
+        self.label.setGeometry(QtCore.QRect(60, 120, 81, 16))
         self.label.setObjectName("label")
 
         self.retranslateUi(Form)
@@ -27,5 +27,5 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.pushButton.setText(_translate("Form", "PushButton"))
-        self.label.setText(_translate("Form", "TextLabel"))
+        self.pushButton.setText(_translate("Form", "pushButton"))
+        self.label.setText(_translate("Form", "label"))
