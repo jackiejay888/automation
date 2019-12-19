@@ -24,8 +24,8 @@ class AppWindow(QDialog):
 
 	def pyuic5(self):
 		try:
-			os.system('pyuic5 program_index.ui > program_index.py')
-			print('pyuic5 program_index.ui > program_index.py')
+			os.system('pyuic5 program_index.ui -o program_index.py')
+			print('pyuic5 program_index.ui -o program_index.py')
 			pass
 		except Exception as e:
 			raise e
