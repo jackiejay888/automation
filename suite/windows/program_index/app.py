@@ -33,6 +33,7 @@ class AppWindow(QDialog):
 		pass
 
 	def search(self):
+		self.case_folder()
 		ip = self.ui.lineEdit_2.text()
 		ftp = FTP(ip)
 		# ip = '172.17.9.225'
@@ -40,23 +41,22 @@ class AppWindow(QDialog):
 		ftp.login('admin','admin')
 		ftp.retrlines('LIST')
 
-		self.case_folder()
+		# self.case_folder()
 
 
 	def case_folder(self):
 		if self.ui.comboBox_2.currentText() != '':
 			self.ui.comboBox.setEditable(True)
 		else:
-			self.messagebox_warning('case_folder')
+			self.messagebox_warning()
 
-	def messagebox_warning(self, value):
+	def messagebox_warning(self):
 		msg = QMessageBox()
 		msg.setIcon(QMessageBox.Information)
 		msg.setText("This is a message box")
 		msg.setInformativeText("This is additional information")
-		msg.setWindowTitle(value)
+		msg.setWindowTitle('suite folder')
 		msg.setDetailedText("The details are as follows:")
-
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
