@@ -43,4 +43,4 @@ if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 
 del /q C:\*BIT_Log_*.htm C:\*BIT_Log_*.log
 
-timeout 3
+timeout 1

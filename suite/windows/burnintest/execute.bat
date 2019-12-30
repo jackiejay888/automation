@@ -1,6 +1,6 @@
 ..\bit.exe -c dqa.bitcfg -r -p -D 720
 
-timeout 5
+timeout 2
 
 @echo off
 
