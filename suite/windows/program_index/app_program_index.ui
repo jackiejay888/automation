@@ -49,7 +49,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Download To</string>
+    <string>Download</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">

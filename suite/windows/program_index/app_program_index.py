@@ -73,7 +73,7 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Advantech_DQA"))
         self.pushButton.setText(_translate("Form", "Download"))
         self.label_1.setText(_translate("Form", "FTP Server IP"))
-        self.label_2.setText(_translate("Form", "Download To"))
+        self.label_2.setText(_translate("Form", "Download"))
         self.label_3.setText(_translate("Form", "Suite Folder"))
         self.label_4.setText(_translate("Form", "Case Folder"))
         self.pushButton_2.setText(_translate("Form", "Open"))
