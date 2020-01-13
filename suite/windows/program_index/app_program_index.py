@@ -64,6 +64,9 @@ class Ui_Form(object):
         self.listView = QtWidgets.QListView(Form)
         self.listView.setGeometry(QtCore.QRect(20, 175, 584, 151))
         self.listView.setObjectName("listView")
+        self.pushButton_4 = QtWidgets.QPushButton(Form)
+        self.pushButton_4.setGeometry(QtCore.QRect(530, 20, 75, 25))
+        self.pushButton_4.setObjectName("pushButton_4")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -85,3 +88,4 @@ class Ui_Form(object):
         self.comboBox_2.setItemText(4, _translate("Form", "Performance"))
         self.comboBox_2.setItemText(5, _translate("Form", "Reliability"))
         self.lineEdit_2.setText(_translate("Form", "127.0.0.1"))
+        self.pushButton_4.setText(_translate("Form", "Exit"))

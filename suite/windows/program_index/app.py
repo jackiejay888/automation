@@ -21,6 +21,7 @@ class AppWindow(QDialog):
 		self.ui.setupUi(self)
 		#--------------------------------#
 		self.ui.pushButton_3.clicked.connect(self.search)
+		self.ui.pushButton_4.clicked.connect(self.close)
 		self.show()
 
 	def search(self):
