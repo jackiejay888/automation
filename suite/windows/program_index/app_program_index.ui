@@ -119,6 +119,9 @@
    <property name="text">
     <string>Latest</string>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QComboBox" name="comboBox_case">
    <property name="enabled">

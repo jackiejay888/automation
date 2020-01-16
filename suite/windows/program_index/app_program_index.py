@@ -38,6 +38,7 @@ class Ui_Form_dqa(object):
         self.checkBox_latest = QtWidgets.QCheckBox(Form_dqa)
         self.checkBox_latest.setEnabled(True)
         self.checkBox_latest.setGeometry(QtCore.QRect(20, 140, 70, 20))
+        self.checkBox_latest.setChecked(True)
         self.checkBox_latest.setObjectName("checkBox_latest")
         self.comboBox_case = QtWidgets.QComboBox(Form_dqa)
         self.comboBox_case.setEnabled(True)
