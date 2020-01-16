@@ -19,11 +19,11 @@ class airplane_wlan_windows_sikuli(object):
 	sum_pass = 0
 	sum_fail = 0
 
-	def run(self, cycle):
+	def run(self, cycle, gateway):
 		on = self.arp_airplane_on()
 		screenshot = on + '_' + cycle
 		self.screenshot(screenshot)
-		off = self.arp_airplane_off()
+		off = self.arp_airplane_off(gateway)
 		screenshot = off + '_' + cycle
 		self.screenshot(screenshot)
 
@@ -31,6 +31,8 @@ class airplane_wlan_windows_sikuli(object):
 	def windows_command_set(self, windows_cmds):
 		global stdout
 		global lines
+		os.system(windows_cmds)
+		time.sleep(2)
 		try:
 			cmds = windows_cmds
 			stdout = subprocess.Popen(
@@ -85,17 +87,21 @@ class airplane_wlan_windows_sikuli(object):
 				if get:
 					echo = str(lines[get]).split('b\'')[1]
 					os.system('echo ' + echo + ' >> ping_server.txt')
+					print(echo)
 		except:
 			raise Exception('Cannot get the response message.')
 
 	def arp_airplane_on(self):
-		os.system('cmd.exe /c C:\Sikuli-IDE\Sikuli-IDE.bat -r sikuli\\airplane_mode_on.skl')
+		os.system(
+			'cmd.exe /c C:\Sikuli-IDE\Sikuli-IDE.bat -r sikuli\\airplane_mode_on.skl')
 		time.sleep(13)
 		return 'airplane_on'
 
-	def arp_airplane_off(self):
-		os.system('cmd.exe /c C:\Sikuli-IDE\Sikuli-IDE.bat -r sikuli\\airplane_mode_off.skl')
+	def arp_airplane_off(self, gateway):
+		os.system(
+			'cmd.exe /c C:\Sikuli-IDE\Sikuli-IDE.bat -r sikuli\\airplane_mode_off.skl')
 		time.sleep(21)
+		self.ping(gateway)
 		return 'airplane_off'
 
 	def screenshot(self, times):
@@ -103,23 +109,29 @@ class airplane_wlan_windows_sikuli(object):
 		path = times + '_' + now + '.jpg'
 		ImageGrab.grab().save(path)
 
+	def ping(self, gateway):
+		for ping in range(5):
+			os.system('ping -n 1 ' + gateway)
+
 
 if __name__ == '__main__':
 	os.system('del /f /q *.jpg')
 	os.system('del /f /q *.txt')
-	os.system('rd /s /q "C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\"')
-	time.sleep(5)
+	# os.system('rd /s /q "C:\\Users\\%USERNAME%\\AppData\\Local\\Temp\"')
+	os.system('arp_clear.bat')
 	times = int(input('Cycle times: '))
 	gateway = input('Please input the gateway : ')
 	for cycle in range(int(times)):
 		windows = airplane_wlan_windows_sikuli()
-		windows.run(str(cycle+1))
-		windows.windows_command_set('ping -w 4 ' + gateway)
+		windows.ping(gateway)
+		windows.run(str(cycle+1), gateway)
+		windows.windows_command_set('ping -n 4 ' + gateway)
 		windows.windows_response_get('0% loss')
 		os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 				  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 		print('Cycle Times: ' + str(cycle + 1) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail))
+		time.sleep(2)
 	os.system('echo ' + 'Total Cycle Times: ' + str(times) + ', Passed: ' +
 			  str(sum_pass) + ', Failed: ' + str(sum_fail) + ' >> ping_server.txt')
 	print('Total Cycle Times: ' + str(times) + ', Passed: ' +
