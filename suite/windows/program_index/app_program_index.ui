@@ -135,6 +135,9 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QComboBox" name="comboBox_suite">
    <property name="enabled">
@@ -195,16 +198,6 @@
     <string>Exit</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_content">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>175</y>
-     <width>584</width>
-     <height>361</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineEdit_ip">
    <property name="geometry">
     <rect>
@@ -230,6 +223,36 @@
    <property name="text">
     <string/>
    </property>
+  </widget>
+  <widget class="QListWidget" name="listwidget_view">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>175</y>
+     <width>584</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
