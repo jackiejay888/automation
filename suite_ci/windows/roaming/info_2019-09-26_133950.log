@@ -1,0 +1,61 @@
+2019-09-26 13:39:51,245 - INFO : Verify the test cases of Repeater Mode should be worked after the repeater is interrupted.
+2019-09-26 13:56:41,915 - INFO : Cycle : 1
+2019-09-26 13:56:41,915 - INFO : #------------------------------------------------------------------------------------------#
+2019-09-26 13:56:41,915 - INFO : A switch to B.
+2019-09-26 13:56:41,915 - WARNING : Start time is: Thu Sep 26 13:56:41 2019
+2019-09-26 13:56:53,713 - WARNING : Catch the login filed.
+2019-09-26 13:56:53,713 - WARNING : End time: Thu Sep 26 13:56:53 2019
+2019-09-26 13:56:53,713 - INFO : The AP is switch to other.
+2019-09-26 13:56:53,714 - INFO : The browser is opened.
+2019-09-26 13:57:07,007 - WARNING : The MAC address is "4C:ED:FB:A4:54:58"
+2019-09-26 13:57:07,023 - INFO : The AP switch to the 192.168.50.111.(Sueecssed)
+2019-09-26 13:57:07,140 - WARNING : Start time is: Thu Sep 26 13:57:07 2019
+2019-09-26 13:57:18,427 - WARNING : The start time of ip address catched : 2019-09-26 13:57:14.404177
+2019-09-26 13:57:18,428 - INFO : The Repeater is already reboot.
+2019-09-26 13:57:18,428 - INFO : Finished the ipv4 thread, the thread is stoped.
+2019-09-26 13:57:19,726 - WARNING : Catch the ip address of 192.168.50.196
+2019-09-26 13:57:19,726 - INFO : The end time of ip address catched : 2019-09-26 13:57:19.726813
+2019-09-26 13:57:19,726 - INFO : The interval time of swith to repeater is 5.322636 seconds.
+2019-09-26 13:57:20,829 - INFO : The browser is Closed.
+2019-09-26 13:57:21,352 - INFO : Make sure the Mac address is correct.
+2019-09-26 13:57:30,906 - WARNING : Catch the login filed.
+2019-09-26 13:57:30,906 - WARNING : End time: Thu Sep 26 13:57:30 2019
+2019-09-26 13:57:30,906 - INFO : The AP is switch to other.
+2019-09-26 13:57:30,906 - WARNING : The interval time is 23 seconds.
+2019-09-26 13:57:30,907 - INFO : The browser is opened.
+2019-09-26 13:57:40,967 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2019-09-26 13:57:40,983 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2019-09-26 13:57:41,311 - INFO : Finished the ping thread, the thread is stoped.
+2019-09-26 13:57:41,538 - INFO : The browser is Closed.
+2019-09-26 13:57:41,929 - INFO : Waiting the repeater rebooting about 100 secs.
+2019-09-26 13:59:21,929 - INFO : The AP is rebooted.
+2019-09-26 13:59:21,929 - INFO : #------------------------------------------------------------------------------------------#
+2019-09-26 13:59:21,929 - INFO : B switch to A.
+2019-09-26 13:59:21,929 - WARNING : Start time is: Thu Sep 26 13:59:21 2019
+2019-09-26 13:59:31,136 - WARNING : Catch the login filed.
+2019-09-26 13:59:31,136 - WARNING : End time: Thu Sep 26 13:59:31 2019
+2019-09-26 13:59:31,136 - INFO : The AP is switch to other.
+2019-09-26 13:59:31,136 - INFO : The browser is opened.
+2019-09-26 13:59:41,535 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2019-09-26 13:59:41,550 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2019-09-26 13:59:41,665 - WARNING : Start time is: Thu Sep 26 13:59:41 2019
+2019-09-26 13:59:50,054 - WARNING : The start time of ip address catched : 2019-09-26 13:59:46.020988
+2019-09-26 13:59:50,055 - INFO : The Repeater is already reboot.
+2019-09-26 13:59:50,055 - INFO : Finished the ipv4 thread, the thread is stoped.
+2019-09-26 13:59:50,343 - INFO : The browser is Closed.
+2019-09-26 13:59:50,983 - INFO : Make sure the Mac address is correct.
+2019-09-26 13:59:51,421 - WARNING : Catch the ip address of 192.168.50.111
+2019-09-26 13:59:51,421 - INFO : The end time of ip address catched : 2019-09-26 13:59:51.421348
+2019-09-26 13:59:51,421 - INFO : The interval time of swith to repeater is 5.400360 seconds.
+2019-09-26 14:00:00,714 - WARNING : Catch the login filed.
+2019-09-26 14:00:00,714 - WARNING : End time: Thu Sep 26 14:00:00 2019
+2019-09-26 14:00:00,714 - INFO : The AP is switch to other.
+2019-09-26 14:00:00,714 - WARNING : The interval time is 19 seconds.
+2019-09-26 14:00:00,715 - INFO : The browser is opened.
+2019-09-26 14:00:14,032 - WARNING : The MAC address is "4C:ED:FB:A4:54:58"
+2019-09-26 14:00:14,048 - INFO : The AP switch to the 192.168.50.111.(Sueecssed)
+2019-09-26 14:00:14,376 - INFO : Finished the ping thread, the thread is stoped.
+2019-09-26 14:00:14,511 - INFO : The browser is Closed.
+2019-09-26 14:00:14,943 - INFO : Waiting the repeater rebooting about 100 secs.
+2019-09-26 14:01:54,943 - INFO : The AP is rebooted.
+2019-09-26 14:01:54,943 - INFO : The test suite of wifi_roaming is finished.
