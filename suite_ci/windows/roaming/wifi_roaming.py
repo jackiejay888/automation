@@ -20,7 +20,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 config = configparser.ConfigParser()
-config.read('..\\..\\config\\wifi_roaming_ci.config')  # File name of log file
+config.read('..\\..\\..\\config\\wifi_roaming_ci.config')  # File name of log file
 log_name = 'info_' + \
 	time.strftime("%Y-%m-%d_%H%M%S", time.localtime()) + '.log'
 logging.handlers.RotatingFileHandler(
@@ -262,8 +262,8 @@ if __name__ == '__main__':
 	logging.shutdown()  # Shutdown the logging
 	logging.info(
 		'Verify the test cases of Repeater Mode should be worked after the repeater is interrupted.')
-	User_Cycle = input(config.get('wifi_roaming', 'cycle'))
-	gateway = input(config.get('wifi_roaming', 'gateway'))
+	User_Cycle = config.get('wifi_roaming', 'cycle')
+	gateway = config.get('wifi_roaming', 'gateway')
 	for cycle in range(int(User_Cycle)):
 		logging.info('Cycle : ' + str(cycle + 1))
 		logging.info('#------------------------------------------------------------------------------------------#')
