@@ -64,8 +64,6 @@ class Ui_Form_dqa(object):
         self.listwidget_view = QtWidgets.QListWidget(Form_dqa)
         self.listwidget_view.setGeometry(QtCore.QRect(20, 175, 584, 361))
         self.listwidget_view.setObjectName("listwidget_view")
-        item = QtWidgets.QListWidgetItem()
-        self.listwidget_view.addItem(item)
 
         self.retranslateUi(Form_dqa)
         QtCore.QMetaObject.connectSlotsByName(Form_dqa)
@@ -82,8 +80,3 @@ class Ui_Form_dqa(object):
         self.pushButton_search.setText(_translate("Form_dqa", "Search"))
         self.checkBox_latest.setText(_translate("Form_dqa", "Latest"))
         self.pushButton_close.setText(_translate("Form_dqa", "Exit"))
-        __sortingEnabled = self.listwidget_view.isSortingEnabled()
-        self.listwidget_view.setSortingEnabled(False)
-        item = self.listwidget_view.item(0)
-        item.setText(_translate("Form_dqa", "1"))
-        self.listwidget_view.setSortingEnabled(__sortingEnabled)

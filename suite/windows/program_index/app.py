@@ -8,7 +8,7 @@ Created on 2019/11/19
 import os
 import sys
 import configparser
-from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog, QDesktopWidget, QListWidget
+from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog, QDesktopWidget, QListWidget, QMessageBox
 from app_program_index import Ui_Form_dqa
 from ftplib import FTP
 
@@ -43,45 +43,52 @@ class AppWindow(QDialog):
 		# Initial the listwidget view
 		self.ui.listwidget_view.itemClicked.connect(self.view)
 
-		# Signal the download button
-		self.ui.pushButton_download.clicked.connect(self.download)
+		# # Signal the download button
+		# self.ui.pushButton_download.clicked.connect(self.download)
 
 		# Signal the open button
 		self.ui.pushButton_open.clicked.connect(self.open)
+
 		# Slot the close button
 		self.ui.pushButton_close.clicked.connect(self.close)
+
 		# Setup the windows to center
 		self.center()
 		self.show()
 
 	def search(self):
-		try:
-			ip = self.ui.lineEdit_ip.text()
-			ftp = FTP(ip)
-			ftp.login(config.get('set', 'username'),
-					  config.get('set', 'password'))
-			ftp.cwd('/' + str(self.ui.comboBox_suite.currentText()) +
-					'/' + str(self.ui.comboBox_case.currentText()))
-			print(ftp.retrlines('LIST'))
-			self.ui.listwidget_view.clear()
-			# item = self.ui.QtWidgets.QListWidgetItem()
-			# self.ui.listwidget_view.addItem(item)
-			# item = self.ui.listwidget_view.item(0)
-			# item.setText('N/A')
-		except Exception as e:
-			raise e
+		ip = self.ui.lineEdit_ip.text()
+		ftp = FTP(ip)
+		ftp.login(config.get('set', 'username'),
+				  config.get('set', 'password'))
+		ftp.cwd('/' + str(self.ui.comboBox_suite.currentText()) +
+				'/' + str(self.ui.comboBox_case.currentText()))
+		number = len(ftp.nlst())
+		self.ui.listwidget_view.clear()
+		for listwidget_view in range(int(number)):
+			self.ui.listwidget_view.addItem(ftp.nlst()[listwidget_view])
 
-	def download(self):
-		source = '/' + str(self.ui.comboBox_suite.currentText())
-		destination = self.ui.lineEdit_open.text()
+	def host_to_local(self, get_item):
+		host = '/' + str(self.ui.comboBox_suite.currentText()) + \
+			'/' + str(self.ui.comboBox_case.currentText())
+		local = self.ui.lineEdit_open.text()
 		ip = self.ui.lineEdit_ip.text()
 		ftp = FTP(ip)
 		ftp.login(config.get('set', 'username'), config.get('set', 'password'))
-		ftp.cwd('/' + str(self.ui.comboBox_suite.currentText()))
-		print(ftp.cwd('/' + str(self.ui.comboBox_suite.currentText())))
+		ftp.cwd(host)
+		if get_item != '':
+			print(host + get_item)
+			MessageBox = QMessageBox()
+			MessageBox.information(self, 'Download the ' + get_item,
+								   'Downloading the \"' + get_item + '\"yy from Host to local.')
+		else:
+			pass
 
-	def view(self):
-		pass
+	def view(self, item):
+		get_item = item.text()
+		print(str(get_item))
+		print(type(get_item))
+		self.host_to_local(get_item)
 
 	def suite_folder(self):
 		ip = self.ui.lineEdit_ip.text()
