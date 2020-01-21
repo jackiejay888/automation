@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 '''
 Created on 2019/11/19
 
@@ -24,34 +27,24 @@ class AppWindow(QDialog):
 		self.ui.setupUi(self)
 		# Initial the servier ip address
 		self.ui.lineEdit_ip.setText(config.get('set', 'server_ip'))
-
 		# Signal the search button
 		self.ui.pushButton_search.clicked.connect(self.search)
-
 		# Initial the program index's root directory
 		self.ui.lineEdit_open.setText(os.getcwd())
-
 		# Initial parser the ftp server data
 		self.suite_folder()
-
 		# Initial parser the ftp server data
 		self.case_folder()
-
 		# Highlight the select value
 		self.ui.comboBox_suite.activated.connect(self.case_folder_add)
-
 		# Initial the listwidget view
 		self.ui.listwidget_view.itemClicked.connect(self.view)
-
 		# # Signal the download button
 		# self.ui.pushButton_download.clicked.connect(self.download)
-
 		# Signal the open button
 		self.ui.pushButton_open.clicked.connect(self.open)
-
 		# Slot the close button
 		self.ui.pushButton_close.clicked.connect(self.close)
-
 		# Setup the windows to center
 		self.center()
 		self.show()
@@ -86,8 +79,6 @@ class AppWindow(QDialog):
 
 	def view(self, item):
 		get_item = item.text()
-		print(str(get_item))
-		print(type(get_item))
 		self.host_to_local(get_item)
 
 	def suite_folder(self):
@@ -99,8 +90,6 @@ class AppWindow(QDialog):
 		for addItem in range(int(number)):
 			self.ui.comboBox_suite.addItem('')
 		for comboBox_suite_n in range(int(number)):
-			# print(comboBox_suite_n)
-			# print(ftp.nlst()[comboBox_suite_n])
 			self.ui.comboBox_suite.setItemText(
 				comboBox_suite_n, ftp.nlst()[comboBox_suite_n])
 
@@ -113,14 +102,11 @@ class AppWindow(QDialog):
 		for addItem in range(int(number)):
 			self.ui.comboBox_case.addItem('')
 		for comboBox_case_n in range(int(number)):
-			# print(comboBox_case_n)
-			# print(ftp.nlst()[comboBox_case_n])
 			self.ui.comboBox_case.setItemText(
 				comboBox_case_n, ftp.nlst()[comboBox_case_n])
 
 	def case_folder_add(self):
 		self.ui.comboBox_case.clear()
-		# print(str(self.ui.comboBox_suite.currentText()))
 		self.case_folder()
 
 	def open(self):
