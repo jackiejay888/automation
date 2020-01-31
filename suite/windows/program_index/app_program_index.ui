@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="pushButton_download">
    <property name="geometry">
     <rect>
-     <x>445</x>
+     <x>530</x>
      <y>140</y>
      <width>75</width>
      <height>25</height>
@@ -94,7 +94,7 @@
   <widget class="QPushButton" name="pushButton_search">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>445</x>
      <y>140</y>
      <width>75</width>
      <height>25</height>
@@ -112,12 +112,12 @@
     <rect>
      <x>20</x>
      <y>140</y>
-     <width>70</width>
+     <width>91</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Latest</string>
+    <string>Latest Version</string>
    </property>
    <property name="checked">
     <bool>true</bool>
@@ -155,19 +155,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_close">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>140</y>
-     <width>75</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineEdit_ip">
    <property name="geometry">
     <rect>
@@ -202,6 +189,19 @@
      <width>584</width>
      <height>361</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_exit">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>20</y>
+     <width>75</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exit</string>
    </property>
   </widget>
  </widget>

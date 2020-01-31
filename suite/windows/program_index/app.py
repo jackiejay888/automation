@@ -23,30 +23,40 @@ class AppWindow(QDialog):
 
 	def __init__(self):
 		super().__init__()
+
 		self.ui = Ui_Form_dqa()
+
 		self.ui.setupUi(self)
+
 		# Initial the servier ip address
 		self.ui.lineEdit_ip.setText(config.get('set', 'server_ip'))
-		# Signal the search button
-		self.ui.pushButton_search.clicked.connect(self.search)
+
+		self.ui.pushButton_search.clicked.connect(
+			self.search)  # Signal the search button
+
+		self.ui.listwidget_view.clear()  # Initial listwidget_view content
+
 		# Initial the program index's root directory
 		self.ui.lineEdit_open.setText(os.getcwd())
-		# Initial parser the ftp server data
-		self.suite_folder()
-		# Initial parser the ftp server data
-		self.case_folder()
-		# Highlight the select value
-		self.ui.comboBox_suite.activated.connect(self.case_folder_add)
-		# Initial the listwidget view
-		self.ui.listwidget_view.itemClicked.connect(self.view)
-		# # Signal the download button
-		# self.ui.pushButton_download.clicked.connect(self.download)
-		# Signal the open button
-		self.ui.pushButton_open.clicked.connect(self.open)
-		# Slot the close button
-		self.ui.pushButton_close.clicked.connect(self.close)
-		# Setup the windows to center
-		self.center()
+
+		self.suite_folder()  # Initial parser the ftp server data
+
+		self.case_folder()  # Initial parser the ftp server data
+
+		self.ui.comboBox_suite.activated.connect(
+			self.case_folder_add)  # Highlight the select value
+
+		self.ui.listwidget_view.itemClicked.connect(
+			self.view)  # Initial the listwidget view
+
+		self.ui.pushButton_open.clicked.connect(
+			self.open)  # Signal the open button
+
+		self.ui.pushButton_exit.clicked.connect(
+			self.close)  # Signal the close button
+
+		self.center()  # Setup the windows to center
+
 		self.show()
 
 	def search(self):
