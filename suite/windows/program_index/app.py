@@ -10,6 +10,7 @@ Created on 2019/11/19
 
 import os
 import sys
+import time
 import configparser
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog, QDesktopWidget, QListWidget, QMessageBox
 from app_program_index import Ui_Form_dqa
@@ -52,6 +53,8 @@ class AppWindow(QDialog):
 		self.ui.pushButton_open.clicked.connect(
 			self.open)  # Signal the open button
 
+		self.ui.pushButton_download.clicked.connect(self.download)
+
 		self.ui.pushButton_exit.clicked.connect(
 			self.close)  # Signal the close button
 
@@ -68,8 +71,16 @@ class AppWindow(QDialog):
 				'/' + str(self.ui.comboBox_case.currentText()))
 		number = len(ftp.nlst())
 		self.ui.listwidget_view.clear()
-		for listwidget_view in range(int(number)):
-			self.ui.listwidget_view.addItem(ftp.nlst()[listwidget_view])
+		if self.ui.checkBox_latest.isChecked():
+			for listwidget_view in range(int(number)):
+				if '_lastest' in ftp.nlst()[listwidget_view]:
+					self.ui.listwidget_view.addItem(
+						ftp.nlst()[listwidget_view])
+				else:
+					pass
+		else:
+			for listwidget_view in range(int(number)):
+				self.ui.listwidget_view.addItem(ftp.nlst()[listwidget_view])
 
 	def host_to_local(self, get_item):
 		host = '/' + str(self.ui.comboBox_suite.currentText()) + \
@@ -80,15 +91,27 @@ class AppWindow(QDialog):
 		ftp.login(config.get('set', 'username'), config.get('set', 'password'))
 		ftp.cwd(host)
 		if get_item != '':
-			print(host + get_item)
+			print('Downloading the ' + host + '/' + get_item + ' to local.')
+			ftp.cwd(host)
+			filename = str(get_item)
+			file_handle = open(filename, "wb").write
+			ftp.retrbinary('RETR ' + filename, file_handle, 8192)
+			ftp.quit()
+			time.sleep(2)
 			MessageBox = QMessageBox()
-			MessageBox.information(self, 'Download the ' + get_item,
-								   'Downloading the \"' + get_item + '\"yy from Host to local.')
-		else:
+			MessageBox.information(self, 'Downloading the ' + get_item,
+								   'Download the \"' + get_item + '\" from Host to local is completed.')
+			print('copy ' + str(get_item) + ' ' + local.replace('/', '\\'))
+			os.system('copy ' + str(get_item) + ' ' + local.replace('/', '\\'))
 			pass
+		else:
+			raise
 
 	def view(self, item):
+		global get_item
 		get_item = item.text()
+
+	def download(self):
 		self.host_to_local(get_item)
 
 	def suite_folder(self):

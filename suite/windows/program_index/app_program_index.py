@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form_dqa(object):
     def setupUi(self, Form_dqa):
         Form_dqa.setObjectName("Form_dqa")
-        Form_dqa.resize(623, 554)
+        Form_dqa.resize(623, 555)
         self.pushButton_download = QtWidgets.QPushButton(Form_dqa)
         self.pushButton_download.setGeometry(QtCore.QRect(530, 140, 75, 25))
         self.pushButton_download.setObjectName("pushButton_download")
@@ -38,7 +38,8 @@ class Ui_Form_dqa(object):
         self.checkBox_latest = QtWidgets.QCheckBox(Form_dqa)
         self.checkBox_latest.setEnabled(True)
         self.checkBox_latest.setGeometry(QtCore.QRect(20, 140, 91, 20))
-        self.checkBox_latest.setChecked(True)
+        self.checkBox_latest.setCheckable(True)
+        self.checkBox_latest.setChecked(False)
         self.checkBox_latest.setObjectName("checkBox_latest")
         self.comboBox_case = QtWidgets.QComboBox(Form_dqa)
         self.comboBox_case.setEnabled(True)
