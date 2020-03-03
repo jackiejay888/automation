@@ -45,11 +45,9 @@ class AppWindow(QDialog):
 		self.show()
 
 	def reset(self):
-		global timers
 		timer = 0
 		os.system('taskkill /f /im notepad.exe')
 		os.system('del /f /q timer.txt')
-		time.sleep(1)
 		write_timer = open('timer.txt', 'w')
 		try:
 			write_timer.write(str(timer))
@@ -66,7 +64,8 @@ class AppWindow(QDialog):
 							   'Clear the log is completed.')
 
 	def timer(self):
-		global timer
+		read_timer = open('timer.txt')
+		timer = int(read_timer.read())
 		timer += 1
 		write_timer = open('timer.txt', 'w')
 		try:
