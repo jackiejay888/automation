@@ -39,6 +39,14 @@ class AppWindow(QDialog):
 		read_timer = open('timer.txt')
 		self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 
+		# Signal the Enable RadioButton
+		# self.ui.enable.toggled.connect(
+		# 	lambda: self.enable_disable_state(self.enable))
+
+		# Signal the Disable RadioButton
+		# self.ui.disable.toggled.connect(
+		# 	lambda: self.enable_disable_state(self.disable))
+
 		# Signal the click_button button
 		self.ui.click_button.clicked.connect(self.timer)
 
@@ -46,17 +54,28 @@ class AppWindow(QDialog):
 		self.ui.log_reset.clicked.connect(self.reset)
 
 		# Windows initial setting
-		self.windows_setting()  # Setup the windows to center
+		self.windows_setting()
 
 		self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
 
 		self.show()
 
+	# def enable_disable_state(self, enable_disable):
+	# 	if enable_disable.text() == 'Enable':
+	# 		if enable_disable.isChecked() == True:
+	# 			print(enable_disable.text() + ' is selected.')
+	# 		else:
+	# 			print(enable_disable.text() + ' is deselected.')
+	# 	if enable_disable.text() == 'Disable':
+	# 		if enable_disable.isChecked() == True:
+	# 			print(enable_disable.text() + ' is selected.')
+	# 		else:
+	# 			print(enable_disable.text() + ' is deselected.')
+
 	def initial_match_timer(self):
 		read_timer = open('timer.txt', 'r')
 		try:
 			read_timer_add = int(str(read_timer.read())) + 1
-			# print(str(read_timer_add))
 			read_timer_value = int(read_timer_add)
 		finally:
 			read_timer.close()
@@ -65,7 +84,7 @@ class AppWindow(QDialog):
 		try:
 			write_timer.write(str(read_timer_value))
 		finally:
-			write_timer.close()		
+			write_timer.close()
 
 	def reset(self):
 		timer = 0
@@ -101,33 +120,46 @@ class AppWindow(QDialog):
 			self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 			if open('match.txt', 'r').read() == open('timer.txt', 'r').read():
 				# print('PASS')
-				os.system('shutdown /s /t 10')
-				MessageBox.information(self, 'Shut Down', \
-										'Shut down after ten seconds.')
+				self.ui.click_button.setStyleSheet('background-color: rgb(0, 255, 0);')
+				self.ui.log_reset.setStyleSheet('background-color: rgb(0, 255, 0);')
+				# os.system('shutdown /s /t 60')
+				# MessageBox.information(self, 'Shut Down',
+				# 					   'Shut down after ten seconds.')
+
 			else:
 				# print('FAIL')
-				MessageBox.information(self, 'Error', \
-										'The expect timer and actual timer are inconsistent.\nExpect timer : ' \
-										+ open('match.txt', 'r').read() + '\nActual timer : ' + open('timer.txt', 'r').read())
+				self.ui.click_button.setStyleSheet('background-color: rgb(255, 0, 0);')
+				self.ui.log_reset.setStyleSheet('background-color: rgb(255, 0, 0);')
+				MessageBox.information(self, 'Error',
+									   'The expect timer and actual timer are inconsistent.\nExpect timer : '
+									   + open('match.txt', 'r').read() + '\nActual timer : ' + open('timer.txt', 'r').read())
 		finally:
 			read_timer.close()
 
 	def windows_setting(self):
 		screen = QDesktopWidget().screenGeometry()
-		size = self.geometry()
-		self.resize(screen.width(), screen.height())
+		width = screen.width() / 4
+		self.move(screen.width() - width, 0)
+		self.resize(width, screen.height())
 		self.ui.click_button.setGeometry(
-			QtCore.QRect(0, 0, screen.width(), screen.height()))
-		lcd_show_size_x = 400
-		lcd_show_size_y = 180
-		self.ui.lcd_show.setGeometry(QtCore.QRect(screen.width() / 2 - lcd_show_size_x / 2, \
-			(screen.height() / 2 - lcd_show_size_y / 2) - lcd_show_size_y, lcd_show_size_x, lcd_show_size_y))
-		log_reset_size_x = 400
+			QtCore.QRect(0, 0, width, screen.height()))
+		lcd_show_size_x = 280
+		lcd_show_size_y = 160
+		self.ui.lcd_show.setGeometry(QtCore.QRect(width / 2 - lcd_show_size_x / 2,
+										(screen.height() / 2 - lcd_show_size_y / 2) \
+										- lcd_show_size_y, lcd_show_size_x, lcd_show_size_y))
+		log_reset_size_x = 280
 		log_reset_size_y = 60
-		self.ui.log_reset.setGeometry(QtCore.QRect(screen.width() / 2 - log_reset_size_x / 2, \
-			log_reset_size_y / 2, log_reset_size_x, log_reset_size_y))
-		font = QtGui.QFont()
-		font.setPointSize(80)
+		self.ui.log_reset.setGeometry(QtCore.QRect(width / 2 - log_reset_size_x / 2,
+												   log_reset_size_y / 2, log_reset_size_x, log_reset_size_y))
+		enable_size_x = 60
+		enable_size_y = 20
+		self.ui.enable.setGeometry(QtCore.QRect(width / 2 - enable_size_x / 2 - 50,
+												enable_size_y / 2, enable_size_x, enable_size_y))
+		disable_size_x = 60
+		disable_size_y = 20
+		self.ui.disable.setGeometry(QtCore.QRect(width / 2 - disable_size_x / 2 + 50,
+												 disable_size_y / 2, disable_size_x, disable_size_y))
 
 
 if __name__ == '__main__':

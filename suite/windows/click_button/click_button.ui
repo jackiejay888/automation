@@ -31,16 +31,25 @@
    <property name="font">
     <font>
      <family>Times New Roman</family>
-     <pointsize>90</pointsize>
+     <pointsize>70</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="text">
-    <string notr="true">CLICK</string>
+    <string notr="true">Click</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="log_reset">
@@ -60,8 +69,14 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
-    <string>CLEAR</string>
+    <string>Clear</string>
    </property>
   </widget>
   <widget class="QLCDNumber" name="lcd_show">
@@ -87,10 +102,10 @@
     <enum>QFrame::Box</enum>
    </property>
    <property name="lineWidth">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="midLineWidth">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="smallDecimalPoint">
     <bool>false</bool>
@@ -103,6 +118,59 @@
    </property>
    <property name="intValue" stdset="0">
     <number>99999</number>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="enable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>10</y>
+     <width>60</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Enable</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="disable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>25</y>
+     <width>60</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Disable</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>
