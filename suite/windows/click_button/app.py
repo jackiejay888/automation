@@ -56,7 +56,7 @@ class AppWindow(QDialog):
 		read_timer = open('timer.txt', 'r')
 		try:
 			read_timer_add = int(str(read_timer.read())) + 1
-			print(str(read_timer_add))
+			# print(str(read_timer_add))
 			read_timer_value = int(read_timer_add)
 		finally:
 			read_timer.close()
@@ -83,7 +83,7 @@ class AppWindow(QDialog):
 			read_timer.close()
 		self.initial_match_timer()
 		MessageBox = QMessageBox()
-		MessageBox.information(self, 'CLEAR',
+		MessageBox.information(self, 'Clear',
 							   'Clear the log is completed.')
 
 	def timer(self):
@@ -96,13 +96,19 @@ class AppWindow(QDialog):
 		finally:
 			write_timer.close()
 		read_timer = open('timer.txt')
+		MessageBox = QMessageBox()
 		try:
 			self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 			if open('match.txt', 'r').read() == open('timer.txt', 'r').read():
-				print('PASS')
-				os.system('shutdown /s /t 0')
+				# print('PASS')
+				os.system('shutdown /s /t 10')
+				MessageBox.information(self, 'Shut Down', \
+										'Shut down after ten seconds.')
 			else:
-				print('FAIL')
+				# print('FAIL')
+				MessageBox.information(self, 'Error', \
+										'The expect timer and actual timer are inconsistent.\nExpect timer : ' \
+										+ open('match.txt', 'r').read() + '\nActual timer : ' + open('timer.txt', 'r').read())
 		finally:
 			read_timer.close()
 
