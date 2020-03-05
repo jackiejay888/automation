@@ -82,7 +82,7 @@ class Ui_Form_click_button(object):
 
     def retranslateUi(self, Form_click_button):
         _translate = QtCore.QCoreApplication.translate
-        Form_click_button.setWindowTitle(_translate("Form_click_button", "ZL"))
+        Form_click_button.setWindowTitle(_translate("Form_click_button", "Click Validation Tool V1.0.0"))
         self.log_reset.setText(_translate("Form_click_button", "Clear"))
         self.enable.setText(_translate("Form_click_button", "Enable"))
         self.disable.setText(_translate("Form_click_button", "Disable"))
