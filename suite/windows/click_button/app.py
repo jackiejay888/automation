@@ -88,6 +88,8 @@ class AppWindow(QDialog):
 
 	def reset(self):
 		timer = 0
+		self.ui.click_button.setStyleSheet('')
+		self.ui.log_reset.setStyleSheet('')
 		os.system('taskkill /f /im notepad.exe')
 		os.system('del /f /q timer.txt')
 		write_timer = open('timer.txt', 'w')
