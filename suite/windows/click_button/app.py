@@ -36,15 +36,25 @@ class AppWindow(QDialog):
 		self.initial_match_timer()
 
 		# Show the lcd_show value
-		read_timer = open('timer.txt')
+		read_timer = open('timer.txt', 'r')
 		self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
+
+		global shutdown_on_off
+		global waiting_time
+		shutdown_on_off = open('shutdown.txt', 'r').read()
+		if int(shutdown_on_off) == 0:
+			self.ui.disable.setChecked(True)
+		else:
+			self.ui.enable.setChecked(True)
+
+		if self.ui.enable.isChecked() == True:
+			waiting_time = open('waiting_time.txt', 'r').read()
+		else:
+			pass
 
 		# Signal the Enable RadioButton
 		self.ui.enable.toggled.connect(lambda: self.enable_disable(self.ui.enable))
 		# Signal the Disable RadioButton
-		global shutdown
-		shutdown = 0
-		self.ui.disable.setChecked(True)
 		self.ui.disable.toggled.connect(lambda: self.enable_disable(self.ui.disable))
 
 		# Signal the click_button button
@@ -62,16 +72,32 @@ class AppWindow(QDialog):
 
 	# Shutdown enable or disable
 	def enable_disable(self, enable_disable):
-		global shutdown
+		global shutdown_on_off
+		global waiting_time
 		if enable_disable.text() == 'Shutdown Enable':
 			if enable_disable.isChecked() == True:
-				shutdown = 1
-				self.shutdown_waiting_time()
+				shutdown_on_off = 1
+				try:
+					write_shutdown = open('shutdown.txt', 'w')
+					write_shutdown.write(str(shutdown_on_off))
+				finally:
+					write_shutdown.close()
+				if int(open('timer.txt', 'r').read()) > 0:
+					waiting_time = open('waiting_time.txt', 'r').read()
+					print(waiting_time)
+					print(type(waiting_time))
+				else:
+					self.shutdown_waiting_time()
 			else:
 				pass
 		if enable_disable.text() == 'Shutdown Disable':
 			if enable_disable.isChecked() == True:
-				shutdown = 0
+				shutdown_on_off = 0
+				try:
+					write_shutdown = open('shutdown.txt', 'w')
+					write_shutdown.write(str(shutdown_on_off))
+				finally:
+					write_shutdown.close()
 			else:
 				pass
 
@@ -79,6 +105,11 @@ class AppWindow(QDialog):
 		global waiting_time
 		waiting_time = QtWidgets.QInputDialog()
 		waiting_time, ok = waiting_time.getText(self, 'Waiting Time', 'Waiting Time:')
+		try:
+			waiting_time_log = open('waiting_time.txt', 'w')
+			waiting_time_log.write(waiting_time)
+		finally:
+			waiting_time_log.close()
 		if ok is True:
 			if waiting_time == '':
 				QMessageBox.information(self, 'Input the Waiting Time','Input the Waiting Time\n 60 or 120 seconds.')
@@ -103,9 +134,12 @@ class AppWindow(QDialog):
 			write_timer.close()
 
 	def reset(self):
+		global shutdown_on_off
+		shutdown_on_off = 0
 		timer = 0
 		self.ui.click_button.setStyleSheet('')
 		self.ui.log_reset.setStyleSheet('')
+		self.ui.disable.setChecked(True)
 		os.system('taskkill /f /im notepad.exe')
 		os.system('del /f /q timer.txt')
 		write_timer = open('timer.txt', 'w')
@@ -113,7 +147,7 @@ class AppWindow(QDialog):
 			write_timer.write(str(timer))
 		finally:
 			write_timer.close()
-		read_timer = open('timer.txt')
+		read_timer = open('timer.txt', 'r')
 		try:
 			self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 		finally:
@@ -123,7 +157,7 @@ class AppWindow(QDialog):
 		MessageBox.information(self, 'Clear', 'Clear the log is completed.')
 
 	def timer(self):
-		read_timer = open('timer.txt')
+		read_timer = open('timer.txt', 'r')
 		timer = int(read_timer.read())
 		timer += 1
 		write_timer = open('timer.txt', 'w')
@@ -131,20 +165,20 @@ class AppWindow(QDialog):
 			write_timer.write(str(timer))
 		finally:
 			write_timer.close()
-		read_timer = open('timer.txt')
+		read_timer = open('timer.txt', 'r')
 		MessageBox = QMessageBox()
 		try:
 			self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 			if open('match.txt', 'r').read() == open('timer.txt', 'r').read():
 				self.ui.click_button.setStyleSheet('background-color: rgb(0, 255, 0);')
 				self.ui.log_reset.setStyleSheet('background-color: rgb(0, 255, 0);')
-				if shutdown == 0:
+				if int(shutdown_on_off) == 0:
 					pass
 				else:
 					if waiting_time == '':
 						self.shutdown_waiting_time()
 					else:
-						os.system('shutdown /s /t ' + str(waiting_time))
+						os.system('shutdown /s /t ' + open('waiting_time.txt', 'r').read())
 						MessageBox.information(self, 'Shut Down', 'Shut down after ' + str(waiting_time) + ' seconds.')
 			else:
 				self.ui.click_button.setStyleSheet('background-color: rgb(255, 0, 0);')
