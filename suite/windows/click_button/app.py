@@ -41,7 +41,6 @@ class AppWindow(QDialog):
 
 		# Signal the Enable RadioButton
 		self.ui.enable.toggled.connect(lambda: self.enable_disable(self.ui.enable))
-
 		# Signal the Disable RadioButton
 		global shutdown
 		shutdown = 0
@@ -61,11 +60,13 @@ class AppWindow(QDialog):
 
 		self.show()
 
+	# Shutdown enable or disable
 	def enable_disable(self, enable_disable):
 		global shutdown
 		if enable_disable.text() == 'Shutdown Enable':
 			if enable_disable.isChecked() == True:
 				shutdown = 1
+				self.shutdown_waiting_time()
 			else:
 				pass
 		if enable_disable.text() == 'Shutdown Disable':
@@ -73,6 +74,19 @@ class AppWindow(QDialog):
 				shutdown = 0
 			else:
 				pass
+
+	def shutdown_waiting_time(self):
+		global waiting_time
+		waiting_time = QtWidgets.QInputDialog()
+		waiting_time, ok = waiting_time.getText(self, 'Waiting Time', 'Waiting Time:')
+		if ok is True:
+			if waiting_time == '':
+				QMessageBox.information(self, 'Input the Waiting Time','Input the Waiting Time\n 60 or 120 seconds.')
+				self.shutdown_waiting_time()
+			else:
+				pass
+		else:
+			pass
 
 	def initial_match_timer(self):
 		read_timer = open('timer.txt', 'r')
@@ -127,8 +141,11 @@ class AppWindow(QDialog):
 				if shutdown == 0:
 					pass
 				else:
-					os.system('shutdown /s /t 180')
-					MessageBox.information(self, 'Shut Down', 'Shut down after ten seconds.')
+					if waiting_time == '':
+						self.shutdown_waiting_time()
+					else:
+						os.system('shutdown /s /t ' + str(waiting_time))
+						MessageBox.information(self, 'Shut Down', 'Shut down after ' + str(waiting_time) + ' seconds.')
 			else:
 				self.ui.click_button.setStyleSheet('background-color: rgb(255, 0, 0);')
 				self.ui.log_reset.setStyleSheet('background-color: rgb(255, 0, 0);')
