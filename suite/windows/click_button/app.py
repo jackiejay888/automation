@@ -40,12 +40,13 @@ class AppWindow(QDialog):
 		self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 
 		# Signal the Enable RadioButton
-		# self.ui.enable.toggled.connect(
-		# 	lambda: self.enable_disable_state(self.enable))
+		self.ui.enable.toggled.connect(lambda: self.enable_disable(self.ui.enable))
 
 		# Signal the Disable RadioButton
-		# self.ui.disable.toggled.connect(
-		# 	lambda: self.enable_disable_state(self.disable))
+		global shutdown
+		shutdown = 0
+		self.ui.disable.setChecked(True)
+		self.ui.disable.toggled.connect(lambda: self.enable_disable(self.ui.disable))
 
 		# Signal the click_button button
 		self.ui.click_button.clicked.connect(self.timer)
@@ -60,17 +61,18 @@ class AppWindow(QDialog):
 
 		self.show()
 
-	# def enable_disable_state(self, enable_disable):
-	# 	if enable_disable.text() == 'Enable':
-	# 		if enable_disable.isChecked() == True:
-	# 			print(enable_disable.text() + ' is selected.')
-	# 		else:
-	# 			print(enable_disable.text() + ' is deselected.')
-	# 	if enable_disable.text() == 'Disable':
-	# 		if enable_disable.isChecked() == True:
-	# 			print(enable_disable.text() + ' is selected.')
-	# 		else:
-	# 			print(enable_disable.text() + ' is deselected.')
+	def enable_disable(self, enable_disable):
+		global shutdown
+		if enable_disable.text() == 'Shutdown Enable':
+			if enable_disable.isChecked() == True:
+				shutdown = 1
+			else:
+				pass
+		if enable_disable.text() == 'Shutdown Disable':
+			if enable_disable.isChecked() == True:
+				shutdown = 0
+			else:
+				pass
 
 	def initial_match_timer(self):
 		read_timer = open('timer.txt', 'r')
@@ -104,8 +106,7 @@ class AppWindow(QDialog):
 			read_timer.close()
 		self.initial_match_timer()
 		MessageBox = QMessageBox()
-		MessageBox.information(self, 'Clear',
-							   'Clear the log is completed.')
+		MessageBox.information(self, 'Clear', 'Clear the log is completed.')
 
 	def timer(self):
 		read_timer = open('timer.txt')
@@ -121,20 +122,18 @@ class AppWindow(QDialog):
 		try:
 			self.ui.lcd_show.setProperty("intValue", int(read_timer.read()))
 			if open('match.txt', 'r').read() == open('timer.txt', 'r').read():
-				# print('PASS')
 				self.ui.click_button.setStyleSheet('background-color: rgb(0, 255, 0);')
 				self.ui.log_reset.setStyleSheet('background-color: rgb(0, 255, 0);')
-				# os.system('shutdown /s /t 60')
-				# MessageBox.information(self, 'Shut Down',
-				# 					   'Shut down after ten seconds.')
-
+				if shutdown == 0:
+					pass
+				else:
+					os.system('shutdown /s /t 180')
+					MessageBox.information(self, 'Shut Down', 'Shut down after ten seconds.')
 			else:
-				# print('FAIL')
 				self.ui.click_button.setStyleSheet('background-color: rgb(255, 0, 0);')
 				self.ui.log_reset.setStyleSheet('background-color: rgb(255, 0, 0);')
-				MessageBox.information(self, 'Error',
-									   'The expect timer and actual timer are inconsistent.\nExpect timer : '
-									   + open('match.txt', 'r').read() + '\nActual timer : ' + open('timer.txt', 'r').read())
+				MessageBox.information(self, 'Error', 'The expect timer and actual timer are inconsistent.\nExpect timer : ' + open(
+					'match.txt', 'r').read() + '\nActual timer : ' + open('timer.txt', 'r').read())
 		finally:
 			read_timer.close()
 
@@ -147,21 +146,20 @@ class AppWindow(QDialog):
 			QtCore.QRect(0, 0, width, screen.height()))
 		lcd_show_size_x = 280
 		lcd_show_size_y = 160
-		self.ui.lcd_show.setGeometry(QtCore.QRect(width / 2 - lcd_show_size_x / 2,
-										(screen.height() / 2 - lcd_show_size_y / 2) \
-										- lcd_show_size_y, lcd_show_size_x, lcd_show_size_y))
+		self.ui.lcd_show.setGeometry(QtCore.QRect(width / 2 - lcd_show_size_x / 2, \
+									(screen.height() / 2 - lcd_show_size_y / 2) - lcd_show_size_y, lcd_show_size_x, lcd_show_size_y))
 		log_reset_size_x = 280
 		log_reset_size_y = 60
-		self.ui.log_reset.setGeometry(QtCore.QRect(width / 2 - log_reset_size_x / 2,
-												   log_reset_size_y / 2, log_reset_size_x, log_reset_size_y))
-		enable_size_x = 60
+		self.ui.log_reset.setGeometry(QtCore.QRect(width / 2 - log_reset_size_x / 2, \
+									log_reset_size_y / 2, log_reset_size_x, log_reset_size_y))
+		enable_size_x = 120
 		enable_size_y = 20
-		self.ui.enable.setGeometry(QtCore.QRect(width / 2 - enable_size_x / 2 - 50,
-												enable_size_y / 2, enable_size_x, enable_size_y))
-		disable_size_x = 60
+		self.ui.enable.setGeometry(QtCore.QRect(width / 2 - enable_size_x / 2 - 70, \
+									enable_size_y / 2, enable_size_x, enable_size_y))
+		disable_size_x = 120
 		disable_size_y = 20
-		self.ui.disable.setGeometry(QtCore.QRect(width / 2 - disable_size_x / 2 + 50,
-												 disable_size_y / 2, disable_size_x, disable_size_y))
+		self.ui.disable.setGeometry(QtCore.QRect(width / 2 - disable_size_x / 2 + 70, \
+									disable_size_y / 2, disable_size_x, disable_size_y))
 
 
 if __name__ == '__main__':
