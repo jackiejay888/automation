@@ -178,6 +178,7 @@ class AppWindow(QDialog):
 					if waiting_time == '':
 						self.shutdown_waiting_time()
 					else:
+						os.system('shutdown -a')
 						os.system('shutdown /s /t ' + open('waiting_time.txt', 'r').read())
 						MessageBox.information(self, 'Shut Down', 'Shut down after ' + str(waiting_time) + ' seconds.')
 			else:
