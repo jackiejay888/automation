@@ -67,6 +67,7 @@ class parser_log(object):
 			# Get the timer by datetime api
 			timer = self.timer()
 			report_log = open('report_' + timer + '.log', 'a')
+			report_log.write('---------------------------------------------------' + '\n\n')
 			if 'PASS' in content_log:
 				report_log.write(content_log)
 				report_log.write('The test case is passed.' + '\n\n')
