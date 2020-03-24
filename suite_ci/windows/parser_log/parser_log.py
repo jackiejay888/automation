@@ -91,7 +91,7 @@ class parser_log(object):
 
 
 if __name__ == '__main__':
-	os.system('del /f /q *txt *.log')
+	os.system('del /f /q *.log')
 	testcase_db = testcase_db()
 	respone_testcase = testcase_db.db_parser()
 	parser_log = parser_log()
