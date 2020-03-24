@@ -57,7 +57,7 @@ class parser_log(object):
 			content_log = open(file_log_split).read()
 			# Get the timer by datetime api
 			timer = self.timer()
-			report_log = open('report_' + timer + '.log', 'a')
+			report_log = open('report_' + timer + '.txt', 'a')
 			report_log.write(
 				'\n------------------------------------------' + \
 				'\nTest Case: ' + testcase_list[testcase_n] + \
