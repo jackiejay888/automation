@@ -1,8 +1,0 @@
-MSG:
-Test_Item: RTC hardware
- test_type: CloseLoop
-MSG end
-Thu Aug  8 11:35:20 CST 2019
-Result:
-PASS
-Result end
