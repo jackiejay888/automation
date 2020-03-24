@@ -21,11 +21,11 @@ class testcase_db(object):
 	# testcase_list = [backlight, rtc, storage_emmc,
 	# 				 systeminformation, usbdisk_sdcard]
 
-	def db_parser(self):
+	def db_parser(self, db_location):
 		sum_list = []
-		os.system('del testcase.db')
+		# os.system('del testcase.db')
 		try:
-			conn = sqlite3.connect('testcase.db')
+			conn = sqlite3.connect(db_location)
 			connect = conn.cursor()
 			# # Create table
 			# connect.execute('CREATE TABLE testcase (testcase text)')
@@ -47,6 +47,6 @@ class testcase_db(object):
 
 if __name__ == '__main__':
 	testcase_db = testcase_db()
-	testcase_db_content = testcase_db.db_parser()
+	testcase_db_content = testcase_db.db_parser('..\\db\\testcase.db')
 	for loop in range(len(testcase_db_content)):
 		print(testcase_db_content[loop])

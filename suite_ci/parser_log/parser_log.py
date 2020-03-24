@@ -106,7 +106,7 @@ if __name__ == '__main__':
 	try:
 		os.system('del /f /q *.log')
 		testcase_db = testcase_db()
-		respone_testcase = testcase_db.db_parser()
+		respone_testcase = testcase_db.db_parser('..\\db\\testcase.db')
 		parser_log = parser_log()
 		parser_log.adbparser_outside_file_exist(respone_testcase)
 		parser_log.local_parser(respone_testcase)
