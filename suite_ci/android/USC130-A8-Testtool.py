@@ -29,23 +29,38 @@ def adb_cmd(cmds):
 	except Exception as e:
 		raise e
 
-adb_cmd('kill-server')
-adb_cmd('start-server')
-adb_cmd('root')
-adb_shell_cmd('rm -rf /data/USC130-A8-Testtool')
-adb_shell_cmd('mkdir /data/USC130-A8-Testtool')
-os.system('adb push USC130-A8-Testtool /data/')
-adb_shell_cmd('chmod 777 /data/USC130-A8-Testtool/*')
+try:
+	adb_cmd('disaojfosnfonsofjdion')
+	adb_cmd('kill-server')
+	adb_cmd('start-server')
+	adb_cmd('root')
+	adb_shell_cmd('rm -rf /data/USC130-A8-Testtool')
+	adb_shell_cmd('mkdir /data/USC130-A8-Testtool')
+	os.system('adb push USC130-A8-Testtool /data/')
+	adb_shell_cmd('chmod 777 /data/USC130-A8-Testtool/*')
 
 
-adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_SystemInformation.sh > USC130-A8-Testtool/USC130-A8_SystemInformation.log')
-adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_Storage_eMMC.sh > USC130-A8-Testtool/USC130-A8_Storage_eMMC.log')
-adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_Backlight.sh > USC130-A8-Testtool/USC130-A8_Backlight.log')
-adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_RTC.sh > USC130-A8-Testtool/USC130-A8_RTC.log')
-adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_UsbDisk_Sdcard.sh > USC130-A8-Testtool/USC130-A8_UsbDisk_Sdcard.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_SystemInformation.sh > USC130-A8-Testtool/USC130-A8_SystemInformation.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_Storage_eMMC.sh > USC130-A8-Testtool/USC130-A8_Storage_eMMC.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_Backlight.sh > USC130-A8-Testtool/USC130-A8_Backlight.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_RTC.sh > USC130-A8-Testtool/USC130-A8_RTC.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_UsbDisk_Sdcard.sh > USC130-A8-Testtool/USC130-A8_UsbDisk_Sdcard.log')
 
-adb_push_cmd('USC130-A8-Testtool/USC130-A8_SystemInformation.log /data/USC130-A8-Testtool/' )
-adb_push_cmd('USC130-A8-Testtool/USC130-A8_Storage_eMMC.log /data/USC130-A8-Testtool/' )
-adb_push_cmd('USC130-A8-Testtool/USC130-A8_Backlight.log /data/USC130-A8-Testtool/' )
-adb_push_cmd('USC130-A8-Testtool/USC130-A8_RTC.log /data/USC130-A8-Testtool/' )
-adb_push_cmd('USC130-A8-Testtool/USC130-A8_UsbDisk_Sdcard.log /data/USC130-A8-Testtool/' )
+	# Add Carmera, RFID, Wifi shell script
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_Camera.sh > USC130-A8-Testtool/USC130-A8_Camera.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_RFID.sh > USC130-A8-Testtool/USC130-A8_RFID.log')
+	adb_shell_cmd('/data/USC130-A8-Testtool/USC130-A8_Wifi.sh > USC130-A8-Testtool/USC130-A8_Wifi.log')
+
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_SystemInformation.log /data/USC130-A8-Testtool/' )
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_Storage_eMMC.log /data/USC130-A8-Testtool/' )
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_Backlight.log /data/USC130-A8-Testtool/' )
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_RTC.log /data/USC130-A8-Testtool/' )
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_UsbDisk_Sdcard.log /data/USC130-A8-Testtool/' )
+
+	# Push Carmera, RFID, Wifi shell script
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_Camera.log /data/USC130-A8-Testtool/' )
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_RFID.log /data/USC130-A8-Testtool/' )
+	adb_push_cmd('USC130-A8-Testtool/USC130-A8_Wifi.log /data/USC130-A8-Testtool/' )
+	pass
+except Exception as e:
+	raise e

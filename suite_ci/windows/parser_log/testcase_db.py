@@ -11,15 +11,15 @@ import sqlite3
 
 
 class testcase_db(object):
-	# Initial test case name
-	global testcase_list, backlight, rtc, storage_emmc, systeminformation, usbdisk_sdcard
-	backlight = 'USC130-A8_Backlight'
-	rtc = 'USC130-A8_RTC'
-	storage_emmc = 'USC130-A8_Storage_eMMC'
-	systeminformation = 'USC130-A8_SystemInformation'
-	usbdisk_sdcard = 'USC130-A8_UsbDisk_Sdcard'
-	testcase_list = [backlight, rtc, storage_emmc,
-					 systeminformation, usbdisk_sdcard]
+	# # Initial test case name
+	# global testcase_list, backlight, rtc, storage_emmc, systeminformation, usbdisk_sdcard
+	# backlight = 'USC130-A8_Backlight'
+	# rtc = 'USC130-A8_RTC'
+	# storage_emmc = 'USC130-A8_Storage_eMMC'
+	# systeminformation = 'USC130-A8_SystemInformation'
+	# usbdisk_sdcard = 'USC130-A8_UsbDisk_Sdcard'
+	# testcase_list = [backlight, rtc, storage_emmc,
+	# 				 systeminformation, usbdisk_sdcard]
 
 	def db_parser(self):
 		sum_list = []
@@ -27,14 +27,14 @@ class testcase_db(object):
 		try:
 			conn = sqlite3.connect('testcase.db')
 			connect = conn.cursor()
-			# Create table
-			connect.execute('CREATE TABLE testcase (testcase text)')
-			# Insert a row of data
-			for testcase_loop in range(len(testcase_list)):
-				connect.execute(
-					'INSERT INTO testcase VALUES (\"' + testcase_list[testcase_loop] + '\")')
-			# Save (commit) the changes
-			conn.commit()
+			# # Create table
+			# connect.execute('CREATE TABLE testcase (testcase text)')
+			# # Insert a row of data
+			# for testcase_loop in range(len(testcase_list)):
+			# 	connect.execute(
+			# 		'INSERT INTO testcase VALUES (\"' + testcase_list[testcase_loop] + '\")')
+			# # Save (commit) the changes
+			# conn.commit()
 			for row in connect.execute('SELECT * FROM testcase'):
 				sum_list.append(row[0])
 			return sum_list
