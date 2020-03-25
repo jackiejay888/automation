@@ -63,33 +63,30 @@ class parser_log(object):
 				timer = self.timer()
 				report_log = open('report_' + timer + '.txt', 'a')
 				report_log.write(
-					'\n------------------------------------------' + \
+					'\n******************************************' + \
 					'\nTest Case: ' + testcase_list[testcase_n] + \
-					'\n------------------------------------------' + '\n')
+					'\n******************************************' + '\n')
 				if 'PASS' in content_log:
 					report_log.write(content_log)
 					report_log.write(
-						'--------------------------------\n'
+						'********************************\n' + \
 						'----The test case is PASSED.----\n' + \
-						'--------------------------------\n')
-				elif '(KB)' in content_log:
-					report_log.write(content_log)
-					report_log.write(
-						'-------------------------------\n'
-						'--The test case is COMPLETED.--\n' + \
-						'-------------------------------\n')
+						'********************************\n')
 				elif 'FAIL' in content_log:
 					report_log.write(content_log)
 					report_log.write(
-						'--------------------------------\n'
+						'********************************\n' + \
 						'----The test case is FAILED.----\n' + \
-						'--------------------------------\n')
+						'********************************\n')
 				else:
 					report_log.write(content_log)
 					report_log.write(
-						'--------------------------------\n'
-						'----The Shell Script is ERROR.----\n' + \
-						'--------------------------------\n')
+						'********************************\n' + \
+						'---The Shell Script is ERRORED.---\n' + \
+						'********************************\n')
+			# ADB push the file to devices		
+			os.system('adb push ' + 'report_' + timer + '.txt' + \
+						' /data/USC130-A8-Testtool/')
 		except Exception as e:
 			raise e
 
