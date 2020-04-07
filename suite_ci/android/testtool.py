@@ -48,6 +48,9 @@ def log_export():
 		# print(project_name[loop])
 		if project_name[loop] == '':
 			break
+		cr_delete = 'sed -i \'s/\\r$//g\''
+		adb_shell_cmd(cr_delete + ' ' + '/data/testtool/' + project_name[loop])
+		print(cr_delete + ' ' + '/data/testtool/' + project_name[loop])
 		adb_shell_cmd('/data/testtool/' + project_name[loop])
 		print('/data/testtool/' + project_name[loop])
 
