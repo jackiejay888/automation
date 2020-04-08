@@ -1,0 +1,157 @@
+
+******************************************
+Test Case: USC130_A8_Audio_Speaker_20190808_122844.log
+******************************************
+MSG:
+Test_Item: Audio_Speaker hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_Backlight_20190808_122851.log
+******************************************
+MSG:
+Test_Item: Backlight hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_Bluetooth_20190808_122904.log
+******************************************
+MSG:
+Test_Item: Bluetooth hardware
+ test_type: CloseLoop
+MSG end
+00:0E:8E:8D:05:84
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_CAMERA_20190808_122909.log
+******************************************
+MSG:
+Test_Item: CAMERA hardware
+ test_type: CloseLoop
+MSG end
+USB 2.0M Camera
+Bus 002 Device 003: ID 2394:1001
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_RFID_20190808_122916.log
+******************************************
+MSG:
+Test_Item: RFID hardware
+ test_type: CloseLoop
+MSG end
+/dev/ttyUSB2
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_RTC_20190808_122917.log
+******************************************
+MSG:
+Test_Item: RTC hardware
+ test_type: CloseLoop
+MSG end
+Bus 002 Device 003: ID 2394:1001
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_Storage_eMMC_20190808_122910.log
+******************************************
+MSG:
+Test_Item: Storage_eMMC hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_SystemInformation_20190808_113524.log
+******************************************
+MSG:
+Test_Item: SystemInformation hardware
+ test_type: CloseLoop
+MSG end
+USC130_A8 System Information
+=============================================
+Model Number : usc_130_160
+Android Version : 8.1.0
+BuildNumber : usc_130_160-userdebug 8.1.0 OPM8.20200224 100137 test-keys
+Eth0 Mac Address : c4:00:ad:41:99:68
+wlan0 Mac Address : 00:0e:8e:8d:05:83
+DDR3 Memory total size : 2046248 (KB)
+USER space : 11816960
+=============================================
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_UsbDisk_Sdcard_20190808_113526.log
+******************************************
+MSG:
+Test_Item: UsbDisk_Sdcard hardware
+ test_type: CloseLoop
+MSG end
+Result:
+MSG: No media device
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************
+
+******************************************
+Test Case: USC130_A8_gpio_key_20190808_122915.log
+******************************************
+MSG:
+Test_Item: gpio_key hardware
+ test_type: CloseLoop
+MSG end
+/sys/devices/platform/gpio-keys/input/input0
+Result:
+PASS
+Result end
+********************************
+----The test case is PASSED.----
+********************************

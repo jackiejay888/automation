@@ -1,0 +1,8 @@
+MSG:
+Test_Item: RFID hardware
+ test_type: CloseLoop
+MSG end
+/dev/ttyUSB2
+Result:
+PASS
+Result end

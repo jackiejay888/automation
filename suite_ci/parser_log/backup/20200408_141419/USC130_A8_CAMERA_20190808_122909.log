@@ -1,0 +1,9 @@
+MSG:
+Test_Item: CAMERA hardware
+ test_type: CloseLoop
+MSG end
+USB 2.0M Camera
+Bus 002 Device 003: ID 2394:1001
+Result:
+PASS
+Result end
