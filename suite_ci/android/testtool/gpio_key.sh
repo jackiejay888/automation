@@ -7,7 +7,7 @@ no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
 fun="gpio_key"
-project_name="USC130_A8"
+project_name="usc130_a8"
 log_patch="/data/testtool"
 
 echo 'MSG:'

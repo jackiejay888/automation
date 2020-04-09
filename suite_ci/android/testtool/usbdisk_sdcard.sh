@@ -6,12 +6,12 @@ fifoStr="01234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()"
 no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="UsbDisk_Sdcard"
-project_name="USC130_A8"
+fun="usbdisk_sdcard"
+project_name="usc130_a8"
 log_patch="/data/testtool"
 
 echo 'MSG:'
-echo 'Test_Item: UsbDisk_Sdcard'
+echo 'Test_Item: usbdisk_sdcard'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -20,7 +20,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: UsbDisk_Sdcard hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: usbdisk_sdcard hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else

@@ -2,12 +2,12 @@ OpenLoop=false
 Test_res=false
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="Backlight"
-project_name="USC130_A8"
+fun="backlight"
+project_name="usc130_a8"
 log_patch="/data/testtool"
 
 echo 'MSG:'
-echo 'Test_Item: Backlight'
+echo 'Test_Item: backlight'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -16,7 +16,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: Backlight hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: backlight hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else

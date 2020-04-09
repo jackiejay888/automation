@@ -3,13 +3,13 @@ Test_res=false
 TestMSG=" "
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="Audio_Speaker"
-project_name="USC130_A8"
+fun="audio_speaker"
+project_name="usc130_a8"
 log_patch="/data/testtool"
 
 
 echo 'MSG:'
-echo 'Test_Item: Audio_Speaker'
+echo 'Test_Item: audio_speaker'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -18,7 +18,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: Audio_Speaker hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: audio_speaker hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
