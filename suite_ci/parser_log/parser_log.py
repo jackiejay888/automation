@@ -19,8 +19,7 @@ class parser_log(object):
 		try:
 			cmds = ['adb', 'shell', shell_cmds]
 			# print(cmds)
-			stdout = subprocess.Popen(
-				cmds, stdout=subprocess.PIPE).communicate()[0].rstrip()
+			stdout = subprocess.Popen(cmds, stdout=subprocess.PIPE).communicate()[0].rstrip()
 			lines = stdout.splitlines()
 			# print('stdout......', stdout)
 			# print('lines.......', lines)
@@ -38,13 +37,14 @@ class parser_log(object):
 	# Parser the DUT's file log by adb command
 	def adbparser_outside_file_exist(self, testcase_list):
 		try:
-
-			project_name = (open('..\\android\\project_name.log', 'r').read()).split('\n')
+			project_name_open = open('..\\android\\project_name.log', 'r', encoding='utf-8')
+			project_name = project_name_open.read().split('\n')
 			for loop in range(len(project_name)):
 				# print(len(project_name))
 				# print(project_name[loop])
 				if project_name[loop] == '':
 					break
+			project_name_open.close()
 		except Exception as e:
 			raise e
 
@@ -53,7 +53,8 @@ class parser_log(object):
 
 	def log_parser(self):
 		try:
-			file_log = (open('project_name.log', 'r').read()).split('\n')
+			file_log_open = open('project_name.log', 'r', encoding='utf-8')
+			file_log = file_log_open.read().split('\n')
 			# Get the timer by datetime api
 			timer = self.timer()
 			for loop in range(len(file_log)):
@@ -61,13 +62,14 @@ class parser_log(object):
 				# print(file_log[loop])
 				if file_log[loop] == '':
 					break
-				content_log = open(file_log[loop]).read()
+				content_log_open = open(file_log[loop], 'r', encoding='utf-8')
+				content_log = content_log_open.read()
 				current_time = 'report_' + timer + '.txt'
-				report_log = open(current_time, 'a')
+				report_log = open(current_time, 'a', encoding='utf-8')
 				report_log.write(
-					'\n******************************************' + \
+					'\n*********************************************************' + \
 					'\nTest Case: ' + file_log[loop] + \
-					'\n******************************************' + '\n')
+					'\n*********************************************************' + '\n')
 				if 'PASS' in content_log:
 					report_log.write(content_log)
 					print(content_log)
@@ -106,6 +108,9 @@ class parser_log(object):
 			# ADB push the file to devices		
 			os.system('adb push ' + 'report_' + timer + '.txt' + \
 						' /data/testtool/')
+			file_log_open.close()
+			content_log_open.close()
+			report_log.close()
 			return timer
 		except Exception as e:
 			raise e

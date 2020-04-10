@@ -8,6 +8,28 @@ fun="bluetooth"
 project_name="usc130_a8"
 log_patch="/data/testtool"
 
+#check support device
+if [ -n "$1" ] ; then
+
+project_name=$1
+#echo $project_name
+
+else
+project_name="trek734_a6"
+#echo $project_name
+fi
+
+if [ "$project_name" == "trek734_a6" ] ; then
+  echo 'trek734_a6'
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+   echo 'usc130_a8'
+else
+   echo 'Not support project'
+   exit 0
+fi 
+fi
+#check support device
 
 echo 'MSG:'
 echo 'Test_Item: bluetooth'
@@ -27,8 +49,16 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-svc bluetooth disable
-svc bluetooth enable
+if [ "$project_name" == "trek734_a6" ] ; then
+  service call bluetooth_manager 8
+  service call bluetooth_manager 6
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+  svc bluetooth disable
+  svc bluetooth enable
+
+fi 
+fi
 
 sleep 3
 #netcfg   

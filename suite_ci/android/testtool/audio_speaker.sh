@@ -7,6 +7,28 @@ fun="audio_speaker"
 project_name="usc130_a8"
 log_patch="/data/testtool"
 
+#check support device
+if [ -n "$1" ] ; then
+
+project_name=$1
+#echo $project_name
+
+else
+project_name="trek734_a6"
+#echo $project_name
+fi
+
+if [ "$project_name" == "trek734_a6" ] ; then
+  echo 'trek734_a6'
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+   echo 'usc130_a8'
+else
+   echo 'Not support project'
+   exit 0
+fi 
+fi
+#check support device
 
 echo 'MSG:'
 echo 'Test_Item: audio_speaker'
@@ -27,14 +49,27 @@ fi
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
-audio_Recode(){
+audio_Recode_rk(){
 tinymix 58 1
+tinyplay /data/testtool/LRAudio.wav
+}
+
+audio_Recode_imx(){
+#tinymix 58 1
 tinyplay /data/testtool/LRAudio.wav
 }
 
 if [ $(($AudioCount)) -lt 10 ] ; then
 
-audio_Recode&
+if [ "$project_name" == "trek734_a6" ] ; then
+  audio_Recode_imx&
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+  audio_Recode_rk&
+
+fi 
+fi
+
 sleep 5
 ProcessID=`ps|grep tinyplay |busybox awk '{print $2}'`
 #echo  $ProcessID

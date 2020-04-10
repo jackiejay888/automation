@@ -6,6 +6,31 @@ fun="rfid"
 project_name="usc130_a8"
 log_patch="/data/testtool"
 
+#check support device
+if [ -n "$1" ] ; then
+
+project_name=$1
+#echo $project_name
+
+else
+project_name="trek734_a6"
+#echo $project_name
+fi
+
+if [ "$project_name" == "trek734_a6" ] ; then
+  echo 'trek734_a6'
+  echo 'No rfid function'
+  exit 0
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+   echo 'usc130_a8'
+else
+   echo 'Not support project'
+   exit 0
+fi 
+fi
+#check support device
+
 echo 'MSG:'
 echo 'Test_Item: rfid hardware'
 if [ "$OpenLoop" == "true" ] ; then

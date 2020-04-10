@@ -1,10 +1,34 @@
 OpenLoop=false
 Test_res=false
+TestMSG=" "
 
 now="$(date +'%Y%m%d_%H%M%S')"
 fun="backlight"
 project_name="usc130_a8"
 log_patch="/data/testtool"
+
+#check support device
+if [ -n "$1" ] ; then
+
+project_name=$1
+#echo $project_name
+
+else
+project_name="trek734_a6"
+#echo $project_name
+fi
+
+if [ "$project_name" == "trek734_a6" ] ; then
+  echo 'trek734_a6'
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+   echo 'usc130_a8'
+else
+   echo 'Not support project'
+   exit 0
+fi 
+fi
+#check support device
 
 echo 'MSG:'
 echo 'Test_Item: backlight'
@@ -24,7 +48,20 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-Lvds_brightness="/sys/devices/platform/backlight/backlight/backlight/brightness"
+
+
+  Lvds_brightness_imx="/sys/devices/soc0/pwm-backlight/backlight/pwm-backlight/brightness"
+  Lvds_brightness_rk="/sys/devices/platform/backlight/backlight/backlight/brightness"
+
+if [ "$project_name" == "trek734_a6" ] ; then
+  Lvds_brightness=$Lvds_brightness_imx
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+  Lvds_brightness=$Lvds_brightness_rk
+
+fi 
+fi
+
 CURBrightness=0
 brightness_test() {
 	CURBrightness=$(cat $Lvds_brightness)

@@ -6,6 +6,29 @@ fun="rtc"
 project_name="usc130_a8"
 log_patch="/data/testtool"
 
+#check support device
+if [ -n "$1" ] ; then
+
+project_name=$1
+#echo $project_name
+
+else
+project_name="trek734_a6"
+#echo $project_name
+fi
+
+if [ "$project_name" == "trek734_a6" ] ; then
+  echo 'trek734_a6'
+else
+if [ "$project_name" == "usc130_a8" ] ; then
+   echo 'usc130_a8'
+else
+   echo 'Not support project'
+   exit 0
+fi 
+fi
+#check support device
+
 echo 'MSG:'
 echo 'Test_Item: rtc hardware'
 if [ "$OpenLoop" == "true" ] ; then
@@ -24,11 +47,8 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-lsusb | grep 2394
-lsusb | grep 2394 >> $log_patch/$project_name"_"$fun"_"$now.log &
-
 date 080811352019.20
-hwclock -w
+busybox hwclock -w
 
 # minunte check
 Minunte=`hwclock -r | busybox awk '{print substr($4,4)}' | busybox cut -c 1-2 `
