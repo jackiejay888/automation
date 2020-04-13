@@ -105,12 +105,12 @@ class parser_log(object):
 						'---The Shell Script is ERRORED.---\n' + \
 						'********************************\n')
 				time.sleep(2)
+				content_log_open.close()
+				report_log.close()
 			# ADB push the file to devices		
 			os.system('adb push ' + 'report_' + timer + '.txt' + \
 						' /data/testtool/')
-			file_log_open.close()
-			content_log_open.close()
-			report_log.close()
+			file_log_open.close()			
 			return timer
 		except Exception as e:
 			raise e
