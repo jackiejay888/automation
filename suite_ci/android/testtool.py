@@ -75,6 +75,9 @@ class testtool(object):
 								device_check_value_sh)[p])  # 取出指定的 key value
 					alist.append(value)  # key value 寫入 alist
 
+				if alist == []: # 如果 key is none
+					alist.append('none')
+
 				# 取出字串內容寫入 temp.log
 				for print_alist in range(len(alist)):
 					os.system('echo ' + alist[print_alist] + ' >> temp.log')
@@ -84,13 +87,14 @@ class testtool(object):
 
 				value_parameter = ''  # 宣告空字串
 				for n in range(len(temp)):  # 判斷幾個值
-					if temp[n] == '':
+					if temp[n] == 'none ': # 如果 temp[0] 為 none 回傳 ''
+						value_parameter = ''
 						break
 					value_parameter = value_parameter + temp[n]  # Value 字串合併
 				temp_open.close()
 
 				if project_name[loop] == '':
-					break
+					raise
 
 				# 執行字串斷行
 				cr_delete = 'sed -i \'s/\\r$//g\''
