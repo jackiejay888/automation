@@ -38,7 +38,7 @@ android_version=$2
 #echo $project_name
 
 else
-cpu="a8"
+android_version="a8"
 #echo $project_name
 fi
 

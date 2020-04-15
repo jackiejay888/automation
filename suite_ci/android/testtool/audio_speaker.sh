@@ -39,7 +39,7 @@ android_version=$2
 #echo $project_name
 
 else
-cpu="a8"
+android_version="a8"
 #echo $project_name
 fi
 
@@ -101,9 +101,11 @@ if [ $(($AudioCount)) -lt 10 ] ; then
 
 if [ "$cpu" == "imx6" ] ; then
   audio_Recode_imx&
+
 else
 if [ "$cpu" == "rk3288" ] ; then
   audio_Recode_rk&
+
 
 fi 
 fi
