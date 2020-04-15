@@ -1,8 +1,11 @@
 OpenLoop=false
-Test_res=true
+Test_res=false
+TestMSG=""
+MountDisk="/sys/devices/virtual/input/input3"
+no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="rfid"
+fun="g_sensor"
 project_name="usc130_a8"
 cpu="rk3288"
 android_version="a8"
@@ -67,8 +70,19 @@ fi
 
 #check support device
 
+#check support device
+if [ -n "$4" ] ; then
+
+MountDisk=$4
+#echo $project_name
+
+else
+MountDisk="/sys/devices/virtual/input/input3"
+#echo $project_name
+fi
+
 echo 'MSG:'
-echo 'Test_Item: rfid hardware'
+echo 'Test_Item: g_sensor'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -77,7 +91,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: rfid hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: g_sensor hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -85,22 +99,22 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-#lsusb | grep 10c4
-lsusb | grep $4
-#RFID = 'ls /dev/ttyUSB2'
-#RFID=`ls /dev/ttyUSB2 | busybox awk '{print substr($0,1)}'`
-RFID=`ls $5 | busybox awk '{print substr($0,1)}'`
-echo $RFID
-echo $RFID >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-if [ -z $RFID ] ; then
-Test_res=false
+sensor=`cat $MountDisk/name`
+echo $sensor
+
+if [ "$sensor" = "$5" ] ; then
+
+Test_res=true
 fi
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
   echo 'Finish'
 else
+if [ "$TestMSG" != "" ] ; then
+   echo "MSG: $TestMSG"
+fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
 else
@@ -113,6 +127,9 @@ echo 'Result:' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
   echo 'Finish' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
+if [ "$TestMSG" != "" ] ; then
+   echo "MSG: $TestMSG" >> $log_patch/$project_name"_"$fun"_"$now.log &
+fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -120,4 +137,3 @@ else
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &
-

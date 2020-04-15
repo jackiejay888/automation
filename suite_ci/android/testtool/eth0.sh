@@ -1,8 +1,10 @@
 OpenLoop=false
 Test_res=true
+TestMSG=" "
+PINGHOST="www.hinet.net"
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="rfid"
+fun="ethernet"
 project_name="usc130_a8"
 cpu="rk3288"
 android_version="a8"
@@ -68,7 +70,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: rfid hardware'
+echo 'Test_Item: ethernet'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -77,7 +79,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: rfid hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: ethernet hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -85,17 +87,50 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-#lsusb | grep 10c4
-lsusb | grep $4
-#RFID = 'ls /dev/ttyUSB2'
-#RFID=`ls /dev/ttyUSB2 | busybox awk '{print substr($0,1)}'`
-RFID=`ls $5 | busybox awk '{print substr($0,1)}'`
-echo $RFID
-echo $RFID >> $log_patch/$project_name"_"$fun"_"$now.log &
+svc wifi disable
+busybox ifconfig eth0 up
+sync
+sleep 3
+#netcfg   
 
-if [ -z $RFID ] ; then
-Test_res=false
+MACaddress=`ifconfig eth0 | busybox awk 'NR==1{print $5}'`
+if [ "$MACaddress" == "00:00:00:00:00:00" ] || [ "$MACaddress" == "FF:FF:FF:FF:FF:FF" ] ; 
+then
+  Test_res=false
+  TestMSG="MAC ID FAIL"
 fi
+echo $MACaddress
+echo $MACaddress >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+if [ "$MACaddress" == "" ];  then
+   Test_res=false
+   TestMSG="MAC ID FAIL"
+fi
+
+if [ "$Test_res" == "true" ] ; then
+  IP_ADDRESS=""
+  netCount=0
+  while [ $(($netCount)) -le 10 ]&&[ "${IP_ADDRESS}" == "" ]
+  do
+     sleep 5
+    IP_ADDRESS=` ifconfig eth0 | busybox awk '/inet addr/{print substr($2,6)}'`
+    netCount=$(($netCount+1))			
+  done 
+  echo $IP_ADDRESS
+  echo $IP_ADDRESS >> $log_patch/$project_name"_"$fun"_"$now.log &
+  
+   if [ $(($netCount)) -lt 10 ] ; then
+		PingData=""		
+		PingData=`ping -c 5 $PINGHOST | grep time=`
+		if [ "${PingData}" == "" ]; then
+			 TestMSG="eth0 Ping test FAIL"
+			 Test_res=false
+		fi    		
+  else
+    TestMSG="eth0 get IP FAIL"
+    Test_res=false
+   fi 
+fi 
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
@@ -105,6 +140,7 @@ if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
 else
    echo 'FAIL'
+   echo $TestMSG
 fi 
 fi
 echo 'Result end'
@@ -117,7 +153,7 @@ if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
    echo 'FAIL' >> $log_patch/$project_name"_"$fun"_"$now.log &
+   echo $TestMSG >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &
-

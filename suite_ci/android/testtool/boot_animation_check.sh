@@ -1,8 +1,9 @@
 OpenLoop=false
 Test_res=true
+TestMSG=" "
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="rfid"
+fun="boot_animation_check"
 project_name="usc130_a8"
 cpu="rk3288"
 android_version="a8"
@@ -68,7 +69,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: rfid hardware'
+echo 'Test_Item: boot_animation_check'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -77,7 +78,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: rfid hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: boot_animation_check' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -85,17 +86,21 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-#lsusb | grep 10c4
-lsusb | grep $4
-#RFID = 'ls /dev/ttyUSB2'
-#RFID=`ls /dev/ttyUSB2 | busybox awk '{print substr($0,1)}'`
-RFID=`ls $5 | busybox awk '{print substr($0,1)}'`
-echo $RFID
-echo $RFID >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-if [ -z $RFID ] ; then
+if [ "$4" != "true" ] ; then
+   echo 'no cust boot_animation! '
+else
+
+adv=`ls /data/AndroidDM/bootanimation.zip`
+if [ "$?" = "1" ] ; then
 Test_res=false
+TestMSG="No /data/AndroidDM/bootanimation.zip"
 fi
+fi
+
+echo $adv
+echo $adv >> $log_patch/$project_name"_"$fun"_"$now.log &
+
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
@@ -105,6 +110,7 @@ if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
 else
    echo 'FAIL'
+         echo "MSG: $TestMSG"
 fi 
 fi
 echo 'Result end'
@@ -117,6 +123,7 @@ if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
    echo 'FAIL' >> $log_patch/$project_name"_"$fun"_"$now.log &
+   echo "MSG: $TestMSG"  >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &

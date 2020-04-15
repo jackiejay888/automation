@@ -1,8 +1,12 @@
 OpenLoop=false
 Test_res=true
+TestMSG=""
+MountDisk="/mnt/media_rw"
+fifoStr="01234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()"
+no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="rfid"
+fun="usbdisk_sdcard"
 project_name="usc130_a8"
 cpu="rk3288"
 android_version="a8"
@@ -68,7 +72,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: rfid hardware'
+echo 'Test_Item: usbdisk_sdcard'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -77,7 +81,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: rfid hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: usbdisk_sdcard hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -85,15 +89,35 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-#lsusb | grep 10c4
-lsusb | grep $4
-#RFID = 'ls /dev/ttyUSB2'
-#RFID=`ls /dev/ttyUSB2 | busybox awk '{print substr($0,1)}'`
-RFID=`ls $5 | busybox awk '{print substr($0,1)}'`
-echo $RFID
-echo $RFID >> $log_patch/$project_name"_"$fun"_"$now.log &
+file_RW_test() {
+  for name in `ls /mnt/media_rw`
+	do
 
-if [ -z $RFID ] ; then
+#echo $no_device
+echo $1/$name
+echo $1/$name >> $log_patch/$project_name"_"$fun"_"$now.log &
+no_device=false
+#echo $no_device
+
+	    touch "$1/$name/test.txt"
+		echo $fifoStr > "$1/$name/test.txt"
+		ReadStr=`cat $1/$name/test.txt`
+		#echo $ReadStr
+		if [ "$fifoStr" != "$ReadStr" ]; then
+		    TestMSG="$1 data miss"
+			Test_res=false
+		fi
+		sleep 1
+	done
+}
+
+
+
+
+file_RW_test $MountDisk 5	
+
+if [ "$no_device" = "true" ] ; then
+TestMSG="No media device"
 Test_res=false
 fi
 
@@ -101,6 +125,9 @@ echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
   echo 'Finish'
 else
+if [ "$TestMSG" != "" ] ; then
+   echo "MSG: $TestMSG"
+fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
 else
@@ -113,6 +140,9 @@ echo 'Result:' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
   echo 'Finish' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
+if [ "$TestMSG" != "" ] ; then
+   echo "MSG: $TestMSG" >> $log_patch/$project_name"_"$fun"_"$now.log &
+fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -120,4 +150,3 @@ else
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &
-

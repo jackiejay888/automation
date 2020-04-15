@@ -4,29 +4,67 @@ Test_res=true
 now="$(date +'%Y%m%d_%H%M%S')"
 fun="camera"
 project_name="usc130_a8"
+cpu="rk3288"
+android_version="a8"
 log_patch="/data/testtool"
 
-#check support device
+#check support cpu
 if [ -n "$1" ] ; then
 
-project_name=$1
+cpu=$1
 #echo $project_name
 
 else
-project_name="trek734_a6"
+cpu="rk3288"
 #echo $project_name
 fi
 
-if [ "$project_name" == "trek734_a6" ] ; then
-  echo 'trek734_a6'
+if [ "$cpu" == "rk3288" ] ; then
+  echo 'rk3288'
 else
-if [ "$project_name" == "usc130_a8" ] ; then
-   echo 'usc130_a8'
+if [ "$cpu" == "imx6" ] ; then
+   echo 'imx6'
 else
-   echo 'Not support project'
+   echo 'Not support cpu'
    exit 0
 fi 
 fi
+#check support cpu
+
+#check support android_version
+if [ -n "$2" ] ; then
+
+android_version=$2
+#echo $project_name
+
+else
+cpu="a8"
+#echo $project_name
+fi
+
+if [ "$android_version" == "a8" ] ; then
+  echo 'a8'
+else
+if [ "$android_version" == "a6" ] ; then
+   echo 'a6'
+else
+   echo 'Not support cpu'
+   exit 0
+fi 
+fi
+#check support android_version
+
+#check support device
+if [ -n "$3" ] ; then
+
+project_name=$3
+#echo $project_name
+
+else
+project_name="usc130_a8"
+#echo $project_name
+fi
+
 #check support device
 
 echo 'MSG:'
@@ -48,11 +86,11 @@ fi
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
-if [ "$project_name" == "trek734_a6" ] ; then
+if [ "$4" == "adv7180" ] ; then
 echo adv7180
 echo adv7180 >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
-if [ "$project_name" == "usc130_a8" ] ; then
+if [ "$4" == "2394" ] ; then
 lsusb | grep 2394
 lsusb | grep 2394 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
@@ -62,6 +100,7 @@ fi
 
 #CAMERA=`cat /sys/devices/platform/ff500000.usb/usb2/2-1/2-1.1//2-1.1:1.0/input/input1/name`
 CAMERA=`cat /sys/class/video4linux/video0/name`
+echo $CAMERA
 echo $CAMERA >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 CAMERA2=`cat /sys/class/video4linux/video0/name | busybox awk '{print $1}' `
