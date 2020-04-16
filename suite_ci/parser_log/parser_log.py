@@ -12,6 +12,7 @@ import sys
 import time
 import datetime
 import subprocess
+# from export import export_html
 
 class parser_log(object):
 
@@ -57,60 +58,109 @@ class parser_log(object):
 			file_log = file_log_open.read().split('\n')
 			# Get the timer by datetime api
 			timer = self.timer()
+			# 新增簡易總表 #
+			summary_time = 'summary_' + timer + '.txt'
+			report_summary = open(summary_time, 'a', encoding='utf-8')
+			report_summary.write('The test cases result.\n')
+			print('The test cases result.')
+			passed = 0
+			failed = 0
+			exceptioned = 0
+			#-------------#
+			# Export to html #
+			# export = export_html()
+			#-------------#
+			current_time = 'report_' + timer + '.txt'
+			report_log = open(current_time, 'a', encoding='utf-8')
 			for loop in range(len(file_log)):
 				# print(len(file_log))
 				# print(file_log[loop])
+				# 新增簡易總表 #
 				if file_log[loop] == '':
+					report_summary.write('Total: ' + str(passed + failed + exceptioned) + '\n' + \
+										 'Pass: ' + str(passed) + ', Fail: ' + str(failed) + \
+										 ', Exception: ' + str(exceptioned) + '\n-------------------------------------------------\n')
+					print('Total: ' + str(passed + failed + exceptioned) + '\n' + \
+							'Pass: ' + str(passed) + ', Fail: ' + str(failed) + \
+							', Exception: ' + str(exceptioned) + '\n-------------------------------------------------\n')
 					break
+				#-------------#
 				content_log_open = open(file_log[loop], 'r', encoding='utf-8')
 				content_log = content_log_open.read()
-				current_time = 'report_' + timer + '.txt'
-				report_log = open(current_time, 'a', encoding='utf-8')
 				report_log.write(
-					'\n*********************************************************' + \
-					'\nTest Case: ' + file_log[loop] + \
-					'\n*********************************************************' + '\n')
+					'*********************************************************\n' +
+					'Test Case: ' + file_log[loop] + '\n'
+					'*********************************************************\n')
 				if 'PASS' in content_log:
 					report_log.write(content_log)
 					print(content_log)
 					report_log.write(
-						'********************************\n' + \
-						'----The test case is PASSED.----\n' + \
+						'********************************\n' +
+						'----The test case is PASS.----\n' +
 						'********************************\n')
 					print(
-						'********************************\n' + \
-						'----The test case is PASSED.----\n' + \
+						'********************************\n' +
+						'----The test case is PASS.----\n' +
 						'********************************\n')
+					# 新增簡易總表 PASS #
+					report_summary.write(
+						'' + file_log[loop].split('.log')[0] + '\t(Pass)\n'+ \
+						'-------------------------------------------------\n')
+					print('' + file_log[loop].split('.log')[0] + '\t(Pass)\n'+ \
+						'-------------------------------------------------\n')
+					passed += 1
+					#-------------#
 				elif 'FAIL' in content_log:
 					report_log.write(content_log)
 					print(content_log)
 					report_log.write(
-						'********************************\n' + \
-						'----The test case is FAILED.----\n' + \
+						'********************************\n' +
+						'----The test case is FAIL.----\n' +
 						'********************************\n')
 					print(
-						'********************************\n' + \
-						'----The test case is FAILED.----\n' + \
+						'********************************\n' +
+						'----The test case is FAIL.----\n' +
 						'********************************\n')
-
+					# 新增簡易總表 FAIL #
+					report_summary.write(
+						'' + file_log[loop].split('.log')[0] + '\t(Fail)\n'+ \
+						'-------------------------------------------------\n')
+					print('' + file_log[loop].split('.log')[0] + '\t(Fail)\n'+ \
+						'-------------------------------------------------\n')
+					failed += 1
+					#-------------#
 				else:
 					report_log.write(content_log)
 					print(content_log)
 					report_log.write(
-						'********************************\n' + \
-						'---The Shell Script is ERRORED.---\n' + \
+						'********************************\n' +
+						'---The Shell Script is EXCEPTION.---\n' +
 						'********************************\n')
 					print(
-						'********************************\n' + \
-						'---The Shell Script is ERRORED.---\n' + \
+						'********************************\n' +
+						'---The Shell Script is EXCEPTION.---\n' +
 						'********************************\n')
-				time.sleep(2)
+					# 新增簡易總表 EXCEPTION #
+					report_summary.write(
+						'' + file_log[loop].split('.log')[0] + '\t(Exception)\n'+ \
+						'-------------------------------------------------\n')
+					print(
+						'' + file_log[loop].split('.log')[0] + '\t(Exception)\n'+ \
+						'-------------------------------------------------\n')
+					exception += 1
+					#-------------#
+				time.sleep(1)
 				content_log_open.close()
-				report_log.close()
-			# ADB push the file to devices		
-			os.system('adb push ' + 'report_' + timer + '.txt' + \
-						' /data/testtool/')
-			file_log_open.close()			
+			report_log.close()
+			# 新增簡易總表 close() #
+			report_summary.close()
+			#-------------#
+			# ADB push the file to devices
+			os.system('adb push ' + 'report_' + timer + '.txt' +
+									' /data/testtool/')
+			os.system('adb push ' + 'summary_' + timer + '.txt' +
+									' /data/testtool/')
+			file_log_open.close()
 			return timer
 		except Exception as e:
 			raise e
@@ -121,8 +171,7 @@ class parser_log(object):
 
 	def delete_local_file(self, filename):
 		os.system('del /f /q ' + filename)
-		print('del /f /q ' + filename)
-
+		print('del /f /q ' + filename)	
 
 if __name__ == '__main__':
 	try:

@@ -2,6 +2,17 @@ OpenLoop=false
 Test_res=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
+now2="$(date +'%m%d%H%M%Y.%S')"
+now3="$(date +'%m%d%H%M%Y')"
+sec="$(date +'%S')"
+sec2=$(($sec+4))
+#echo $sec
+#echo $sec2
+#echo $now2
+now4=$now3.$sec2
+#echo $now3
+#echo $now4
+
 fun="rtc"
 project_name="usc130_a8"
 cpu="rk3288"
@@ -85,7 +96,8 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-date 080811352019.20
+
+date 080811352019.20 
 busybox hwclock -w
 
 # minunte check
@@ -104,6 +116,10 @@ fi
 if [ $(($Seconds)) -ge 6 ]; then
 Test_res=false
 fi
+
+date $now4 
+busybox hwclock -w
+
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
