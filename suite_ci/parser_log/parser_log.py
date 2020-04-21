@@ -151,7 +151,7 @@ class parser_log(object):
 			#-------------#
 			# 新增簡易總表 close() #
 			df = pd.read_csv('summary_' + timer + '.csv')
-			df.to_html('summary_' + timer + '.html')
+			df.to_html('summary_' + timer + '.html', encoding = 'utf-8', index = False)
 			#-------------#
 			# ADB push the file to devices
 			os.system('adb push ' + 'report_' + timer + '.txt' +
