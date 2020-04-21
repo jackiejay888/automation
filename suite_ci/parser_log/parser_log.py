@@ -9,10 +9,11 @@ Modified on 2020/03/23
 
 import os
 import sys
+import csv
 import time
+import pandas as pd
 import datetime
 import subprocess
-# from export import export_html
 
 class parser_log(object):
 
@@ -59,16 +60,13 @@ class parser_log(object):
 			# Get the timer by datetime api
 			timer = self.timer()
 			# 新增簡易總表 #
-			summary_time = 'summary_' + timer + '.txt'
-			report_summary = open(summary_time, 'a', encoding='utf-8')
-			report_summary.write('The test cases result.\n')
-			print('The test cases result.')
+			summary_time = 'summary_' + timer + '.csv'
+			report_summary = open(summary_time, 'a', newline='')
+			writer = csv.writer(report_summary, delimiter=',')
+			writer.writerow(['Test case', 'Status'])
 			passed = 0
 			failed = 0
 			exceptioned = 0
-			#-------------#
-			# Export to html #
-			# export = export_html()
 			#-------------#
 			current_time = 'report_' + timer + '.txt'
 			report_log = open(current_time, 'a', encoding='utf-8')
@@ -77,9 +75,11 @@ class parser_log(object):
 				# print(file_log[loop])
 				# 新增簡易總表 #
 				if file_log[loop] == '':
-					report_summary.write('Total: ' + str(passed + failed + exceptioned) + '\n' + \
-										 'Pass: ' + str(passed) + ', Fail: ' + str(failed) + \
-										 ', Exception: ' + str(exceptioned) + '\n-------------------------------------------------\n')
+					writer.writerow([' ', ' '])
+					writer.writerow(['Total', passed + failed + exceptioned])
+					writer.writerow(['Pass', passed])
+					writer.writerow(['Fail', failed])
+					writer.writerow(['Exception', exceptioned])
 					print('Total: ' + str(passed + failed + exceptioned) + '\n' + \
 							'Pass: ' + str(passed) + ', Fail: ' + str(failed) + \
 							', Exception: ' + str(exceptioned) + '\n-------------------------------------------------\n')
@@ -103,9 +103,7 @@ class parser_log(object):
 						'----The test case is PASS.----\n' +
 						'********************************\n')
 					# 新增簡易總表 PASS #
-					report_summary.write(
-						'' + file_log[loop].split('.log')[0] + '\t(Pass)\n'+ \
-						'-------------------------------------------------\n')
+					writer.writerow([file_log[loop].split('.log')[0], 'Pass'])
 					print('' + file_log[loop].split('.log')[0] + '\t(Pass)\n'+ \
 						'-------------------------------------------------\n')
 					passed += 1
@@ -122,9 +120,7 @@ class parser_log(object):
 						'----The test case is FAIL.----\n' +
 						'********************************\n')
 					# 新增簡易總表 FAIL #
-					report_summary.write(
-						'' + file_log[loop].split('.log')[0] + '\t(Fail)\n'+ \
-						'-------------------------------------------------\n')
+					writer.writerow([file_log[loop].split('.log')[0], 'Fail'])
 					print('' + file_log[loop].split('.log')[0] + '\t(Fail)\n'+ \
 						'-------------------------------------------------\n')
 					failed += 1
@@ -141,24 +137,28 @@ class parser_log(object):
 						'---The Shell Script is EXCEPTION.---\n' +
 						'********************************\n')
 					# 新增簡易總表 EXCEPTION #
-					report_summary.write(
-						'' + file_log[loop].split('.log')[0] + '\t(Exception)\n'+ \
-						'-------------------------------------------------\n')
+					writer.writerow([file_log[loop].split('.log')[0], 'Exception'])
 					print(
 						'' + file_log[loop].split('.log')[0] + '\t(Exception)\n'+ \
 						'-------------------------------------------------\n')
 					exception += 1
 					#-------------#
-				time.sleep(1)
+				time.sleep(0.2)
 				content_log_open.close()
 			report_log.close()
 			# 新增簡易總表 close() #
 			report_summary.close()
 			#-------------#
+			# 新增簡易總表 close() #
+			df = pd.read_csv('summary_' + timer + '.csv')
+			df.to_html('summary_' + timer + '.html')
+			#-------------#
 			# ADB push the file to devices
 			os.system('adb push ' + 'report_' + timer + '.txt' +
 									' /data/testtool/')
-			os.system('adb push ' + 'summary_' + timer + '.txt' +
+			os.system('adb push ' + 'summary_' + timer + '.csv' +
+									' /data/testtool/')
+			os.system('adb push ' + 'summary_' + timer + '.html' +
 									' /data/testtool/')
 			file_log_open.close()
 			return timer
@@ -177,6 +177,8 @@ if __name__ == '__main__':
 	try:
 		os.system('del /f /q *.log')
 		os.system('del /f /q *.txt')
+		os.system('del /f /q *.csv')
+		os.system('del /f /q *.html')
 		os.system('adb devices')
 		os.system('adb disconnect')
 		os.system('adb connect ' + sys.argv[1])
@@ -188,7 +190,11 @@ if __name__ == '__main__':
 		os.system('mkdir backup\\' + current_time)
 		parser_log.copy_log_file('*.log', 'backup\\' + current_time)
 		parser_log.copy_log_file('*.txt', 'backup\\' + current_time)
+		parser_log.copy_log_file('*.csv', 'backup\\' + current_time)
+		parser_log.copy_log_file('*.html', 'backup\\' + current_time)
 		parser_log.delete_local_file('*.log')
 		parser_log.delete_local_file('*.txt')
+		parser_log.delete_local_file('*.csv')
+		parser_log.delete_local_file('*.html')
 	except Exception as e:
 		raise e
