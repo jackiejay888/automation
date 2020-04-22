@@ -1,7 +1,7 @@
 MSG:
-Test_Item: gpio_key hardware
  test_type: CloseLoop
 MSG end
+Test_Item: gpio_key hardware
 /sys/devices/platform/gpio-keys/input/input0
 Result:
 PASS

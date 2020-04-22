@@ -1,8 +1,7 @@
 MSG:
-Test_Item: UsbDisk_Sdcard hardware
+Test_Item: audio_speaker hardware
  test_type: CloseLoop
 MSG end
 Result:
-MSG: No media device
 PASS
 Result end

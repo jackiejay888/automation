@@ -1,7 +1,8 @@
 MSG:
-Test_Item: Audio_Speaker hardware
+Test_Item: system_customization
  test_type: CloseLoop
 MSG end
+[persist.qsm]: [true]
 Result:
 PASS
 Result end

@@ -11,9 +11,13 @@ import os
 import sys
 import csv
 import time
-import pandas as pd
 import datetime
 import subprocess
+import configparser
+import pandas as pd
+
+parameter_setting = configparser.ConfigParser()
+parameter_setting.read('..\\android\\ini\\parameter_setting.ini', encoding='utf-8')
 
 class parser_log(object):
 
@@ -169,6 +173,10 @@ class parser_log(object):
 		now_time = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
 		return now_time
 
+	def folder_name(self):
+		project_name = parameter_setting.get('project_name', 'name')
+		return project_name + '_' + self.timer()
+
 	def delete_local_file(self, filename):
 		os.system('del /f /q ' + filename)
 		print('del /f /q ' + filename)	
@@ -187,11 +195,12 @@ if __name__ == '__main__':
 		parser_log.copy_log_file('..\\android\\testtool\\*.log', '.')
 		parser_log.copy_log_file('..\\android\\*.log', '.')
 		current_time = parser_log.log_parser()
-		os.system('mkdir backup\\' + current_time)
-		parser_log.copy_log_file('*.log', 'backup\\' + current_time)
-		parser_log.copy_log_file('*.txt', 'backup\\' + current_time)
-		parser_log.copy_log_file('*.csv', 'backup\\' + current_time)
-		parser_log.copy_log_file('*.html', 'backup\\' + current_time)
+		folder_name = parser_log.folder_name()
+		os.system('mkdir backup\\' + folder_name)
+		parser_log.copy_log_file('*.log', 'backup\\' + folder_name)
+		parser_log.copy_log_file('*.txt', 'backup\\' + folder_name)
+		parser_log.copy_log_file('*.csv', 'backup\\' + folder_name)
+		parser_log.copy_log_file('*.html', 'backup\\' + folder_name)
 		parser_log.delete_local_file('*.log')
 		parser_log.delete_local_file('*.txt')
 		parser_log.delete_local_file('*.csv')

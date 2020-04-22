@@ -1,7 +1,8 @@
 MSG:
-Test_Item: Backlight hardware
+Test_Item: camera hardware
  test_type: CloseLoop
 MSG end
+
 Result:
-PASS
+FAIL
 Result end

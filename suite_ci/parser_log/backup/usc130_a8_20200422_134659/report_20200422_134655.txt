@@ -1,0 +1,202 @@
+*********************************************************
+Test Case: usc130_a8_androiddm_version_20200422_132846.log
+*********************************************************
+MSG:
+Test_Item: androiddm_version
+ test_type: CloseLoop
+MSG end
+versionName=0.7.cae1487.20190906
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_audio_speaker_20200422_132755.log
+*********************************************************
+MSG:
+Test_Item: audio_speaker hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_backlight_20200422_132802.log
+*********************************************************
+MSG:
+Test_Item: backlight hardware
+MSG end
+ test_type: CloseLoop
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_bluetooth_20200422_132814.log
+*********************************************************
+MSG:
+Test_Item: bluetooth hardware
+ test_type: CloseLoop
+MSG end
+null
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_boot_animation_check_20200422_132847.log
+*********************************************************
+MSG:
+Test_Item: boot_animation_check
+ test_type: CloseLoop
+MSG end
+
+Result:
+FAIL
+MSG: No /data/AndroidDM/bootanimation.zip
+Result end
+********************************
+----The test case is FAIL.----
+********************************
+*********************************************************
+Test Case: usc130_a8_camera_20200422_132820.log
+*********************************************************
+MSG:
+Test_Item: camera hardware
+ test_type: CloseLoop
+MSG end
+
+Result:
+FAIL
+Result end
+********************************
+----The test case is FAIL.----
+********************************
+*********************************************************
+Test Case: usc130_a8_comtest_20200422_132821.log
+*********************************************************
+MSG:
+Test_Item: comtest
+ test_type: CloseLoop
+MSG end
+
+Result:
+FAIL
+Result end
+********************************
+----The test case is FAIL.----
+********************************
+*********************************************************
+Test Case: usc130_a8_gpio_key_20200422_132836.log
+*********************************************************
+MSG:
+ test_type: CloseLoop
+MSG end
+Test_Item: gpio_key hardware
+/sys/devices/platform/gpio-keys/input/input0
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_rfid_20200422_132837.log
+*********************************************************
+MSG:
+Test_Item: rfid hardware
+ test_type: CloseLoop
+MSG end
+
+Result:
+FAIL
+Result end
+********************************
+----The test case is FAIL.----
+********************************
+*********************************************************
+Test Case: usc130_a8_rtc_20200422_132838.log
+*********************************************************
+MSG:
+Test_Item: rtc hardware
+ test_type: CloseLoop
+MSG end
+Result:
+Result end
+PASS
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_storage_emmc_20200422_132832.log
+*********************************************************
+MSG:
+Test_Item: storage_emmc hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_system_customization_20200422_132848.log
+*********************************************************
+MSG:
+Test_Item: system_customization
+ test_type: CloseLoop
+MSG end
+[persist.qsm]: [true]
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************
+*********************************************************
+Test Case: usc130_a8_systeminformation_20200422_132843.log
+*********************************************************
+MSG:
+Test_Item: systeminformation hardware
+ test_type: CloseLoop
+MSG end
+usc130_a8 System Information
+=============================================
+Model Number : usc_130_160
+Android Version : 8.1.0
+BuildNumber : usc_130_160-userdebug 8.1.0 OPM8.20191206 142514 test-keys
+Eth0 Mac Address : 42:82:2d:4c:3d:c2
+wlan0 Mac Address : 
+DDR3 Memory total size : 2046248 (KB)
+USER space : 11816960
+=============================================
+Result:
+FAIL
+Result end
+********************************
+----The test case is FAIL.----
+********************************
+*********************************************************
+Test Case: usc130_a8_usbdisk_sdcard_20200422_132844.log
+*********************************************************
+MSG:
+Test_Item: usbdisk_sdcard hardware
+ test_type: CloseLoop
+MSG end
+/mnt/media_rw/0CE2-E93C
+Result:
+PASS
+Result end
+********************************
+----The test case is PASS.----
+********************************

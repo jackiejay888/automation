@@ -1,8 +1,8 @@
 MSG:
-Test_Item: RFID hardware
+Test_Item: comtest
  test_type: CloseLoop
 MSG end
-/dev/ttyUSB2
+
 Result:
-PASS
+FAIL
 Result end
