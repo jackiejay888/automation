@@ -154,6 +154,8 @@ class parser_log(object):
 			report_summary.close()
 			#-------------#
 			# 新增簡易總表 close() #
+			pd.set_option('display.width', 1000)
+			pd.set_option('colheader_justify', 'left')
 			df = pd.read_csv('summary_' + timer + '.csv')
 			df.to_html('summary_' + timer + '.html', encoding = 'utf-8', index = False)
 			#-------------#
