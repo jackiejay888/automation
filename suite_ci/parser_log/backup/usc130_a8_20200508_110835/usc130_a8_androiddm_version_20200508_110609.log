@@ -1,0 +1,8 @@
+MSG:
+Test_Item: androiddm_version
+ test_type: CloseLoop
+MSG end
+versionName=0.7.cae1487.20190906
+Result:
+PASS
+Result end

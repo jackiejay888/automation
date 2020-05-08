@@ -1,0 +1,7 @@
+MSG:
+Test_Item: storage_emmc hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end

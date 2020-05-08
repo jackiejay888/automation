@@ -1,11 +1,10 @@
 OpenLoop=false
 Test_res=true
 TestMSG=""
-MountDisk="/sys/devices/platform/gpio-keys/input"
 no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="wifi_iperf"
+fun="cpu_burn"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #echo $project_name
@@ -49,7 +48,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: wifi_iperf'
+echo 'Test_Item: cpu_burn'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -58,7 +57,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: wifi_iperf hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: cpu_burn hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -67,9 +66,9 @@ fi
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
-/data/testtool/iperf -c ${1} -w ${2} -t ${3} -i ${4} -d >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M --timeout ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-delaysec=$(($3+3))
+delaysec=$(($1+3))
 
 sleep $delaysec
 

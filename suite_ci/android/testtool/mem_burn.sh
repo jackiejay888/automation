@@ -1,11 +1,10 @@
 OpenLoop=false
 Test_res=true
 TestMSG=""
-MountDisk="/sys/devices/platform/gpio-keys/input"
 no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="wifi_iperf"
+fun="mem_burn"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #echo $project_name
@@ -49,7 +48,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: wifi_iperf'
+echo 'Test_Item: mem_burn'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -58,7 +57,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: wifi_iperf hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: mem_burn hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -67,11 +66,15 @@ fi
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
-/data/testtool/iperf -c ${1} -w ${2} -t ${3} -i ${4} -d >> $log_patch/$project_name"_"$fun"_"$now.log &
+nohup /data/testtool/memtester $2  >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-delaysec=$(($3+3))
+memtesterid=`ps -lA | grep "memtester"| busybox awk '{print $4}'`
 
-sleep $delaysec
+sleep $1
+
+kill $memtesterid
+
+
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then

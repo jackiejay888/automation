@@ -68,7 +68,9 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 /data/testtool/iperf -c ${1} -w ${2} -t ${3} -i ${4} -d >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-sleep ${3}
+delaysec=$(($3+3))
+
+sleep $delaysec
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then

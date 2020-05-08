@@ -1,0 +1,9 @@
+MSG:
+Test_Item: boot_animation_check
+ test_type: CloseLoop
+MSG end
+
+Result:
+FAIL
+MSG: No /data/AndroidDM/bootanimation.zip
+Result end
