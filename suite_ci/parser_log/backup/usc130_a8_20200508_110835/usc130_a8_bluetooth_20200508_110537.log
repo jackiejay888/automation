@@ -1,8 +1,0 @@
-MSG:
-Test_Item: bluetooth hardware
- test_type: CloseLoop
-MSG end
-null
-Result:
-PASS
-Result end

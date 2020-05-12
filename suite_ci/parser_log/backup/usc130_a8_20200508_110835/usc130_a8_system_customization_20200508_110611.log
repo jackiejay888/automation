@@ -1,8 +1,0 @@
-MSG:
-Test_Item: system_customization
-MSG end
- test_type: CloseLoop
-[persist.qsm]: [true]
-PASS
-Result:
-Result end

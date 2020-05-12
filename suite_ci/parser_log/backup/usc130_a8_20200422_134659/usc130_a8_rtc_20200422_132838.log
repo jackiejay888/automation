@@ -1,7 +1,0 @@
-MSG:
-Test_Item: rtc hardware
- test_type: CloseLoop
-MSG end
-Result:
-Result end
-PASS

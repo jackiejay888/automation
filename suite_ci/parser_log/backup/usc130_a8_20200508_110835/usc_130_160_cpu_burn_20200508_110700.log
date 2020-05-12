@@ -1,9 +1,0 @@
-MSG:
-Test_Item: cpu_burn hardware
- test_type: CloseLoop
-MSG end
-stress: info: [21260] dispatching hogs: 4 cpu, 4 io, 2 vm, 0 hdd
-stress: info: [21260] successful run completed in 30s
-Result:
-PASS
-Result end

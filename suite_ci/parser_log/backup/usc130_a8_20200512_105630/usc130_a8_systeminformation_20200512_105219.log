@@ -1,7 +1,7 @@
 MSG:
-Test_Item: systeminformation hardware
- test_type: CloseLoop
 MSG end
+ test_type: CloseLoop
+Test_Item: systeminformation hardware
 usc130_a8 System Information
 =============================================
 Model Number : usc_130_160

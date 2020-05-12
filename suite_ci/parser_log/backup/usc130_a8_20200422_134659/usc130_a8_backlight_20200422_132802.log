@@ -1,7 +1,0 @@
-MSG:
-Test_Item: backlight hardware
-MSG end
- test_type: CloseLoop
-Result:
-PASS
-Result end
