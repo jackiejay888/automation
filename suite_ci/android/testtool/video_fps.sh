@@ -70,18 +70,18 @@ kill $memtesterid
 
 setprop debug.sf.fps 1
 am start -a android.intent.action.VIEW -d file:////data/testtool/2160p_60fps.mp4 -t video/mp4
-logcat -c ;logcat | grep mFps >> video_fps.log  &
+logcat -c ;logcat | grep mFps >> /data/testtool/video_fps.log  &
 sleep 10
 memtesterid=`ps -lA | grep "logcat"| busybox awk '{print $4}'`
 kill $memtesterid
-cat video_fps.log |busybox awk '{print $9}' >> video_fps2.log
+cat /data/testtool/video_fps.log |busybox awk '{print $9}' >> /data/testtool/video_fps2.log
 
 while read line
 do          
 
-	echo $line| busybox awk 'BEGIN{FS="."} {print $1}' >>video_fps3.log
+	echo $line| busybox awk 'BEGIN{FS="."} {print $1}' >> /data/testtool/video_fps3.log
 	
-done < video_fps2.log
+done < /data/testtool/video_fps2.log
 
 
 FILENAME=/data/testtool/video_fps3.log
@@ -109,9 +109,9 @@ do
 	
 done < $FILENAME
 
-rm video_fps.log
-rm video_fps2.log
-rm video_fps3.log
+rm /data/testtool/video_fps.log
+rm /data/testtool/video_fps2.log
+rm /data/testtool/video_fps3.log
 
 
 echo 'Result:'
