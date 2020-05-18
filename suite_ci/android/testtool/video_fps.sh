@@ -22,8 +22,12 @@ else
 if [ "$cpu" == "imx6" ] ; then
    echo 'imx6'
 else
+if [ "$cpu" == "gmin" ] ; then
+   echo 'gmin'
+else
    echo 'Not support cpu'
-   exit 0
+#   exit 0
+fi 
 fi 
 fi
 #check support cpu
@@ -36,8 +40,12 @@ else
 if [ "$android_version" == "6.0.0" ] ; then
    echo '6.0.0'
 else
+if [ "$android_version" == "6.0.1" ] ; then
+   echo '6.0.1'
+else
    echo 'Not support android version'
-   exit 0
+#   exit 0
+fi
 fi 
 fi
 #check support android_version

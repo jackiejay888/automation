@@ -4,21 +4,15 @@ TestMSG=" "
 
 now="$(date +'%Y%m%d_%H%M%S')"
 fun="backlight"
-project_name="usc130_a8"
-cpu="rk3288"
-android_version="a8"
+#project_name="usc130_a8"
+project_name=`getprop ro.build.product`
+#cpu="rk3288"
+cpu=`getprop ro.board.platform`
+#android_version="a8"
+android_version=`getprop ro.build.version.release`
 log_patch="/data/testtool"
 
 #check support cpu
-if [ -n "$1" ] ; then
-
-cpu=$1
-#echo $project_name
-
-else
-cpu="rk3288"
-#echo $project_name
-fi
 
 if [ "$cpu" == "rk3288" ] ; then
   echo 'rk3288'
@@ -26,45 +20,36 @@ else
 if [ "$cpu" == "imx6" ] ; then
    echo 'imx6'
 else
+if [ "$cpu" == "gmin" ] ; then
+   echo 'gmin'
+else
    echo 'Not support cpu'
-   exit 0
+#   exit 0
 fi 
+fi
 fi
 #check support cpu
 
 #check support android_version
-if [ -n "$2" ] ; then
 
-android_version=$2
-#echo $project_name
-
+if [ "$android_version" == "8.1.0" ] ; then
+  echo '8.1.0'
 else
-android_version="a8"
-#echo $project_name
+if [ "$android_version" == "6.0.0" ] ; then
+   echo '6.0.0'
+else
+if [ "$android_version" == "6.0.1" ] ; then
+   echo '6.0.1'
+else
+   echo 'Not support android version'
+#   exit 0
 fi
-
-if [ "$android_version" == "a8" ] ; then
-  echo 'a8'
-else
-if [ "$android_version" == "a6" ] ; then
-   echo 'a6'
-else
-   echo 'Not support cpu'
-   exit 0
 fi 
 fi
 #check support android_version
 
+
 #check support device
-if [ -n "$3" ] ; then
-
-project_name=$3
-#echo $project_name
-
-else
-project_name="usc130_a8"
-#echo $project_name
-fi
 
 #check support device
 
@@ -90,13 +75,17 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
   Lvds_brightness_imx="/sys/devices/soc0/pwm-backlight/backlight/pwm-backlight/brightness"
   Lvds_brightness_rk="/sys/devices/platform/backlight/backlight/backlight/brightness"
+  Lvds_brightness_x86="/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-DSI-1/intel_backlight/brightness"
 
 if [ "$cpu" == "imx6" ] ; then
   Lvds_brightness=$Lvds_brightness_imx
 else
 if [ "$cpu" == "rk3288" ] ; then
   Lvds_brightness=$Lvds_brightness_rk
-
+else
+if [ "$cpu" == "gmin" ] ; then
+  Lvds_brightness=$Lvds_brightness_x86
+fi 
 fi 
 fi
 
