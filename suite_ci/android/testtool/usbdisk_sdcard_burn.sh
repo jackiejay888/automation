@@ -1,12 +1,12 @@
 OpenLoop=false
 Test_res=true
 TestMSG=""
-MountDisk="/data"
+MountDisk="/mnt/media_rw"
 fifoStr="01234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()"
-
+no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="emmc"
+fun="usbdisk_sdcard_burn"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #cpu="rk3288"
@@ -57,7 +57,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: emmc'
+echo 'Test_Item: usbdisk_sdcard_burn'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -66,7 +66,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: emmc hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: usbdisk_sdcard_burn hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -74,23 +74,49 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
+test1=10
+
 file_RW_test() {
-	for i in { 0..$2 }
+
+END="$2"
+echo $END
+for i in $(seq 1 $END);
+do
+  for name in `ls /mnt/media_rw`
 	do
-	    touch "$1/test.txt"
-		echo $fifoStr > "$1/test.txt"
-		ReadStr=`cat $1/test.txt`
+
+#echo $no_device
+echo $1/$name
+echo $1/$name >> $log_patch/$project_name"_"$fun"_"$now.log &
+no_device=false
+#echo $no_device
+
+	    touch "$1/$name/test.txt"
+		echo $fifoStr > "$1/$name/test.txt"
+		ReadStr=`cat $1/$name/test.txt`
 		#echo $ReadStr
+		echo $i: "PASS"
+		echo $i: "PASS" >> $log_patch/$project_name"_"$fun"_"$now.log &
 		if [ "$fifoStr" != "$ReadStr" ]; then
 		    TestMSG="$1 data miss"
 			Test_res=false
+		echo $TestMSG
+		echo $TestMSG >> $log_patch/$project_name"_"$fun"_"$now.log &
 		fi
 		sleep 1
+	done
 	done
 }
 
 
-file_RW_test $MountDisk 5	
+
+
+file_RW_test $MountDisk $1	
+
+if [ "$no_device" = "true" ] ; then
+TestMSG="No media device"
+Test_res=false
+fi
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
@@ -98,7 +124,6 @@ if [ "$OpenLoop" == "true" ] ; then
 else
 if [ "$TestMSG" != "" ] ; then
    echo "MSG: $TestMSG"
-   echo "MSG: $TestMSG"  >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
@@ -112,6 +137,9 @@ echo 'Result:' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
   echo 'Finish' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
+if [ "$TestMSG" != "" ] ; then
+   echo "MSG: $TestMSG" >> $log_patch/$project_name"_"$fun"_"$now.log &
+fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -119,4 +147,3 @@ else
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &
-

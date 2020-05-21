@@ -1,14 +1,13 @@
 OpenLoop=false
 Test_res=true
 TestMSG=""
-MountDisk="/data"
-fifoStr="01234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()"
-
+no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="emmc"
+fun="emmc_info"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
+#echo $project_name
 #cpu="rk3288"
 cpu=`getprop ro.board.platform`
 #android_version="a8"
@@ -27,9 +26,9 @@ if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
    echo 'Not support cpu'
-#   exit 0
+   exit 0
 fi 
-fi 
+fi
 fi
 #check support cpu
 
@@ -45,9 +44,9 @@ if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
    echo 'Not support android version'
-#   exit 0
-fi
+   exit 0
 fi 
+fi
 fi
 #check support android_version
 
@@ -57,7 +56,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: emmc'
+echo 'Test_Item: emmc_info'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -66,7 +65,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: emmc hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: emmc_info hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -74,23 +73,16 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-file_RW_test() {
-	for i in { 0..$2 }
-	do
-	    touch "$1/test.txt"
-		echo $fifoStr > "$1/test.txt"
-		ReadStr=`cat $1/test.txt`
-		#echo $ReadStr
-		if [ "$fifoStr" != "$ReadStr" ]; then
-		    TestMSG="$1 data miss"
-			Test_res=false
+busybox busybox fdisk -l /dev/block/mmcblk1
+busybox busybox fdisk -l /dev/block/mmcblk1 >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+sdinfo=`busybox fdisk -l /dev/block/mmcblk1 |grep GB |busybox awk '{print $5}'`
+
+		if [ $((sdinfo)) -lt $(($1)) ] ; then
+		Test_res=false
+		echo "emmc size is wrong" 
+		echo "emmc size is wrong" >> $log_patch/$project_name"_"$fun"_"$now.log &
 		fi
-		sleep 1
-	done
-}
-
-
-file_RW_test $MountDisk 5	
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
@@ -98,7 +90,6 @@ if [ "$OpenLoop" == "true" ] ; then
 else
 if [ "$TestMSG" != "" ] ; then
    echo "MSG: $TestMSG"
-   echo "MSG: $TestMSG"  >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
@@ -112,6 +103,9 @@ echo 'Result:' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
   echo 'Finish' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
+if [ "$TestMSG" != "" ] ; then
+   echo "MSG: $TestMSG" >> $log_patch/$project_name"_"$fun"_"$now.log &
+fi
 if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -119,4 +113,3 @@ else
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &
-
