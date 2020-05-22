@@ -1,0 +1,24 @@
+MSG:
+Test_Item: usb_info hardware
+ test_type: CloseLoop
+MSG end
+
+Disk /dev/block/sda: 15.5 GB, 15518924800 bytes
+1 heads, 32 sectors/track, 947200 cylinders
+Units = cylinders of 32 * 512 = 16384 bytes
+
+         Device Boot      Start         End      Blocks  Id System
+/dev/block/sda1   *           2      947200    15155176   c Win95 FAT32 (LBA)
+Partition 1 does not end on cylinder boundary
+
+Disk /dev/block/sdb: 16.2 GB, 16228810752 bytes
+255 heads, 63 sectors/track, 1973 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+         Device Boot      Start         End      Blocks  Id System
+/dev/block/sdb1   *           1        1974    15847424   c Win95 FAT32 (LBA)
+No input USB3 device node
+No input USB4 device node
+Result:
+PASS
+Result end
