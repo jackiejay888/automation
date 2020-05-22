@@ -5,7 +5,7 @@ MountDisk="/sys/devices/platform/gpio-keys/input"
 no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="wifi_ping"
+fun="eth_ping"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #echo $project_name
@@ -57,7 +57,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: wifi_ping'
+echo 'Test_Item: eth_ping'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -66,7 +66,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: wifi_ping hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: eth_ping hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
