@@ -2,7 +2,7 @@ OpenLoop=false
 Test_res=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="comtest"
+fun="comtest_burn"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #cpu="rk3288"
@@ -53,7 +53,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: comtest'
+echo 'Test_Item: comtest_burn'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -62,7 +62,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: comtest' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: comtest_burn' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -70,23 +70,30 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-
-if [ "$1" != "" ] ; then
-adv=`/data/testtool/serial_loop $1 115200 n 20 5 | grep PASS`
-if [ "$?" != "0" ] ; then
-Test_res=false
-fi
-fi
+END="$1"
+echo $END
+for i in $(seq 1 $END);
+do
 
 if [ "$2" != "" ] ; then
 adv=`/data/testtool/serial_loop $2 115200 n 20 5 | grep PASS`
 if [ "$?" != "0" ] ; then
 Test_res=false
+
 fi
 fi
 
-echo $adv
-echo $adv >> $log_patch/$project_name"_"$fun"_"$now.log &
+if [ "$3" != "" ] ; then
+adv=`/data/testtool/serial_loop $3 115200 n 20 5 | grep PASS`
+if [ "$?" != "0" ] ; then
+Test_res=false
+fi
+fi
+
+echo $i:  $Test_res
+echo $i:  $Test_res >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+	done
 
 
 echo 'Result:'
