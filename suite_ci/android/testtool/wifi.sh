@@ -107,6 +107,13 @@ if [ "$Test_res" == "true" ] ; then
    if [ $(($netCount)) -lt 10 ] ; then
 		PingData=""		
 		PingData=`ping -c 5 $PINGHOST | grep time=`
+		dumpsys wifi | grep ", RSSI"
+		dumpsys wifi | grep ", RSSI" >> $log_patch/$project_name"_"$fun"_"$now.log &
+		dumpsys wifi | grep ", RSSI"
+		dumpsys wifi | grep ", RSSI" >> $log_patch/$project_name"_"$fun"_"$now.log &
+		dumpsys wifi | grep ", RSSI"
+		dumpsys wifi | grep ", RSSI" >> $log_patch/$project_name"_"$fun"_"$now.log &
+
 		if [ "${PingData}" == "" ]; then
 			 TestMSG="Wlan0 Ping test FAIL"
 			 Test_res=false
