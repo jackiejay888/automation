@@ -73,8 +73,12 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
+MEMSIZE=`cat /proc/meminfo | grep "MemFree:" | busybox awk {'print $2'}`
+echo "MemFree:" $MEMSIZE "kB"
+MEMSIZE=`busybox expr $MEMSIZE / 1024 - 100`
+echo "MemTest:" $MEMSIZE  "MB"
 
-nohup /data/testtool/memtester $2  >> $log_patch/$project_name"_"$fun"_"$now.log &
+nohup /data/testtool/memtester $MEMSIZE  >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 memtesterid=`ps -lA | grep "memtester"| busybox awk '{print $4}'`
 
