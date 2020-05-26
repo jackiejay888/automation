@@ -79,16 +79,20 @@ Min_fps=$2
 sleep 10
 
 cpuinfo=`busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq`
-echo $cpuinfo
-busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq
-busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq 
-busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq
+echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
+cpuinfo=`busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
-busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
-busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
-busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
+cpuinfo=`busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 		if [ $((cpuinfo)) -gt $(($Min_fps)) ] ; then
 		Test_res=false
@@ -103,16 +107,21 @@ busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq >> $log_patch/
 sleep 5
 
 cpuinfo=`busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq`
-echo $cpuinfo
-busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq
-busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq 
-busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq
+echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
+cpuinfo=`busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
-busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
-busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
-busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq >> $log_patch/$project_name"_"$fun"_"$now.log &
+cpuinfo=`busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
 
 		if [ $((cpuinfo)) -lt $(($Max_fps)) ] ; then
 		Test_res=false
