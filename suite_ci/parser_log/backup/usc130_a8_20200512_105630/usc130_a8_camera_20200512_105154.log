@@ -1,8 +1,0 @@
-MSG:
-Test_Item: camera hardware
- test_type: CloseLoop
-MSG end
-
-Result:
-FAIL
-Result end

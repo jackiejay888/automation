@@ -1,8 +1,0 @@
-MSG:
-Test_Item: comtest
- test_type: CloseLoop
-MSG end
-
-Result:
-FAIL
-Result end
