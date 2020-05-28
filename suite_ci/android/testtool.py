@@ -12,8 +12,9 @@ Modified the log_export method on 2020/04/10
 import os
 import sys
 import configparser
-from device_check import Device_check
 from time import sleep
+from device_check import Device_check
+from subprocess import check_output
 
 # parameter_setting.ini
 parameter_value = {}
@@ -122,6 +123,18 @@ class testtool(object):
 		except Exception as e:
 			raise e
 
+	def finddevices_set(self):
+		try:
+			adb_ouput = check_output(["adb", "devices"])
+			devices_id = str(adb_ouput.split()[-2])
+			if devices_id == 'b\'devices\'':
+				print('Not Find a new device.')
+				return False
+			else:
+				print('Find a new device.')
+				return True
+		except Exception as e:
+			raise e
 
 if __name__ == '__main__':
 	try:
@@ -131,8 +144,10 @@ if __name__ == '__main__':
 		testtool = testtool()
 		testtool.adb_cmd('kill-server')
 		testtool.adb_cmd('start-server')
-		testtool.adb_cmd('adb devices')
-		testtool.adb_cmd('connect ' + sys.argv[1])
+		testtool.adb_cmd('devices')
+		j = testtool.finddevices_set()
+		if j is False:
+			testtool.adb_cmd('connect ' + sys.argv[1])
 		testtool.adb_cmd('root')
 		testtool.adb_shell_cmd('rm -rf /data/testtool')
 		testtool.adb_shell_cmd('mkdir /data/testtool')

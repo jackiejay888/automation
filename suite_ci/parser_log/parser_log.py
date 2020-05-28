@@ -15,6 +15,7 @@ import datetime
 import subprocess
 import configparser
 import pandas as pd
+from subprocess import check_output
 
 parameter_setting = configparser.ConfigParser()
 parameter_setting.read('..\\android\\ini\\parameter_setting.ini', encoding='utf-8')
@@ -183,6 +184,19 @@ class parser_log(object):
 		os.system('del /f /q ' + filename)
 		print('del /f /q ' + filename)	
 
+	def finddevices_set(self):
+		try:
+			adb_ouput = check_output(["adb", "devices"])
+			devices_id = str(adb_ouput.split()[-2])
+			if devices_id == 'b\'devices\'':
+				print('Not Find a new device.')
+				return False
+			else:
+				print('Find a new device.')
+				return True
+		except Exception as e:
+			raise e
+
 if __name__ == '__main__':
 	try:
 		os.system('del /f /q *.log')
@@ -192,9 +206,12 @@ if __name__ == '__main__':
 		os.system('del /f /q *.ini')
 		os.system('adb devices')
 		os.system('adb disconnect')
-		os.system('adb connect ' + sys.argv[1])
-		os.system('adb root')
 		parser_log = parser_log()
+		j = parser_log.finddevices_set()
+		if j is False:
+			print('False')
+			os.system('adb connect ' + sys.argv[1])
+		os.system('adb root')
 		parser_log.copy_log_file('..\\android\\testtool\\*.log', '.')
 		parser_log.copy_log_file('..\\android\\*.log', '.')
 		parser_log.copy_log_file('..\\android\\ini\\*.ini', '.')
