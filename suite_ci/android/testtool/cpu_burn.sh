@@ -75,8 +75,9 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
 /data/testtool/stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M --timeout ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
+ busybox mpstat -P ALL 2 ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-delaysec=$(($1+3))
+delaysec=$(($1+5))
 
 sleep $delaysec
 

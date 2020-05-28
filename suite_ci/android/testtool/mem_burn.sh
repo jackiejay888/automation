@@ -75,8 +75,10 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 MEMSIZE=`cat /proc/meminfo | grep "MemFree:" | busybox awk {'print $2'}`
 echo "MemFree:" $MEMSIZE "kB"
+echo "MemFree:" $MEMSIZE "kB" >> $log_patch/$project_name"_"$fun"_"$now.log &
 MEMSIZE=`busybox expr $MEMSIZE / 1024 - 100`
 echo "MemTest:" $MEMSIZE  "MB"
+echo "MemTest:" $MEMSIZE  "MB" >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 nohup /data/testtool/memtester $MEMSIZE  >> $log_patch/$project_name"_"$fun"_"$now.log &
 
