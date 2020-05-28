@@ -1,0 +1,9 @@
+MSG:
+Test_Item: usbdisk_sdcard hardware
+ test_type: CloseLoop
+MSG end
+/mnt/media_rw/0CE2-E93C
+/mnt/media_rw/6EA2-E5D9
+Result:
+PASS
+Result end

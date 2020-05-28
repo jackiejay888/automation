@@ -1,0 +1,39 @@
+MSG:
+Test_Item: gpio_test hardware
+ test_type: CloseLoop
+MSG end
+gpio:gpio219 hi Test PASS
+gpio:gpio220 hi Test PASS
+gpio:gpio221 hi Test PASS
+gpio:gpio237 hi Test PASS
+gpio:gpio250 hi Test PASS
+gpio:gpio251 hi Test PASS
+gpio:gpio248 hi Test PASS
+gpio:gpio249 hi Test PASS
+gpio219: out->0
+gpio220: out->0
+gpio221: out->0
+gpio237: out->0
+gpio250: out->0
+gpio251: out->0
+gpio248: out->0
+gpio249: out->0
+gpio:gpio219 hi Test PASS
+gpio:gpio220 hi Test PASS
+gpio:gpio221 hi Test PASS
+gpio:gpio237 hi Test PASS
+gpio:gpio250 hi Test PASS
+gpio:gpio251 hi Test PASS
+gpio:gpio248 hi Test PASS
+gpio:gpio249 hi Test PASS
+gpio219: out->1
+gpio220: out->1
+gpio221: out->1
+gpio237: out->1
+gpio250: out->1
+gpio251: out->1
+gpio248: out->1
+gpio249: out->1
+Result:
+PASS
+Result end

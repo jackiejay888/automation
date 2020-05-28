@@ -1,0 +1,9 @@
+MSG:
+Test_Item: boot_animation_check
+ test_type: CloseLoop
+MSG end
+no cust boot_animation! 
+
+Result:
+PASS
+Result end

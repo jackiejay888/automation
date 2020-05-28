@@ -1,0 +1,17 @@
+MSG:
+Test_Item: usb_info hardware
+ test_type: CloseLoop
+MSG end
+no usb card mounted
+
+Disk /dev/block/sdb: 31.0 GB, 31037849600 bytes
+255 heads, 63 sectors/track, 3773 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+         Device Boot      Start         End      Blocks  Id System
+/dev/block/sdb1   *           1        3774    30309376   7 HPFS/NTFS
+No input USB3 device node
+No input USB4 device node
+Result:
+FAIL
+Result end

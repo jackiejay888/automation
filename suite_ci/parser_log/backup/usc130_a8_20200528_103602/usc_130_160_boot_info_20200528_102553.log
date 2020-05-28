@@ -1,0 +1,16 @@
+MSG:
+Test_Item: boot_info hardware
+ test_type: CloseLoop
+MSG end
+system boot from emmc
+ ro.boot.hardware:  rk30board
+ ro.boot.console:  ttyFIQ0
+ ro.boot.selinux:  permissive
+ ro.build.version.incremental:  142514
+ ro.build.version.release:  8.1.0
+ ro.build.version.sdk:  27
+ ro.build.version.security_patch: 
+ ro.build.type:  userdebug
+Result:
+PASS
+Result end

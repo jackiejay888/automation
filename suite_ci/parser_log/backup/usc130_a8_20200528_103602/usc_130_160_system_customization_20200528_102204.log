@@ -1,0 +1,9 @@
+MSG:
+Test_Item: system_customization
+ test_type: CloseLoop
+MSG end
+no system_customization! 
+
+Result:
+PASS
+Result end

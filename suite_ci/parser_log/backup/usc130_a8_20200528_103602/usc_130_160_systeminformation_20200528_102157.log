@@ -1,0 +1,17 @@
+MSG:
+Test_Item: systeminformation hardware
+ test_type: CloseLoop
+MSG end
+usc_130_160 System Information
+=============================================
+Model Number : usc_130_160
+Android Version : 8.1.0
+BuildNumber : usc_130_160-userdebug 8.1.0 OPM8.20191206 142514 test-keys
+Eth0 Mac Address : 42:82:2d:4c:3d:c2
+wlan0 Mac Address : 
+DDR3 Memory total size : 2046248 (KB)
+USER space : 
+=============================================
+Result:
+FAIL
+Result end
