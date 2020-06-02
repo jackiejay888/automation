@@ -54,7 +54,7 @@ class testtool(object):
 
 	def log_export(self, device_check_value):
 		try:
-			# 把 Disable 的 .sh 存入 project_name.log
+			# 把 Enable 的 .sh 存入 project_name.log
 			for sh in range(len(device_check_value)):
 				self.adb_shell_cmd('\"cd /data/testtool; ls ' + device_check_value[sh] + '.sh\"' + ' >> project_name.log')
 
@@ -123,6 +123,22 @@ class testtool(object):
 		except Exception as e:
 			raise e
 
+	def log_export_py(self, device_check_py_value):
+		os.system('del /f /q testtool\\*.bat')
+		if device_check_py_value != []:
+			for py in range(len(device_check_py_value)):
+				# 判斷有幾個 key 並且透過 config.get 出 value
+				total_value = ''
+				for p in range(len(parameter_setting.options(device_check_py_value[py]))):  # 判斷有幾個 key
+					value = parameter_setting.get(device_check_py_value[py], parameter_setting.options(
+								device_check_py_value[py])[p])  # 取出指定的 key value
+					total_value += ' ' + value
+				# print(total_value)
+				os.system('echo testtool\\' + device_check_py_value[py] + '.pyc' + total_value + ' >> testtool\\py.bat')
+		else:
+			pass	
+		os.system('testtool\\py.bat')
+
 	def finddevices_set(self):
 		try:
 			adb_ouput = check_output(["adb", "devices"])
@@ -156,5 +172,7 @@ if __name__ == '__main__':
 		device_check = Device_check()
 		device_check_value = device_check.verify()
 		testtool.log_export(device_check_value)
+		device_check_py_value = device_check.verify_py()
+		testtool.log_export_py(device_check_py_value)
 	except Exception as e:
 		raise e

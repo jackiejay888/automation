@@ -1,0 +1,8 @@
+MSG:
+Test_Item: sd_info hardware
+ test_type: CloseLoop
+MSG end
+no sd card mounted
+Result:
+FAIL
+Result end

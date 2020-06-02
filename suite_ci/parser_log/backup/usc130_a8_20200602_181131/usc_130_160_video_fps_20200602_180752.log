@@ -1,0 +1,10 @@
+MSG:
+Test_Item: video_fps hardware
+ test_type: CloseLoop
+MSG end
+Result:
+MSG: true
+Max_fps: 57
+Min_fps: 1
+PASS
+Result end
