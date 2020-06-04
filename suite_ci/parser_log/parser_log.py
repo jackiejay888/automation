@@ -158,7 +158,7 @@ class parser_log(object):
 			pd.set_option('display.width', 1000)
 			pd.set_option('colheader_justify', 'left')
 			df = pd.read_csv('summary_' + timer + '.csv')
-			df.to_html('summary_' + timer + '.html', encoding = 'utf-8', index = False)
+			df.to_html('summary_' + timer + '.html', index = False)
 			#-------------#
 			# ADB push the file to devices
 			os.system('adb push ' + 'report_' + timer + '.txt' +
