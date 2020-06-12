@@ -1,0 +1,47 @@
+MSG:
+Test_Item: mem_info hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end
+MemTotal:        2046248 kB
+MemFree:          928192 kB
+MemAvailable:    1603920 kB
+Buffers:            3432 kB
+Cached:           670964 kB
+SwapCached:            0 kB
+Active:           565876 kB
+Inactive:         344896 kB
+Active(anon):     238932 kB
+Inactive(anon):    43380 kB
+Active(file):     326944 kB
+Inactive(file):   301516 kB
+Unevictable:         256 kB
+Mlocked:             256 kB
+HighTotal:       1564672 kB
+HighFree:         858600 kB
+LowTotal:         481576 kB
+LowFree:           69592 kB
+SwapTotal:       1023120 kB
+SwapFree:        1023120 kB
+Dirty:                28 kB
+Writeback:             0 kB
+AnonPages:        236608 kB
+Mapped:           294264 kB
+Shmem:             45964 kB
+Slab:             131080 kB
+SReclaimable:     102612 kB
+SUnreclaim:        28468 kB
+KernelStack:        6584 kB
+PageTables:        14440 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2046244 kB
+Committed_AS:   29416436 kB
+VmallocTotal:     499712 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+CmaTotal:          16384 kB
+CmaFree:           15036 kB

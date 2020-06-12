@@ -1,0 +1,7 @@
+MSG:
+Test_Item: audio_speaker hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end

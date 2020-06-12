@@ -1,0 +1,16 @@
+MSG:
+Test_Item: sd_info hardware
+ test_type: CloseLoop
+MSG end
+
+Disk /dev/block/mmcblk0: 8068 MB, 8068792320 bytes
+255 heads, 63 sectors/track, 980 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+              Device Boot      Start         End      Blocks  Id System
+/dev/block/mmcblk0p1               1         981     7873349   c Win95 FAT32 (LBA)
+Partition 1 has different physical/logical endings:
+     phys=(979, 254, 63) logical=(980, 48, 36)
+Result:
+PASS
+Result end

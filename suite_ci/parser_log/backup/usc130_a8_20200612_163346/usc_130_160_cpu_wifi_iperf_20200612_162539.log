@@ -1,0 +1,28 @@
+MSG:
+Test_Item: cpu_wifi_iperf hardware
+ test_type: CloseLoop
+MSG end
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  600 KByte (WARNING: requested  300 KByte)
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to 192.168.31.174, TCP port 5001
+TCP window size:  600 KByte (WARNING: requested  300 KByte)
+------------------------------------------------------------
+[  5] local 192.168.31.201 port 48290 connected with 192.168.31.174 port 5001
+[  4] local 192.168.31.201 port 5001 connected with 192.168.31.174 port 54861
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 5.0 sec  55.1 MBytes  92.5 Mbits/sec
+[  5]  0.0- 5.0 sec  13.4 MBytes  22.4 Mbits/sec
+[  5]  5.0-10.0 sec  12.8 MBytes  21.4 Mbits/sec
+[  4]  5.0-10.0 sec  56.6 MBytes  95.0 Mbits/sec
+[  5] 10.0-15.0 sec  13.1 MBytes  22.0 Mbits/sec
+[  4] 10.0-15.0 sec  56.1 MBytes  94.1 Mbits/sec
+[  4] 15.0-20.0 sec  56.4 MBytes  94.6 Mbits/sec
+[  5] 15.0-20.0 sec  13.2 MBytes  22.2 Mbits/sec
+[  5]  0.0-20.1 sec  52.6 MBytes  22.0 Mbits/sec
+[  4]  0.0-20.0 sec   225 MBytes  94.1 Mbits/sec
+Result:
+PASS
+Result end

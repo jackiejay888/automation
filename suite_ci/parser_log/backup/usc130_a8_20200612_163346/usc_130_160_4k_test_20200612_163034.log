@@ -1,0 +1,7 @@
+MSG:
+Test_Item: 4k_test hardware
+ test_type: CloseLoop
+MSG end
+Result:
+PASS
+Result end

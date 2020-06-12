@@ -1,0 +1,21 @@
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  300 KByte
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to 192.168.31.201, TCP port 5001
+TCP window size:  300 KByte
+------------------------------------------------------------
+[  4] local 192.168.31.174 port 55522 connected with 192.168.31.201 port 5001
+[  5] local 192.168.31.174 port 5001 connected with 192.168.31.201 port 48294
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 5.0 sec  55.9 MBytes  93.7 Mbits/sec
+[  5]  0.0- 5.0 sec  43.6 MBytes  73.1 Mbits/sec
+[  4]  5.0-10.0 sec  55.6 MBytes  93.3 Mbits/sec
+[  5]  5.0-10.0 sec  44.1 MBytes  74.0 Mbits/sec
+[  4] 10.0-15.0 sec  55.9 MBytes  93.7 Mbits/sec
+[  5] 10.0-15.0 sec  44.5 MBytes  74.7 Mbits/sec
+[  4] 15.0-20.0 sec  55.9 MBytes  93.7 Mbits/sec
+[  4]  0.0-20.0 sec   223 MBytes  93.6 Mbits/sec
+[  5]  0.0-20.0 sec   176 MBytes  74.1 Mbits/sec
+PASS 
