@@ -1,9 +1,0 @@
-MSG:
-Test_Item: androiddm_version
- test_type: CloseLoop
-MSG end
-no support AndroidDM! 
-
-Result:
-PASS
-Result end

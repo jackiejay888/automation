@@ -1,8 +1,0 @@
-MSG:
-Test_Item: gpio_key hardware
- test_type: CloseLoop
-MSG end
-/sys/devices/platform/gpio-keys/input/input0
-Result:
-PASS
-Result end

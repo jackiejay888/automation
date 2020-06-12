@@ -1,8 +1,0 @@
-MSG:
-Test_Item: usb_otg_info hardware
- test_type: CloseLoop
-MSG end
-no usb card mounted
-Result:
-FAIL
-Result end

@@ -1,9 +1,0 @@
-MSG:
-Test_Item: display_info hardware
- test_type: CloseLoop
-MSG end
- display size is  1366x768
- display density is  160
-Result:
-PASS
-Result end
