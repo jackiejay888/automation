@@ -52,11 +52,31 @@ class testtool(object):
 		except Exception as e:
 			raise e
 
-	def log_export(self, device_check_value):
+	def adb_shell_split(self, j):
+		# 如果 adb shell 做字串處理
+		if j is not False:
+			read_list_content = list()
+			with open('project_name.log', 'r', encoding='utf-8') as project_name:
+				read = project_name.read()
+				read_list = read.split('\n')
+				# print(read_list)
+				for space in range(len(read_list)):
+					if read_list[space] == '':
+						pass
+					else:
+						read_list_content.append(read_list[space])
+			# print(read_list_content)
+			with open('project_name.log', 'w', encoding='utf-8') as project_name:
+				for times in range(len(read_list_content)):
+					project_name.write(read_list_content[times] + '\n')
+
+	def log_export(self, device_check_value, j):
 		try:
 			# 把 Enable 的 .sh 存入 project_name.log
 			for sh in range(len(device_check_value)):
 				self.adb_shell_cmd('\"cd /data/testtool; ls ' + device_check_value[sh] + '.sh\"' + ' >> project_name.log')
+
+			self.adb_shell_split(j)
 
 			project_name_open = open('project_name.log', 'r', encoding='utf-8')
 			project_name = project_name_open.read().split('\n')  # 讀出 project_name.log 的名稱 (xxx.sh)
@@ -111,6 +131,8 @@ class testtool(object):
 
 			self.adb_shell_cmd(
 				'\"cd /data/testtool; ls *.log\"' + ' > project_name.log')
+
+			self.adb_shell_split(j)
 
 			project_name = (open('project_name.log', 'r', encoding='utf-8').read()).split('\n')
 			for loop in range(len(project_name)):
@@ -171,7 +193,7 @@ if __name__ == '__main__':
 		testtool.adb_shell_cmd('chmod 777 /data/testtool/*')
 		device_check = Device_check()
 		device_check_value = device_check.verify()
-		testtool.log_export(device_check_value)
+		testtool.log_export(device_check_value, j)
 		device_check_py_value = device_check.verify_py()
 		testtool.log_export_py(device_check_py_value)
 	except Exception as e:
