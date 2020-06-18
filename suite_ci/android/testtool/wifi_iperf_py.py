@@ -23,7 +23,7 @@ class wifi_iperf_py(object):
 
 	def iperf_server(self):
 		print('iperf server is starting.')
-		os.system('adb shell iperf -s -i 5')
+		os.system('adb shell /data/testtool/iperf -s -i 5')
 		pass
 
 	def iperf_client(self):
