@@ -25,8 +25,8 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
-   exit 0
+   echo $cpu
+#   exit 0
 fi 
 fi
 fi
@@ -43,8 +43,8 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
-   exit 0
+   echo $android_version
+#   exit 0
 fi 
 fi
 fi
@@ -75,7 +75,12 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
 /data/testtool/stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M --timeout ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+if [ "$cpu" == "sdm660" ] ; then
+echo 'No busybox mpstat information'
+else
  busybox mpstat -P ALL 2 ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
+fi
 
 delaysec=$(($1+5))
 

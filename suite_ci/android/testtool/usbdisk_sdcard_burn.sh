@@ -6,7 +6,7 @@ fifoStr="01234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()"
 no_device=true
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="usbdisk_sdcard_burn"
+fun="usbdisk_sdcard"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #cpu="rk3288"
@@ -26,7 +26,7 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
+   echo $cpu
 #   exit 0
 fi 
 fi 
@@ -44,7 +44,7 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
+   echo $android_version
 #   exit 0
 fi
 fi 
@@ -57,7 +57,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: usbdisk_sdcard_burn'
+echo 'Test_Item: usbdisk_sdcard'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -66,7 +66,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: usbdisk_sdcard_burn hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: usbdisk_sdcard hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else

@@ -25,8 +25,8 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
-   exit 0
+   echo $cpu
+#   exit 0
 fi 
 fi
 fi
@@ -43,8 +43,8 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
-   exit 0
+   echo $android_version
+#   exit 0
 fi 
 fi
 fi
@@ -73,6 +73,21 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
+if [ "$cpu" == "sdm660" ] ; then
+
+MEMSIZE=`cat /proc/meminfo | grep "MemFree:" |  awk {'print $2'}`
+echo "MemFree:" $MEMSIZE "kB"
+echo "MemFree:" $MEMSIZE "kB" >> $log_patch/$project_name"_"$fun"_"$now.log &
+MEMSIZE=` expr $MEMSIZE / 1024 - 100`
+echo "MemTest:" $MEMSIZE  "MB"
+echo "MemTest:" $MEMSIZE  "MB" >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+nohup /data/testtool/memtester $MEMSIZE  >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+memtesterid=`ps -lA | grep "memtester"|  awk '{print $4}'`
+
+else
+
 MEMSIZE=`cat /proc/meminfo | grep "MemFree:" | busybox awk {'print $2'}`
 echo "MemFree:" $MEMSIZE "kB"
 echo "MemFree:" $MEMSIZE "kB" >> $log_patch/$project_name"_"$fun"_"$now.log &
@@ -83,6 +98,8 @@ echo "MemTest:" $MEMSIZE  "MB" >> $log_patch/$project_name"_"$fun"_"$now.log &
 nohup /data/testtool/memtester $MEMSIZE  >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 memtesterid=`ps -lA | grep "memtester"| busybox awk '{print $4}'`
+
+fi
 
 sleep $1
 
