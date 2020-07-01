@@ -45,8 +45,14 @@ class wifi_iperf_py(object):
 		self.iperf_kill_client('iperf.exe')
 
 	def iperf_kill_server(self):
-		iperf_check = 'adb shell \"ps -lA|grep iperf| busybox awk \'{print $4}\'\"'
-		value = os.popen(iperf_check).read().split('\n')[0]
+		cpu_check = 'adb shell getprop ro.board.platform'
+		value = os.popen(cpu_check).read().split('\n')[0]
+		if value == 'sdm660':
+			iperf_check = 'adb shell \"ps -lA | grep iperf | awk \'{print $4}\'\"'
+		else:
+			iperf_check = 'adb shell \"ps -lA | grep iperf | busybox awk \'{print $4}\'\"'
+		if iperf_check:
+			value = os.popen(iperf_check).read().split('\n')[0]
 		try:
 			os.system('adb shell kill ' + str(value))
 			pass
