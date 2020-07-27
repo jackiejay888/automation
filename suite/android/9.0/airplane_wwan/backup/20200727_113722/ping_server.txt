@@ -1,0 +1,14 @@
+------------------------------------------------------------------------------ 
+Cycle Times: 1 
+64 bytes from 192.168.32.1: icmp_seq=1 ttl=64 time=16.2 ms' 
+64 bytes from 192.168.32.1: icmp_seq=2 ttl=64 time=17.8 ms' 
+64 bytes from 192.168.32.1: icmp_seq=3 ttl=64 time=16.4 ms' 
+64 bytes from 192.168.32.1: icmp_seq=4 ttl=64 time=19.3 ms' 
+' 
+--- 192.168.32.1 ping statistics ---' 
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms' 
+rtt min/avg/max/mdev = 16.246/17.472/19.355/1.257 ms' 
+0' 
+The connection is Passed.(PASS) 
+Cycle Times: 1, Passed: 1, Failed: 0 
+Total Cycle Times: 1, Passed: 1, Failed: 0 
