@@ -25,8 +25,8 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
-   exit 0
+   echo $cpu
+#   exit 0
 fi 
 fi
 fi
@@ -43,8 +43,8 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
-   exit 0
+   echo $android_version
+#   exit 0
 fi 
 fi
 fi
@@ -78,26 +78,43 @@ Min_fps=$2
 
 sleep 10
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq`
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq`
 echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo
 echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq`
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq`
 echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo
 echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq`
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq`
 echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo
 echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq`
-echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo
-echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+cpuinfo3=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo3
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo3 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-		if [ $((cpuinfo)) -gt $(($Min_fps)) ] ; then
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+		if [ $((cpuinfo3)) -gt $(($Min_fps)) ] ; then
 		Test_res=false
-		echo "CPU idle mode frequence too high:" $cpuinfo ">" $Min_fps
-		echo "CPU idle mode frequence too high:" $cpuinfo ">" $Min_fps >> $log_patch/$project_name"_"$fun"_"$now.log &
+		echo "CPU idle mode frequence too high:" $cpuinfo3 ">" $Min_fps
+		echo "CPU idle mode frequence too high:" $cpuinfo3 ">" $Min_fps >> $log_patch/$project_name"_"$fun"_"$now.log &
 		fi
 
 /data/testtool/stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M --timeout 10 >> $log_patch/$project_name"_"$fun"_"$now.log &
@@ -106,31 +123,47 @@ echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $lo
 
 sleep 5
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq`
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq`
 echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo
 echo "cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq`
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq`
 echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo
 echo "cat /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq`
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq`
 echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo
 echo "cat /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-cpuinfo=`busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq`
-echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo
-echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+cpuinfo3=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo3
+echo "cat /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq" $cpuinfo3 >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+cpuinfo=`/data/testtool/busybox cat /sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq`
+echo "cat /sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq" $cpuinfo
+echo "cat /sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_cur_freq" $cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
-		if [ $((cpuinfo)) -lt $(($Max_fps)) ] ; then
+		if [ $((cpuinfo3)) -lt $(($Max_fps)) ] ; then
 		Test_res=false
-		echo "CPU loading mode frequence too low:" $cpuinfo "<" $Max_fps
-		echo "CPU loading mode frequence too low:" $cpuinfo "<" $Max_fps >> $log_patch/$project_name"_"$fun"_"$now.log &
+		echo "CPU loading mode frequence too low:" $cpuinfo3 "<" $Max_fps
+		echo "CPU loading mode frequence too low:" $cpuinfo3 "<" $Max_fps >> $log_patch/$project_name"_"$fun"_"$now.log &
 		fi
 
-busybox cat /proc/cpuinfo
-busybox cat /proc/cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/busybox cat /proc/cpuinfo
+/data/testtool/busybox cat /proc/cpuinfo >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
 echo 'Result:'

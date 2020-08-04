@@ -80,10 +80,10 @@ if [ "$android_version" == "6.0.1" ] ; then
   service call bluetooth_manager 8
   service call bluetooth_manager 6
 else
-if [ "$android_version" == "a8" ] ; then
+#if [ "$android_version" == "a8" ] ; then
   svc bluetooth disable
   svc bluetooth enable
-fi
+#fi
 fi 
 fi
 

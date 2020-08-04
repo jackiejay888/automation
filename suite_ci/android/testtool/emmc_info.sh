@@ -25,8 +25,8 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
-   exit 0
+   echo $cpu
+#   exit 0
 fi 
 fi
 fi
@@ -43,8 +43,8 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
-   exit 0
+   echo $android_version
+#   exit 0
 fi 
 fi
 fi
@@ -73,10 +73,10 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-busybox busybox fdisk -l /dev/block/mmcblk1
-busybox busybox fdisk -l /dev/block/mmcblk1 >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/busybox fdisk -l /dev/block/mmcblk0
+/data/testtool/busybox fdisk -l /dev/block/mmcblk0 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-sdinfo=`busybox fdisk -l /dev/block/mmcblk1 |grep GB |busybox awk '{print $5}'`
+sdinfo=`/data/testtool/busybox fdisk -l /dev/block/mmcblk0 |grep GB |/data/testtool/busybox awk '{print $5}'`
 
 		if [ $((sdinfo)) -lt $(($1)) ] ; then
 		Test_res=false

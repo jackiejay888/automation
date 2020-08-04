@@ -24,7 +24,7 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
+   echo $cpu
 #   exit 0
 fi 
 fi 
@@ -42,7 +42,7 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
+   echo $android_version
 #   exit 0
 fi
 fi 
@@ -73,12 +73,12 @@ fi
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 svc wifi enable
-busybox ifconfig eth0  down
+/data/testtool/busybox  ifconfig eth0  down
 sync
 sleep 3
 #netcfg   
 
-MACaddress=`ifconfig wlan0 | busybox awk 'NR==1{print $5}'`
+MACaddress=`ifconfig wlan0 | /data/testtool/busybox  awk 'NR==1{print $5}'`
 if [ "$MACaddress" == "00:00:00:00:00:00" ] || [ "$MACaddress" == "FF:FF:FF:FF:FF:FF" ] ; 
 then
   Test_res=false
@@ -98,7 +98,7 @@ if [ "$Test_res" == "true" ] ; then
   while [ $(($netCount)) -le 10 ]&&[ "${IP_ADDRESS}" == "" ]
   do
      sleep 5
-    IP_ADDRESS=` ifconfig wlan0 | busybox awk '/inet addr/{print substr($2,6)}'`
+    IP_ADDRESS=` ifconfig wlan0 | /data/testtool/busybox  awk '/inet addr/{print substr($2,6)}'`
     netCount=$(($netCount+1))			
   done 
   echo $IP_ADDRESS

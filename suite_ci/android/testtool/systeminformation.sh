@@ -47,7 +47,7 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
+   echo $cpu
 #   exit 0
 fi 
 fi 
@@ -65,7 +65,7 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
+   echo $android_version
 #   exit 0
 fi
 fi 
@@ -120,16 +120,24 @@ then
   TestMSG="BuildNumber FAIL"
 fi
 
+if [ "$project_name" == "ATC32E" ] ; then
+
+Eth0Mac="No ethernet"
+  TestMSG="No ethernet"
+    echo "Yuming test"
+else
 #Eth0Mac=`netcfg |grep eth0|awk '{print $5}'`
-Eth0Mac=`ifconfig | grep eth0 | busybox  awk '{print $5}'`
+Eth0Mac=`ifconfig | grep eth0 | /data/testtool/busybox  awk '{print $5}'`
 if [ "$Eth0Mac" == "00:00:00:00:00:00" ] || [ "$Eth0Mac" == "FF:FF:FF:FF:FF:FF" ] || [ "$Eth0Mac" == "" ] ; 
 then
   Test_res=false
   TestMSG="Eth0Mac FAIL"
+
+fi 
 fi
 
 #wlan0Mac=`netcfg |grep wlan0|awk '{print $5}'`
-wlan0Mac=`ifconfig | grep wlan0 | busybox  awk '{print $5}'`
+wlan0Mac=`ifconfig | grep wlan0 | /data/testtool/busybox  awk '{print $5}'`
 if [ "$wlan0Mac" == "00:00:00:00:00:00" ] || [ "$wlan0Mac" == "FF:FF:FF:FF:FF:FF" ] || [ "$wlan0Mac" == "" ]; 
 then
   Test_res=false
@@ -138,16 +146,16 @@ fi
 
 #BTMAC=`settings get secure bluetooth_address`
 #BTMAC=`cat /data/bluetooth/bt_mac`
-SysMemorysize=`cat /proc/meminfo | grep MemTotal: | busybox awk '{print substr($2,0)}'`
+SysMemorysize=`cat /proc/meminfo | grep MemTotal: | /data/testtool/busybox awk '{print substr($2,0)}'`
 
 
 if [ "$android_version" == "a6" ] ; then
-eMMCFreeSpace=`df | grep /data | busybox awk '{print substr($2,0) }'`
+eMMCFreeSpace=`df | grep /data | /data/testtool/busybox awk '{print substr($4,0) }'`
 else
-if [ "$android_version" == "a8" ] ; then
-eMMCFreeSpace=`df | grep /data/media | busybox awk '{print substr($2,0) }'`
+#if [ "$android_version" == "a8" ] ; then
+eMMCFreeSpace=`df | grep /data/media | /data/testtool/busybox awk '{print substr($4,0) }'`
 
-fi 
+#fi 
 fi
 
 

@@ -22,7 +22,7 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
+   echo $cpu
 #   exit 0
 fi 
 fi 
@@ -40,7 +40,7 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
+   echo $android_version
 #   exit 0
 fi
 fi 
@@ -82,6 +82,12 @@ else
 if [ "$1" == "2394" ] ; then
 lsusb | grep 2394
 lsusb | grep 2394 >> $log_patch/$project_name"_"$fun"_"$now.log &
+else
+if [ "$1" == "msm-sensor" ] ; then
+echo msm-sensor
+echo msm-sensor >> $log_patch/$project_name"_"$fun"_"$now.log &
+
+fi
 
 fi
 fi 
@@ -92,10 +98,14 @@ CAMERA=`cat /sys/class/video4linux/video0/name`
 echo $CAMERA
 echo $CAMERA >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-CAMERA2=`cat /sys/class/video4linux/video0/name | busybox awk '{print $1}' `
+if [ "$1" == "msm-sensor" ] ; then
+CAMERA2=`cat /sys/class/video4linux/video3/name | /data/testtool/busybox awk '{print $1}' `
+else
+CAMERA2=`cat /sys/class/video4linux/video0/name | /data/testtool/busybox awk '{print $1}' `
+fi
 #echo $CAMERA2
 
-if [ -z $CAMERA2 ] ; then
+if [ "$1" != "$CAMERA2" ] ; then
 Test_res=false
 fi
 

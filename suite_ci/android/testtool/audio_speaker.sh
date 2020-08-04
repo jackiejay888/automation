@@ -1,5 +1,5 @@
 OpenLoop=false
-Test_res=false
+Test_res=true
 TestMSG=" "
 
 now="$(date +'%Y%m%d_%H%M%S')"
@@ -23,7 +23,7 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
+   echo $cpu
 #   exit 0
 fi 
 fi
@@ -41,7 +41,7 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
+   echo $android_version
 #   exit 0
 fi
 fi 
@@ -73,40 +73,48 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 
 audio_Recode_rk(){
-tinymix 58 1
-tinyplay /data/testtool/LRAudio.wav
+#tinymix 58 1
+#tinyplay /data/testtool/LRAudio.wav
+
+am start -a android.intent.action.VIEW -d file:///data/testtool/LRAudio.wav -t video/wav
+
+sleep 15
 }
 
 audio_Recode_imx(){
 #tinymix 58 1
-tinyplay /data/testtool/LRAudio.wav
+#tinyplay /data/testtool/LRAudio.wav
+am start -a android.intent.action.VIEW -d file:///data/testtool/LRAudio.wav -t video/wav
+
+sleep 15
 }
 
-if [ $(($AudioCount)) -lt 10 ] ; then
+#if [ $(($AudioCount)) -lt 10 ] ; then
 
-if [ "$cpu" == "imx6" ] ; then
-  audio_Recode_imx&
+#if [ "$cpu" == "imx6" ] ; then
+#  audio_Recode_imx&
 
-else
-if [ "$cpu" == "rk3288" ] ; then
-  audio_Recode_rk&
+#else
+#if [ "$cpu" == "rk3288" ] ; then
+#  audio_Recode_rk&
+audio_Recode_rk&
+sleep 10
 
+#fi 
+#fi
 
-fi 
-fi
-
-sleep 5
-ProcessID=`ps|grep tinyplay |busybox awk '{print $2}'`
+#sleep 5
+#ProcessID=`ps|grep tinyplay |/data/testtool/busybox awk '{print $2}'`
 #echo  $ProcessID
-kill -2 $ProcessID
+#kill -2 $ProcessID
 
-if [ $(($ProcessID)) -gt 0 ] ; then
-Test_res=true
-fi
+#if [ $(($ProcessID)) -gt 0 ] ; then
+#Test_res=true
+#fi
 
 sleep 1
 
-fi
+#fi
 
 
 echo 'Result:'

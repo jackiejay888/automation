@@ -25,8 +25,8 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
-   exit 0
+   echo $cpu
+#   exit 0
 fi 
 fi
 fi
@@ -43,8 +43,8 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
-   exit 0
+   echo $android_version
+#   exit 0
 fi 
 fi
 fi
@@ -97,7 +97,7 @@ panel_test() {
 panel_test
 sleep 5
 
-am start -a android.intent.action.VIEW -d file:////data/testtool/2160p_60fps.mp4 -t video/mp4
+am start -a android.intent.action.VIEW -d file:///data/testtool/2160p_60fps.mp4 -t video/mp4
 
 		#echo "/data/testtool/2160p_60fps.mp4"
 		#echo "/data/testtool/2160p_60fps.mp4"  >> $log_patch/$project_name"_"$fun"_"$now.log &

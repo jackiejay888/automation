@@ -25,8 +25,8 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
-   exit 0
+   echo $cpu
+#   exit 0
 fi 
 fi
 fi
@@ -43,8 +43,8 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
-   exit 0
+   echo $android_version
+#   exit 0
 fi 
 fi
 fi
@@ -75,10 +75,10 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 if [ -n  "$1" ] ; then
 
-busybox busybox fdisk -l $1
-busybox busybox fdisk -l $1 >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/busybox fdisk -l $1
+/data/testtool/busybox fdisk -l $1 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-sdinfo=`busybox fdisk -l $1 |grep Disk |busybox awk '{print $5}'`
+sdinfo=`/data/testtool/busybox fdisk -l $1 |grep Disk | /data/testtool/busybox awk '{print $5}'`
 
 		if [ -z  "$sdinfo" ] ; then
 		Test_res=false
@@ -93,10 +93,10 @@ fi
 
 if [ -n  "$2" ] ; then
 
-busybox busybox fdisk -l $2
-busybox busybox fdisk -l $2 >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/busybox fdisk -l $2
+/data/testtool/busybox fdisk -l $2 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-sdinfo=`busybox fdisk -l $2 |grep Disk |busybox awk '{print $5}'`
+sdinfo=`/data/testtool/busybox fdisk -l $2 |grep Disk |/data/testtool/busybox awk '{print $5}'`
 
 		if [ -z  "$sdinfo" ] ; then
 		Test_res=false
@@ -111,10 +111,10 @@ fi
 
 if [ -n  "$3" ] ; then
 
-busybox busybox fdisk -l $3
-busybox busybox fdisk -l $3 >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/busybox fdisk -l $3
+/data/testtool/busybox fdisk -l $3 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-sdinfo=`busybox fdisk -l $3 |grep Disk |busybox awk '{print $5}'`
+sdinfo=`/data/testtool/busybox fdisk -l $3 |grep Disk |/data/testtool/busybox awk '{print $5}'`
 
 		if [ -z  "$sdinfo" ] ; then
 		Test_res=false
@@ -129,10 +129,10 @@ fi
 
 if [ -n  "$4" ] ; then
 
-busybox busybox fdisk -l $4
-busybox busybox fdisk -l $4 >> $log_patch/$project_name"_"$fun"_"$now.log &
+/data/testtool/busybox fdisk -l $4
+/data/testtool/busybox fdisk -l $4 >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-sdinfo=`busybox fdisk -l $4 |grep Disk |busybox awk '{print $5}'`
+sdinfo=`/data/testtool/busybox fdisk -l $4 |grep Disk |/data/testtool/busybox awk '{print $5}'`
 
 		if [ -z  "$sdinfo" ] ; then
 		Test_res=false

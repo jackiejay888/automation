@@ -1,9 +1,10 @@
 OpenLoop=false
-Test_res=false
+Test_res=true
 TestMSG=" "
+PINGHOST="www.hinet.net"
 
 now="$(date +'%Y%m%d_%H%M%S')"
-fun="backlight"
+fun="wwan0"
 #project_name="usc130_a8"
 project_name=`getprop ro.build.product`
 #cpu="rk3288"
@@ -23,10 +24,10 @@ else
 if [ "$cpu" == "gmin" ] ; then
    echo 'gmin'
 else
-   echo 'Not support cpu'
+   echo $cpu
 #   exit 0
 fi 
-fi
+fi 
 fi
 #check support cpu
 
@@ -41,7 +42,7 @@ else
 if [ "$android_version" == "6.0.1" ] ; then
    echo '6.0.1'
 else
-   echo 'Not support android version'
+   echo $android_version
 #   exit 0
 fi
 fi 
@@ -54,7 +55,7 @@ fi
 #check support device
 
 echo 'MSG:'
-echo 'Test_Item: backlight'
+echo 'Test_Item: wwan0'
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop'
 else
@@ -63,7 +64,7 @@ fi
 echo 'MSG end'
 
 echo 'MSG:' >> $log_patch/$project_name"_"$fun"_"$now.log
-echo 'Test_Item: backlight hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
+echo 'Test_Item: wwan0 hardware' >> $log_patch/$project_name"_"$fun"_"$now.log &
 if [ "$OpenLoop" == "true" ] ; then
 echo ' test_type: OpenLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
@@ -71,50 +72,53 @@ echo ' test_type: CloseLoop' >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
+#svc wifi enable
+#busybox ifconfig eth0  down
+#sync
+#sleep 3
+#netcfg   
 
+MACaddress=`ifconfig wwan0 | /data/testtool/busybox awk 'NR==1{print $5}'`
+if [ "$MACaddress" == "00:00:00:00:00:00" ] || [ "$MACaddress" == "FF:FF:FF:FF:FF:FF" ] ; 
+then
+  Test_res=false
+  TestMSG="MAC ID FAIL"
+fi
+echo $MACaddress
+echo $MACaddress >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-  Lvds_brightness_imx="/sys/devices/soc0/pwm-backlight/backlight/pwm-backlight/brightness"
-  Lvds_brightness_rk="/sys/devices/platform/backlight/backlight/backlight/brightness"
-  Lvds_brightness_x86="/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-DSI-1/intel_backlight/brightness"
-  Lvds_brightness_qual="/sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d800/leds/wled/brightness"
-
-if [ "$cpu" == "imx6" ] ; then
-  Lvds_brightness=$Lvds_brightness_imx
-else
-if [ "$cpu" == "rk3288" ] ; then
-  Lvds_brightness=$Lvds_brightness_rk
-else
-if [ "$cpu" == "gmin" ] ; then
-  Lvds_brightness=$Lvds_brightness_x86
-else
-if [ "$cpu" == "sdm660" ] ; then
-  Lvds_brightness=$Lvds_brightness_qual
-fi 
-fi 
-fi 
+if [ "$MACaddress" == "" ];  then
+   Test_res=false
+   TestMSG="MAC ID FAIL"
 fi
 
-CURBrightness=0
-brightness_test() {
-	CURBrightness=$(cat $Lvds_brightness)
-	#echo $CURBrightness
-	loop1=0
-	while [ $(($loop1)) -le 100 ];
-	do
-	    loop1=$(($loop1 +10))
-		echo $loop1 > $Lvds_brightness
-		#echo $loop1
-		sleep 1
-	done	
-	echo $CURBrightness > $Lvds_brightness
-	#echo $CURBrightness
-}
+if [ "$Test_res" == "true" ] ; then
+  IP_ADDRESS=""
+  netCount=0
+  while [ $(($netCount)) -le 10 ]&&[ "${IP_ADDRESS}" == "" ]
+  do
+     sleep 5
+    IP_ADDRESS=` ifconfig wwan0 | /data/testtool/busybox  awk '/inet addr/{print substr($2,6)}'`
+    netCount=$(($netCount+1))			
+  done 
+  echo $IP_ADDRESS
+  echo $IP_ADDRESS >> $log_patch/$project_name"_"$fun"_"$now.log &
+  
+   if [ $(($netCount)) -lt 10 ] ; then
+		PingData=""		
+		PingData=`ping -c 5 $PINGHOST | grep time=`
+		dumpsys | grep "wwan0"
 
-brightness_test
 
-if [ "$?" == "0" ] ; then
-  Test_res=true
-fi
+		if [ "${PingData}" == "" ]; then
+			 TestMSG="Wlan0 Ping test FAIL"
+			 Test_res=false
+		fi    		
+  else
+    TestMSG="Wlan0 get IP FAIL"
+    Test_res=false
+   fi 
+fi 
 
 echo 'Result:'
 if [ "$OpenLoop" == "true" ] ; then
@@ -124,6 +128,7 @@ if [ "$Test_res" == "true" ] ; then
    echo 'PASS'
 else
    echo 'FAIL'
+   echo $TestMSG
 fi 
 fi
 echo 'Result end'
@@ -136,7 +141,7 @@ if [ "$Test_res" == "true" ] ; then
    echo 'PASS' >> $log_patch/$project_name"_"$fun"_"$now.log &
 else
    echo 'FAIL' >> $log_patch/$project_name"_"$fun"_"$now.log &
+   echo $TestMSG >> $log_patch/$project_name"_"$fun"_"$now.log &
 fi 
 fi
 echo 'Result end' >> $log_patch/$project_name"_"$fun"_"$now.log &
-

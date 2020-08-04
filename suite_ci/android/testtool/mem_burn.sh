@@ -75,7 +75,7 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 if [ "$cpu" == "sdm660" ] ; then
 
-MEMSIZE=`cat /proc/meminfo | grep "MemFree:" |  awk {'print $2'}`
+MEMSIZE=`cat /proc/meminfo | grep "MemFree:" | /data/testtool/busybox  awk {'print $2'}`
 echo "MemFree:" $MEMSIZE "kB"
 echo "MemFree:" $MEMSIZE "kB" >> $log_patch/$project_name"_"$fun"_"$now.log &
 MEMSIZE=` expr $MEMSIZE / 1024 - 100`
@@ -84,20 +84,20 @@ echo "MemTest:" $MEMSIZE  "MB" >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 nohup /data/testtool/memtester $MEMSIZE  >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-memtesterid=`ps -lA | grep "memtester"|  awk '{print $4}'`
+memtesterid=`ps -lA | grep "memtester"|  /data/testtool/busybox  awk '{print $4}'`
 
 else
 
-MEMSIZE=`cat /proc/meminfo | grep "MemFree:" | busybox awk {'print $2'}`
+MEMSIZE=`cat /proc/meminfo | grep "MemFree:" | /data/testtool/busybox  awk {'print $2'}`
 echo "MemFree:" $MEMSIZE "kB"
 echo "MemFree:" $MEMSIZE "kB" >> $log_patch/$project_name"_"$fun"_"$now.log &
-MEMSIZE=`busybox expr $MEMSIZE / 1024 - 100`
+MEMSIZE=`/data/testtool/busybox  expr $MEMSIZE / 1024 - 100`
 echo "MemTest:" $MEMSIZE  "MB"
 echo "MemTest:" $MEMSIZE  "MB" >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 nohup /data/testtool/memtester $MEMSIZE  >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-memtesterid=`ps -lA | grep "memtester"| busybox awk '{print $4}'`
+memtesterid=`ps -lA | grep "memtester"| /data/testtool/busybox  awk '{print $4}'`
 
 fi
 
