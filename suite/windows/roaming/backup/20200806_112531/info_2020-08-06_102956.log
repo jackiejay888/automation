@@ -1,0 +1,575 @@
+2020-08-06 10:29:56,417 - INFO : Verify the test cases of Repeater Mode should be worked after the repeater is interrupted.
+2020-08-06 10:30:06,253 - INFO : Cycle : 1
+2020-08-06 10:30:06,253 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:30:06,253 - INFO : A switch to B.
+2020-08-06 10:30:06,253 - WARNING : Start time is: Thu Aug  6 10:30:06 2020
+2020-08-06 10:30:15,828 - WARNING : Catch the login filed.
+2020-08-06 10:30:15,844 - WARNING : End time: Thu Aug  6 10:30:15 2020
+2020-08-06 10:30:15,844 - INFO : The AP is switch to other.
+2020-08-06 10:30:15,844 - INFO : The browser is opened.
+2020-08-06 10:30:26,107 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:30:26,312 - WARNING : Start time is: Thu Aug  6 10:30:26 2020
+2020-08-06 10:30:34,902 - WARNING : The start time of ip address catched : 2020-08-06 10:30:30.869123
+2020-08-06 10:30:34,904 - INFO : The Repeater is already reboot.
+2020-08-06 10:30:34,904 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:30:35,060 - INFO : The browser is Closed.
+2020-08-06 10:30:35,341 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:30:46,666 - WARNING : Catch the login filed.
+2020-08-06 10:30:46,666 - WARNING : End time: Thu Aug  6 10:30:46 2020
+2020-08-06 10:30:46,666 - INFO : The AP is switch to other.
+2020-08-06 10:30:46,666 - WARNING : The interval time is 20 seconds.
+2020-08-06 10:30:46,666 - INFO : The browser is opened.
+2020-08-06 10:31:08,323 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:31:08,354 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:31:08,519 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:31:08,669 - INFO : The browser is Closed.
+2020-08-06 10:31:08,841 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:32:48,855 - INFO : The AP is rebooted.
+2020-08-06 10:32:48,855 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:32:48,855 - INFO : B switch to A.
+2020-08-06 10:32:48,855 - WARNING : Start time is: Thu Aug  6 10:32:48 2020
+2020-08-06 10:32:58,180 - WARNING : Catch the login filed.
+2020-08-06 10:32:58,180 - WARNING : End time: Thu Aug  6 10:32:58 2020
+2020-08-06 10:32:58,181 - INFO : The AP is switch to other.
+2020-08-06 10:32:58,181 - INFO : The browser is opened.
+2020-08-06 10:33:13,596 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:33:13,627 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:33:13,785 - WARNING : Start time is: Thu Aug  6 10:33:13 2020
+2020-08-06 10:33:23,466 - WARNING : The start time of ip address catched : 2020-08-06 10:33:19.433946
+2020-08-06 10:33:23,467 - INFO : The Repeater is already reboot.
+2020-08-06 10:33:23,467 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:33:23,651 - INFO : The browser is Closed.
+2020-08-06 10:33:23,839 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:33:24,307 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 10:33:24,307 - INFO : The end time of ip address catched : 2020-08-06 10:33:24.307652
+2020-08-06 10:33:24,307 - INFO : The interval time of swith to repeater is 4.873706 seconds.
+2020-08-06 10:33:32,358 - WARNING : Catch the login filed.
+2020-08-06 10:33:32,358 - WARNING : End time: Thu Aug  6 10:33:32 2020
+2020-08-06 10:33:32,358 - INFO : The AP is switch to other.
+2020-08-06 10:33:32,358 - WARNING : The interval time is 18 seconds.
+2020-08-06 10:33:32,358 - INFO : The browser is opened.
+2020-08-06 10:33:53,917 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:33:54,121 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:33:54,261 - INFO : The browser is Closed.
+2020-08-06 10:33:54,433 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:35:34,449 - INFO : The AP is rebooted.
+2020-08-06 10:35:34,449 - INFO : Cycle : 2
+2020-08-06 10:35:34,449 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:35:34,449 - INFO : A switch to B.
+2020-08-06 10:35:34,449 - WARNING : Start time is: Thu Aug  6 10:35:34 2020
+2020-08-06 10:35:45,776 - WARNING : Catch the login filed.
+2020-08-06 10:35:45,776 - WARNING : End time: Thu Aug  6 10:35:45 2020
+2020-08-06 10:35:45,776 - INFO : The AP is switch to other.
+2020-08-06 10:35:45,776 - INFO : The browser is opened.
+2020-08-06 10:35:57,969 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:35:58,167 - WARNING : Start time is: Thu Aug  6 10:35:58 2020
+2020-08-06 10:36:05,908 - WARNING : The start time of ip address catched : 2020-08-06 10:36:01.876227
+2020-08-06 10:36:05,909 - INFO : The Repeater is already reboot.
+2020-08-06 10:36:05,910 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:36:06,088 - INFO : The browser is Closed.
+2020-08-06 10:36:06,260 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:36:07,865 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 10:36:07,865 - INFO : The end time of ip address catched : 2020-08-06 10:36:07.865090
+2020-08-06 10:36:07,865 - INFO : The interval time of swith to repeater is 5.988863 seconds.
+2020-08-06 10:36:14,614 - WARNING : Catch the login filed.
+2020-08-06 10:36:14,615 - WARNING : End time: Thu Aug  6 10:36:14 2020
+2020-08-06 10:36:14,615 - INFO : The AP is switch to other.
+2020-08-06 10:36:14,615 - WARNING : The interval time is 16 seconds.
+2020-08-06 10:36:14,615 - INFO : The browser is opened.
+2020-08-06 10:36:36,398 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:36:36,429 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:36:36,570 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:36:38,731 - INFO : The browser is Closed.
+2020-08-06 10:36:38,887 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:38:18,887 - INFO : The AP is rebooted.
+2020-08-06 10:38:18,887 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:38:18,887 - INFO : B switch to A.
+2020-08-06 10:38:18,887 - WARNING : Start time is: Thu Aug  6 10:38:18 2020
+2020-08-06 10:38:27,735 - WARNING : Catch the login filed.
+2020-08-06 10:38:27,735 - WARNING : End time: Thu Aug  6 10:38:27 2020
+2020-08-06 10:38:27,736 - INFO : The AP is switch to other.
+2020-08-06 10:38:27,736 - INFO : The browser is opened.
+2020-08-06 10:38:38,556 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:38:38,589 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:38:38,746 - WARNING : Start time is: Thu Aug  6 10:38:38 2020
+2020-08-06 10:38:46,515 - WARNING : The start time of ip address catched : 2020-08-06 10:38:42.480420
+2020-08-06 10:38:46,517 - INFO : The Repeater is already reboot.
+2020-08-06 10:38:46,517 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:38:46,688 - INFO : The browser is Closed.
+2020-08-06 10:38:46,860 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:38:49,264 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 10:38:49,264 - INFO : The end time of ip address catched : 2020-08-06 10:38:49.264176
+2020-08-06 10:38:49,264 - INFO : The interval time of swith to repeater is 6.783756 seconds.
+2020-08-06 10:38:56,145 - WARNING : Catch the login filed.
+2020-08-06 10:38:56,145 - WARNING : End time: Thu Aug  6 10:38:56 2020
+2020-08-06 10:38:56,145 - INFO : The AP is switch to other.
+2020-08-06 10:38:56,145 - WARNING : The interval time is 17 seconds.
+2020-08-06 10:38:56,145 - INFO : The browser is opened.
+2020-08-06 10:39:08,467 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:39:08,670 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:39:08,802 - INFO : The browser is Closed.
+2020-08-06 10:39:08,974 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:40:48,975 - INFO : The AP is rebooted.
+2020-08-06 10:40:48,975 - INFO : Cycle : 3
+2020-08-06 10:40:48,975 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:40:48,975 - INFO : A switch to B.
+2020-08-06 10:40:48,975 - WARNING : Start time is: Thu Aug  6 10:40:48 2020
+2020-08-06 10:40:56,997 - WARNING : Catch the login filed.
+2020-08-06 10:40:56,998 - WARNING : End time: Thu Aug  6 10:40:56 2020
+2020-08-06 10:40:56,998 - INFO : The AP is switch to other.
+2020-08-06 10:40:56,998 - INFO : The browser is opened.
+2020-08-06 10:41:09,663 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:41:09,853 - WARNING : Start time is: Thu Aug  6 10:41:09 2020
+2020-08-06 10:41:17,593 - WARNING : The start time of ip address catched : 2020-08-06 10:41:13.559249
+2020-08-06 10:41:17,594 - INFO : The Repeater is already reboot.
+2020-08-06 10:41:17,595 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:41:17,754 - INFO : The browser is Closed.
+2020-08-06 10:41:17,941 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:41:20,330 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 10:41:20,330 - INFO : The end time of ip address catched : 2020-08-06 10:41:20.330786
+2020-08-06 10:41:20,330 - INFO : The interval time of swith to repeater is 6.771537 seconds.
+2020-08-06 10:41:41,165 - WARNING : Catch the login filed.
+2020-08-06 10:41:41,165 - WARNING : End time: Thu Aug  6 10:41:41 2020
+2020-08-06 10:41:41,165 - INFO : The AP is switch to other.
+2020-08-06 10:41:41,165 - WARNING : The interval time is 31 seconds.
+2020-08-06 10:41:41,165 - INFO : The browser is opened.
+2020-08-06 10:41:57,615 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:41:57,647 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:41:57,803 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:41:57,943 - INFO : The browser is Closed.
+2020-08-06 10:41:58,115 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:43:38,129 - INFO : The AP is rebooted.
+2020-08-06 10:43:38,129 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:43:38,129 - INFO : B switch to A.
+2020-08-06 10:43:38,129 - WARNING : Start time is: Thu Aug  6 10:43:38 2020
+2020-08-06 10:43:47,447 - WARNING : Catch the login filed.
+2020-08-06 10:43:47,448 - WARNING : End time: Thu Aug  6 10:43:47 2020
+2020-08-06 10:43:47,448 - INFO : The AP is switch to other.
+2020-08-06 10:43:47,448 - INFO : The browser is opened.
+2020-08-06 10:44:02,941 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:44:02,988 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:44:03,144 - WARNING : Start time is: Thu Aug  6 10:44:03 2020
+2020-08-06 10:44:10,904 - WARNING : The start time of ip address catched : 2020-08-06 10:44:06.871909
+2020-08-06 10:44:10,905 - INFO : The Repeater is already reboot.
+2020-08-06 10:44:10,906 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:44:11,087 - INFO : The browser is Closed.
+2020-08-06 10:44:11,275 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:44:11,290 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 10:44:11,290 - INFO : The end time of ip address catched : 2020-08-06 10:44:11.290642
+2020-08-06 10:44:11,290 - INFO : The interval time of swith to repeater is 4.418733 seconds.
+2020-08-06 10:44:21,731 - WARNING : Catch the login filed.
+2020-08-06 10:44:21,731 - WARNING : End time: Thu Aug  6 10:44:21 2020
+2020-08-06 10:44:21,731 - INFO : The AP is switch to other.
+2020-08-06 10:44:21,731 - WARNING : The interval time is 18 seconds.
+2020-08-06 10:44:21,731 - INFO : The browser is opened.
+2020-08-06 10:44:44,614 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:44:44,809 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:44:44,920 - INFO : The browser is Closed.
+2020-08-06 10:44:45,091 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:46:25,106 - INFO : The AP is rebooted.
+2020-08-06 10:46:25,106 - INFO : Cycle : 4
+2020-08-06 10:46:25,106 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:46:25,106 - INFO : A switch to B.
+2020-08-06 10:46:25,106 - WARNING : Start time is: Thu Aug  6 10:46:25 2020
+2020-08-06 10:46:33,352 - WARNING : Catch the login filed.
+2020-08-06 10:46:33,352 - WARNING : End time: Thu Aug  6 10:46:33 2020
+2020-08-06 10:46:33,352 - INFO : The AP is switch to other.
+2020-08-06 10:46:33,352 - INFO : The browser is opened.
+2020-08-06 10:46:41,176 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:46:41,369 - WARNING : Start time is: Thu Aug  6 10:46:41 2020
+2020-08-06 10:46:49,121 - WARNING : The start time of ip address catched : 2020-08-06 10:46:45.087098
+2020-08-06 10:46:49,122 - INFO : The Repeater is already reboot.
+2020-08-06 10:46:49,123 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:46:49,288 - INFO : The browser is Closed.
+2020-08-06 10:46:49,476 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:46:52,453 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 10:46:52,453 - INFO : The end time of ip address catched : 2020-08-06 10:46:52.453489
+2020-08-06 10:46:52,453 - INFO : The interval time of swith to repeater is 7.366391 seconds.
+2020-08-06 10:46:58,190 - WARNING : Catch the login filed.
+2020-08-06 10:46:58,191 - WARNING : End time: Thu Aug  6 10:46:58 2020
+2020-08-06 10:46:58,191 - INFO : The AP is switch to other.
+2020-08-06 10:46:58,191 - WARNING : The interval time is 16 seconds.
+2020-08-06 10:46:58,192 - INFO : The browser is opened.
+2020-08-06 10:47:11,011 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:47:11,052 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:47:11,192 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:47:11,348 - INFO : The browser is Closed.
+2020-08-06 10:47:11,520 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:48:51,534 - INFO : The AP is rebooted.
+2020-08-06 10:48:51,534 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:48:51,534 - INFO : B switch to A.
+2020-08-06 10:48:51,534 - WARNING : Start time is: Thu Aug  6 10:48:51 2020
+2020-08-06 10:48:59,766 - WARNING : Catch the login filed.
+2020-08-06 10:48:59,766 - WARNING : End time: Thu Aug  6 10:48:59 2020
+2020-08-06 10:48:59,766 - INFO : The AP is switch to other.
+2020-08-06 10:48:59,766 - INFO : The browser is opened.
+2020-08-06 10:49:27,600 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:49:27,647 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:49:27,814 - WARNING : Start time is: Thu Aug  6 10:49:27 2020
+2020-08-06 10:49:35,559 - WARNING : The start time of ip address catched : 2020-08-06 10:49:31.525517
+2020-08-06 10:49:35,560 - INFO : The Repeater is already reboot.
+2020-08-06 10:49:35,560 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:49:35,727 - INFO : The browser is Closed.
+2020-08-06 10:49:35,914 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:49:39,247 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 10:49:39,247 - INFO : The end time of ip address catched : 2020-08-06 10:49:39.247488
+2020-08-06 10:49:39,247 - INFO : The interval time of swith to repeater is 7.721971 seconds.
+2020-08-06 10:49:44,596 - WARNING : Catch the login filed.
+2020-08-06 10:49:44,596 - WARNING : End time: Thu Aug  6 10:49:44 2020
+2020-08-06 10:49:44,596 - INFO : The AP is switch to other.
+2020-08-06 10:49:44,596 - WARNING : The interval time is 16 seconds.
+2020-08-06 10:49:44,596 - INFO : The browser is opened.
+2020-08-06 10:49:56,724 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:49:56,905 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:49:57,059 - INFO : The browser is Closed.
+2020-08-06 10:49:57,231 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:51:37,240 - INFO : The AP is rebooted.
+2020-08-06 10:51:37,240 - INFO : Cycle : 5
+2020-08-06 10:51:37,240 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:51:37,240 - INFO : A switch to B.
+2020-08-06 10:51:37,240 - WARNING : Start time is: Thu Aug  6 10:51:37 2020
+2020-08-06 10:51:45,558 - WARNING : Catch the login filed.
+2020-08-06 10:51:45,558 - WARNING : End time: Thu Aug  6 10:51:45 2020
+2020-08-06 10:51:45,558 - INFO : The AP is switch to other.
+2020-08-06 10:51:45,558 - INFO : The browser is opened.
+2020-08-06 10:51:56,316 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:51:56,516 - WARNING : Start time is: Thu Aug  6 10:51:56 2020
+2020-08-06 10:52:04,286 - WARNING : The start time of ip address catched : 2020-08-06 10:52:00.252581
+2020-08-06 10:52:04,287 - INFO : The Repeater is already reboot.
+2020-08-06 10:52:04,288 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:52:04,470 - INFO : The browser is Closed.
+2020-08-06 10:52:04,657 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:52:08,762 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 10:52:08,762 - INFO : The end time of ip address catched : 2020-08-06 10:52:08.762707
+2020-08-06 10:52:08,762 - INFO : The interval time of swith to repeater is 8.510126 seconds.
+2020-08-06 10:52:16,282 - WARNING : Catch the login filed.
+2020-08-06 10:52:16,282 - WARNING : End time: Thu Aug  6 10:52:16 2020
+2020-08-06 10:52:16,282 - INFO : The AP is switch to other.
+2020-08-06 10:52:16,282 - WARNING : The interval time is 19 seconds.
+2020-08-06 10:52:16,282 - INFO : The browser is opened.
+2020-08-06 10:52:34,343 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:52:34,374 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:52:34,541 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:52:34,686 - INFO : The browser is Closed.
+2020-08-06 10:52:34,858 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:54:14,859 - INFO : The AP is rebooted.
+2020-08-06 10:54:14,859 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:54:14,859 - INFO : B switch to A.
+2020-08-06 10:54:14,859 - WARNING : Start time is: Thu Aug  6 10:54:14 2020
+2020-08-06 10:54:24,126 - WARNING : Catch the login filed.
+2020-08-06 10:54:24,126 - WARNING : End time: Thu Aug  6 10:54:24 2020
+2020-08-06 10:54:24,126 - INFO : The AP is switch to other.
+2020-08-06 10:54:24,126 - INFO : The browser is opened.
+2020-08-06 10:54:39,693 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:54:39,724 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:54:39,875 - WARNING : Start time is: Thu Aug  6 10:54:39 2020
+2020-08-06 10:54:47,631 - WARNING : The start time of ip address catched : 2020-08-06 10:54:43.598342
+2020-08-06 10:54:47,632 - INFO : The Repeater is already reboot.
+2020-08-06 10:54:47,633 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:54:47,817 - INFO : The browser is Closed.
+2020-08-06 10:54:48,005 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:54:51,584 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 10:54:51,584 - INFO : The end time of ip address catched : 2020-08-06 10:54:51.584185
+2020-08-06 10:54:51,584 - INFO : The interval time of swith to repeater is 7.985843 seconds.
+2020-08-06 10:55:16,885 - WARNING : Catch the login filed.
+2020-08-06 10:55:16,885 - WARNING : End time: Thu Aug  6 10:55:16 2020
+2020-08-06 10:55:16,885 - INFO : The AP is switch to other.
+2020-08-06 10:55:16,885 - WARNING : The interval time is 37 seconds.
+2020-08-06 10:55:16,886 - INFO : The browser is opened.
+2020-08-06 10:55:29,291 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:55:29,487 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:55:29,637 - INFO : The browser is Closed.
+2020-08-06 10:55:29,809 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:57:09,809 - INFO : The AP is rebooted.
+2020-08-06 10:57:09,809 - INFO : Cycle : 6
+2020-08-06 10:57:09,809 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:57:09,809 - INFO : A switch to B.
+2020-08-06 10:57:09,809 - WARNING : Start time is: Thu Aug  6 10:57:09 2020
+2020-08-06 10:57:18,275 - WARNING : Catch the login filed.
+2020-08-06 10:57:18,275 - WARNING : End time: Thu Aug  6 10:57:18 2020
+2020-08-06 10:57:18,275 - INFO : The AP is switch to other.
+2020-08-06 10:57:18,275 - INFO : The browser is opened.
+2020-08-06 10:57:28,082 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 10:57:28,282 - WARNING : Start time is: Thu Aug  6 10:57:28 2020
+2020-08-06 10:57:36,024 - WARNING : The start time of ip address catched : 2020-08-06 10:57:31.992075
+2020-08-06 10:57:36,026 - INFO : The Repeater is already reboot.
+2020-08-06 10:57:36,026 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 10:57:36,193 - INFO : The browser is Closed.
+2020-08-06 10:57:36,381 - INFO : Make sure the Mac address is correct.
+2020-08-06 10:57:37,868 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 10:57:37,868 - INFO : The end time of ip address catched : 2020-08-06 10:57:37.868071
+2020-08-06 10:57:37,868 - INFO : The interval time of swith to repeater is 5.875996 seconds.
+2020-08-06 10:57:44,667 - WARNING : Catch the login filed.
+2020-08-06 10:57:44,667 - WARNING : End time: Thu Aug  6 10:57:44 2020
+2020-08-06 10:57:44,667 - INFO : The AP is switch to other.
+2020-08-06 10:57:44,667 - WARNING : The interval time is 16 seconds.
+2020-08-06 10:57:44,667 - INFO : The browser is opened.
+2020-08-06 10:57:57,510 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 10:57:57,541 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 10:57:57,702 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 10:57:57,838 - INFO : The browser is Closed.
+2020-08-06 10:57:58,010 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 10:59:38,024 - INFO : The AP is rebooted.
+2020-08-06 10:59:38,024 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 10:59:38,024 - INFO : B switch to A.
+2020-08-06 10:59:38,024 - WARNING : Start time is: Thu Aug  6 10:59:38 2020
+2020-08-06 10:59:46,632 - WARNING : Catch the login filed.
+2020-08-06 10:59:46,632 - WARNING : End time: Thu Aug  6 10:59:46 2020
+2020-08-06 10:59:46,632 - INFO : The AP is switch to other.
+2020-08-06 10:59:46,632 - INFO : The browser is opened.
+2020-08-06 11:00:00,742 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:00:00,788 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:00:00,943 - WARNING : Start time is: Thu Aug  6 11:00:00 2020
+2020-08-06 11:00:08,710 - WARNING : The start time of ip address catched : 2020-08-06 11:00:04.677178
+2020-08-06 11:00:08,711 - INFO : The Repeater is already reboot.
+2020-08-06 11:00:08,711 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:00:10,874 - INFO : The browser is Closed.
+2020-08-06 11:00:11,092 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:00:11,342 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 11:00:11,342 - INFO : The end time of ip address catched : 2020-08-06 11:00:11.342837
+2020-08-06 11:00:11,342 - INFO : The interval time of swith to repeater is 6.665659 seconds.
+2020-08-06 11:00:20,048 - WARNING : Catch the login filed.
+2020-08-06 11:00:20,048 - WARNING : End time: Thu Aug  6 11:00:20 2020
+2020-08-06 11:00:20,049 - INFO : The AP is switch to other.
+2020-08-06 11:00:20,049 - WARNING : The interval time is 19 seconds.
+2020-08-06 11:00:20,049 - INFO : The browser is opened.
+2020-08-06 11:01:34,105 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:01:34,308 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:01:34,462 - INFO : The browser is Closed.
+2020-08-06 11:01:34,634 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:03:14,646 - INFO : The AP is rebooted.
+2020-08-06 11:03:14,646 - INFO : Cycle : 7
+2020-08-06 11:03:14,646 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:03:14,646 - INFO : A switch to B.
+2020-08-06 11:03:14,646 - WARNING : Start time is: Thu Aug  6 11:03:14 2020
+2020-08-06 11:03:29,001 - WARNING : Catch the login filed.
+2020-08-06 11:03:29,001 - WARNING : End time: Thu Aug  6 11:03:29 2020
+2020-08-06 11:03:29,001 - INFO : The AP is switch to other.
+2020-08-06 11:03:29,001 - INFO : The browser is opened.
+2020-08-06 11:03:55,483 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:03:55,682 - WARNING : Start time is: Thu Aug  6 11:03:55 2020
+2020-08-06 11:04:03,445 - WARNING : The start time of ip address catched : 2020-08-06 11:03:59.410700
+2020-08-06 11:04:03,446 - INFO : The Repeater is already reboot.
+2020-08-06 11:04:03,446 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:04:03,609 - INFO : The browser is Closed.
+2020-08-06 11:04:03,812 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:04:05,343 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 11:04:05,343 - INFO : The end time of ip address catched : 2020-08-06 11:04:05.343308
+2020-08-06 11:04:05,343 - INFO : The interval time of swith to repeater is 5.932608 seconds.
+2020-08-06 11:04:12,297 - WARNING : Catch the login filed.
+2020-08-06 11:04:12,297 - WARNING : End time: Thu Aug  6 11:04:12 2020
+2020-08-06 11:04:12,297 - INFO : The AP is switch to other.
+2020-08-06 11:04:12,297 - WARNING : The interval time is 16 seconds.
+2020-08-06 11:04:12,297 - INFO : The browser is opened.
+2020-08-06 11:04:31,480 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:04:31,511 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:04:31,677 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:04:31,816 - INFO : The browser is Closed.
+2020-08-06 11:04:32,004 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:06:12,011 - INFO : The AP is rebooted.
+2020-08-06 11:06:12,011 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:06:12,011 - INFO : B switch to A.
+2020-08-06 11:06:12,011 - WARNING : Start time is: Thu Aug  6 11:06:12 2020
+2020-08-06 11:06:20,368 - WARNING : Catch the login filed.
+2020-08-06 11:06:20,368 - WARNING : End time: Thu Aug  6 11:06:20 2020
+2020-08-06 11:06:20,368 - INFO : The AP is switch to other.
+2020-08-06 11:06:20,368 - INFO : The browser is opened.
+2020-08-06 11:06:31,453 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:06:31,484 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:06:31,645 - WARNING : Start time is: Thu Aug  6 11:06:31 2020
+2020-08-06 11:06:39,396 - WARNING : The start time of ip address catched : 2020-08-06 11:06:35.362892
+2020-08-06 11:06:39,398 - INFO : The Repeater is already reboot.
+2020-08-06 11:06:39,398 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:06:39,578 - INFO : The browser is Closed.
+2020-08-06 11:06:39,766 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:06:42,274 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 11:06:42,274 - INFO : The end time of ip address catched : 2020-08-06 11:06:42.274229
+2020-08-06 11:06:42,274 - INFO : The interval time of swith to repeater is 6.911337 seconds.
+2020-08-06 11:06:48,224 - WARNING : Catch the login filed.
+2020-08-06 11:06:48,224 - WARNING : End time: Thu Aug  6 11:06:48 2020
+2020-08-06 11:06:48,225 - INFO : The AP is switch to other.
+2020-08-06 11:06:48,225 - WARNING : The interval time is 16 seconds.
+2020-08-06 11:06:48,225 - INFO : The browser is opened.
+2020-08-06 11:07:23,021 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:07:23,225 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:07:23,373 - INFO : The browser is Closed.
+2020-08-06 11:07:23,545 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:09:03,559 - INFO : The AP is rebooted.
+2020-08-06 11:09:03,559 - INFO : Cycle : 8
+2020-08-06 11:09:03,559 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:09:03,559 - INFO : A switch to B.
+2020-08-06 11:09:03,559 - WARNING : Start time is: Thu Aug  6 11:09:03 2020
+2020-08-06 11:09:11,556 - WARNING : Catch the login filed.
+2020-08-06 11:09:11,556 - WARNING : End time: Thu Aug  6 11:09:11 2020
+2020-08-06 11:09:11,556 - INFO : The AP is switch to other.
+2020-08-06 11:09:11,557 - INFO : The browser is opened.
+2020-08-06 11:09:36,442 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:09:36,636 - WARNING : Start time is: Thu Aug  6 11:09:36 2020
+2020-08-06 11:09:44,424 - WARNING : The start time of ip address catched : 2020-08-06 11:09:40.391843
+2020-08-06 11:09:44,426 - INFO : The Repeater is already reboot.
+2020-08-06 11:09:44,426 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:09:44,585 - INFO : The browser is Closed.
+2020-08-06 11:09:44,788 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:09:59,823 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 11:09:59,823 - INFO : The end time of ip address catched : 2020-08-06 11:09:59.823331
+2020-08-06 11:09:59,838 - INFO : The interval time of swith to repeater is 19.431488 seconds.
+2020-08-06 11:10:02,207 - INFO : The browser is Closed.
+2020-08-06 11:10:02,207 - INFO : Refresh the page: 1
+2020-08-06 11:10:14,388 - WARNING : Catch the login filed.
+2020-08-06 11:10:14,388 - WARNING : End time: Thu Aug  6 11:10:14 2020
+2020-08-06 11:10:14,388 - INFO : The AP is switch to other.
+2020-08-06 11:10:14,388 - WARNING : The interval time is 37 seconds.
+2020-08-06 11:10:14,388 - INFO : The browser is opened.
+2020-08-06 11:11:20,881 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:11:20,928 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:11:21,100 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:11:21,270 - INFO : The browser is Closed.
+2020-08-06 11:11:21,458 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:13:01,473 - INFO : The AP is rebooted.
+2020-08-06 11:13:01,473 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:13:01,473 - INFO : B switch to A.
+2020-08-06 11:13:01,473 - WARNING : Start time is: Thu Aug  6 11:13:01 2020
+2020-08-06 11:13:09,576 - WARNING : Catch the login filed.
+2020-08-06 11:13:09,576 - WARNING : End time: Thu Aug  6 11:13:09 2020
+2020-08-06 11:13:09,591 - INFO : The AP is switch to other.
+2020-08-06 11:13:09,591 - INFO : The browser is opened.
+2020-08-06 11:13:18,077 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:13:18,109 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:13:18,264 - WARNING : Start time is: Thu Aug  6 11:13:18 2020
+2020-08-06 11:13:26,029 - WARNING : The start time of ip address catched : 2020-08-06 11:13:21.996261
+2020-08-06 11:13:26,030 - INFO : The Repeater is already reboot.
+2020-08-06 11:13:26,030 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:13:26,203 - INFO : The browser is Closed.
+2020-08-06 11:13:26,391 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:13:27,775 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 11:13:27,775 - INFO : The end time of ip address catched : 2020-08-06 11:13:27.775142
+2020-08-06 11:13:27,775 - INFO : The interval time of swith to repeater is 5.778881 seconds.
+2020-08-06 11:13:34,638 - WARNING : Catch the login filed.
+2020-08-06 11:13:34,638 - WARNING : End time: Thu Aug  6 11:13:34 2020
+2020-08-06 11:13:34,638 - INFO : The AP is switch to other.
+2020-08-06 11:13:34,638 - WARNING : The interval time is 16 seconds.
+2020-08-06 11:13:34,638 - INFO : The browser is opened.
+2020-08-06 11:13:45,798 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:13:45,987 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:13:46,108 - INFO : The browser is Closed.
+2020-08-06 11:13:46,280 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:15:26,294 - INFO : The AP is rebooted.
+2020-08-06 11:15:26,294 - INFO : Cycle : 9
+2020-08-06 11:15:26,294 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:15:26,294 - INFO : A switch to B.
+2020-08-06 11:15:26,294 - WARNING : Start time is: Thu Aug  6 11:15:26 2020
+2020-08-06 11:15:34,489 - WARNING : Catch the login filed.
+2020-08-06 11:15:34,489 - WARNING : End time: Thu Aug  6 11:15:34 2020
+2020-08-06 11:15:34,489 - INFO : The AP is switch to other.
+2020-08-06 11:15:34,489 - INFO : The browser is opened.
+2020-08-06 11:15:42,464 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:15:42,664 - WARNING : Start time is: Thu Aug  6 11:15:42 2020
+2020-08-06 11:15:50,411 - WARNING : The start time of ip address catched : 2020-08-06 11:15:46.377102
+2020-08-06 11:15:50,413 - INFO : The Repeater is already reboot.
+2020-08-06 11:15:50,413 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:15:50,574 - INFO : The browser is Closed.
+2020-08-06 11:15:50,761 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:16:05,499 - INFO : The browser is Closed.
+2020-08-06 11:16:05,499 - INFO : Refresh the page: 1
+2020-08-06 11:16:13,693 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 11:16:13,695 - INFO : The end time of ip address catched : 2020-08-06 11:16:13.693798
+2020-08-06 11:16:13,698 - INFO : The interval time of swith to repeater is 27.316696 seconds.
+2020-08-06 11:16:15,308 - INFO : The browser is Closed.
+2020-08-06 11:16:15,308 - INFO : Refresh the page: 2
+2020-08-06 11:16:19,438 - WARNING : Catch the login filed.
+2020-08-06 11:16:19,439 - WARNING : End time: Thu Aug  6 11:16:19 2020
+2020-08-06 11:16:19,439 - INFO : The AP is switch to other.
+2020-08-06 11:16:19,439 - WARNING : The interval time is 36 seconds.
+2020-08-06 11:16:19,439 - INFO : The browser is opened.
+2020-08-06 11:16:33,607 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:16:33,638 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:16:33,815 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:16:35,939 - INFO : The browser is Closed.
+2020-08-06 11:16:36,095 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:18:16,095 - INFO : The AP is rebooted.
+2020-08-06 11:18:16,095 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:18:16,095 - INFO : B switch to A.
+2020-08-06 11:18:16,095 - WARNING : Start time is: Thu Aug  6 11:18:16 2020
+2020-08-06 11:18:24,281 - WARNING : Catch the login filed.
+2020-08-06 11:18:24,281 - WARNING : End time: Thu Aug  6 11:18:24 2020
+2020-08-06 11:18:24,281 - INFO : The AP is switch to other.
+2020-08-06 11:18:24,281 - INFO : The browser is opened.
+2020-08-06 11:18:32,867 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:18:32,917 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:18:33,065 - WARNING : Start time is: Thu Aug  6 11:18:33 2020
+2020-08-06 11:18:40,824 - WARNING : The start time of ip address catched : 2020-08-06 11:18:36.790048
+2020-08-06 11:18:40,826 - INFO : The Repeater is already reboot.
+2020-08-06 11:18:40,827 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:18:40,978 - INFO : The browser is Closed.
+2020-08-06 11:18:41,166 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:18:43,754 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 11:18:43,754 - INFO : The end time of ip address catched : 2020-08-06 11:18:43.754833
+2020-08-06 11:18:43,754 - INFO : The interval time of swith to repeater is 6.964785 seconds.
+2020-08-06 11:18:49,408 - WARNING : Catch the login filed.
+2020-08-06 11:18:49,408 - WARNING : End time: Thu Aug  6 11:18:49 2020
+2020-08-06 11:18:49,408 - INFO : The AP is switch to other.
+2020-08-06 11:18:49,408 - WARNING : The interval time is 16 seconds.
+2020-08-06 11:18:49,408 - INFO : The browser is opened.
+2020-08-06 11:18:58,186 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:18:58,373 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:18:58,531 - INFO : The browser is Closed.
+2020-08-06 11:18:58,702 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:20:38,717 - INFO : The AP is rebooted.
+2020-08-06 11:20:38,717 - INFO : Cycle : 10
+2020-08-06 11:20:38,717 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:20:38,717 - INFO : A switch to B.
+2020-08-06 11:20:38,717 - WARNING : Start time is: Thu Aug  6 11:20:38 2020
+2020-08-06 11:20:46,945 - WARNING : Catch the login filed.
+2020-08-06 11:20:46,945 - WARNING : End time: Thu Aug  6 11:20:46 2020
+2020-08-06 11:20:46,945 - INFO : The AP is switch to other.
+2020-08-06 11:20:46,946 - INFO : The browser is opened.
+2020-08-06 11:20:58,047 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:20:58,241 - WARNING : Start time is: Thu Aug  6 11:20:58 2020
+2020-08-06 11:21:06,007 - WARNING : The start time of ip address catched : 2020-08-06 11:21:01.975326
+2020-08-06 11:21:06,008 - INFO : The Repeater is already reboot.
+2020-08-06 11:21:06,009 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:21:06,175 - INFO : The browser is Closed.
+2020-08-06 11:21:06,347 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:21:10,240 - WARNING : Catch the ip address of 192.168.50.196
+2020-08-06 11:21:10,240 - INFO : The end time of ip address catched : 2020-08-06 11:21:10.240511
+2020-08-06 11:21:10,240 - INFO : The interval time of swith to repeater is 8.265185 seconds.
+2020-08-06 11:21:14,821 - WARNING : Catch the login filed.
+2020-08-06 11:21:14,821 - WARNING : End time: Thu Aug  6 11:21:14 2020
+2020-08-06 11:21:14,821 - INFO : The AP is switch to other.
+2020-08-06 11:21:14,821 - WARNING : The interval time is 16 seconds.
+2020-08-06 11:21:14,821 - INFO : The browser is opened.
+2020-08-06 11:21:23,345 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:21:23,392 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:21:23,538 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:21:23,677 - INFO : The browser is Closed.
+2020-08-06 11:21:23,865 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:23:03,866 - INFO : The AP is rebooted.
+2020-08-06 11:23:03,866 - INFO : #------------------------------------------------------------------------------------------#
+2020-08-06 11:23:03,866 - INFO : B switch to A.
+2020-08-06 11:23:03,866 - WARNING : Start time is: Thu Aug  6 11:23:03 2020
+2020-08-06 11:23:11,844 - WARNING : Catch the login filed.
+2020-08-06 11:23:11,844 - WARNING : End time: Thu Aug  6 11:23:11 2020
+2020-08-06 11:23:11,844 - INFO : The AP is switch to other.
+2020-08-06 11:23:11,844 - INFO : The browser is opened.
+2020-08-06 11:23:23,382 - WARNING : The MAC address is "40:B0:76:37:BC:78"
+2020-08-06 11:23:23,429 - INFO : The AP switch to the 192.168.50.196.(Sueecssed)
+2020-08-06 11:23:23,578 - WARNING : Start time is: Thu Aug  6 11:23:23 2020
+2020-08-06 11:23:31,345 - WARNING : The start time of ip address catched : 2020-08-06 11:23:27.311169
+2020-08-06 11:23:31,346 - INFO : The Repeater is already reboot.
+2020-08-06 11:23:31,347 - INFO : Finished the ipv4 thread, the thread is stoped.
+2020-08-06 11:23:33,491 - INFO : The browser is Closed.
+2020-08-06 11:23:33,694 - INFO : Make sure the Mac address is correct.
+2020-08-06 11:23:34,271 - WARNING : Catch the ip address of 192.168.50.111
+2020-08-06 11:23:34,271 - INFO : The end time of ip address catched : 2020-08-06 11:23:34.271875
+2020-08-06 11:23:34,271 - INFO : The interval time of swith to repeater is 6.960706 seconds.
+2020-08-06 11:23:41,889 - WARNING : Catch the login filed.
+2020-08-06 11:23:41,889 - WARNING : End time: Thu Aug  6 11:23:41 2020
+2020-08-06 11:23:41,889 - INFO : The AP is switch to other.
+2020-08-06 11:23:41,889 - WARNING : The interval time is 18 seconds.
+2020-08-06 11:23:41,889 - INFO : The browser is opened.
+2020-08-06 11:23:51,311 - WARNING : The MAC address is "04:D9:F5:DE:51:40"
+2020-08-06 11:23:51,499 - INFO : Finished the ping thread, the thread is stoped.
+2020-08-06 11:23:51,677 - INFO : The browser is Closed.
+2020-08-06 11:23:51,849 - INFO : Waiting the repeater rebooting about 100 secs.
+2020-08-06 11:25:31,863 - INFO : The AP is rebooted.
+2020-08-06 11:25:31,863 - INFO : The test suite of wifi_roaming is finished.

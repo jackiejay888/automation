@@ -1,0 +1,734 @@
+Cycle :1 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=149ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=127ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=244ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=130ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=44ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Request timed out.
+Cycle :1 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=41ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=145ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=34ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=602ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=39ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=28ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=107ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Cycle :2 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=86ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=65ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=40ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=77ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=103ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=95ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=102ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=39ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=163ms TTL=64
+Cycle :2 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=121ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=1044ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=83ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=82ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=28ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=655ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=62ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Cycle :3 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=74ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=51ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=91ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=143ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=138ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=70ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=29ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=30ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Cycle :3 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=89ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=127ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=31ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=44ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=152ms TTL=64
+Cycle :4 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=101ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=30ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=114ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=108ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Cycle :4 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=26ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=144ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=116ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=77ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=44ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=26ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=23ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=38ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=138ms TTL=64
+Cycle :5 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=44ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=28ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=83ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=105ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=151ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Cycle :5 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=22ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=30ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=238ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=30ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=38ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=47ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=79ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=72ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=83ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=112ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Cycle :6 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=1177ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=110ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=35ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=117ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Cycle :6 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=106ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=44ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=136ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=46ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=102ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=1118ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=78ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=34ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=74ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=175ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=207ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=49ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=128ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=56ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=50ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=158ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=115ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=145ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=28ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=64ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=67ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=49ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=36ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=54ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=121ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=63ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=67ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=245ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=22ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=36ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=34ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=36ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=51ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=148ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=40ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=123ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=185ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=52ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=49ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=78ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=240ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=118ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=68ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=67ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=132ms TTL=64
+Cycle :7 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=74ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=41ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=147ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=71ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=59ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=207ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=30ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=23ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Cycle :7 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=96ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=40ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=228ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=115ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=102ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=112ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=104ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=159ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=50ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Cycle :8 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=110ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=37ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=89ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Request timed out.
+Request timed out.
+Reply from 192.168.50.85: Destination host unreachable.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=109ms TTL=64
+Request timed out.
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=52ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=111ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=36ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=106ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=62ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=129ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=29ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=29ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=66ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=44ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=40ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=31ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=62ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=55ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=29ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=121ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=80ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=72ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=59ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=172ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=109ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=43ms TTL=64
+Cycle :8 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=21ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=57ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=70ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=53ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=39ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Cycle :9 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Request timed out.
+Request timed out.
+General failure.
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=118ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=132ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=99ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=59ms TTL=64
+Request timed out.
+Cycle :9 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=28ms TTL=64
+Request timed out.
+Request timed out.
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=32ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=168ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Cycle :10 , A switch to B. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=102ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=29ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=2ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=22ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=198ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=19ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=33ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=13ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=18ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Cycle :10 , B switch to A. 
+
+Pinging 192.168.50.1 with 32 bytes of data:
+Reply from 192.168.50.1: bytes=32 time=5ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=51ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=6ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=16ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=50ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=8ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=9ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=23ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=10ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=4ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=15ms TTL=64
+Request timed out.
+Reply from 192.168.50.1: bytes=32 time=24ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=17ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=3ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=20ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=14ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=27ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=7ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=11ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=151ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=68ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=67ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=12ms TTL=64
+Reply from 192.168.50.1: bytes=32 time=25ms TTL=64
