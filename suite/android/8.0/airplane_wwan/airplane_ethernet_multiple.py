@@ -178,6 +178,7 @@ if __name__ == '__main__':
 	gateway = input('Please input the gateway : ')
 	airplane.ethernet()
 	for cycle in range(cycle_time):
+		airplane.adb_command_set('svc power stayon true')
 		os.system(
 			'echo ------------------------------------------------------------------------------ >> ping_server.txt')
 		print(

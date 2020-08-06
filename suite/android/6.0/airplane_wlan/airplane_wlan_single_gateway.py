@@ -153,6 +153,7 @@ if __name__ == '__main__':
 	cycle_time = int(input('Please input the \'Cycle Times\' you want : '))
 	ip_gateway = input('Please input the security gateway ip address : ')
 	for cycle in range(cycle_time):
+		airplane.adb_command_set('svc power stayon true')
 		os.system(
 			'echo ------------------------------------------------------------------------------ >> ping_server.txt')
 		print(
