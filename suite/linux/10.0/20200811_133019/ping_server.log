@@ -1,0 +1,34 @@
+Cycle Times: 1
+b64 bytes from 192.168.31.1: icmp_seq=1 ttl=64 time=18.0 ms
+b64 bytes from 192.168.31.1: icmp_seq=2 ttl=64 time=18.9 ms
+b64 bytes from 192.168.31.1: icmp_seq=3 ttl=64 time=18.8 ms
+b64 bytes from 192.168.31.1: icmp_seq=4 ttl=64 time=19.1 ms
+b
+b--- 192.168.31.1 ping statistics ---
+b4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+brtt min/avg/max/mdev = 18.040/18.737/19.115/0.448 ms
+b0
+Cycle Times: 1, Passed: 1, Failed: 0
+Cycle Times: 2
+b64 bytes from 192.168.31.1: icmp_seq=1 ttl=64 time=17.6 ms
+b64 bytes from 192.168.31.1: icmp_seq=2 ttl=64 time=21.5 ms
+b64 bytes from 192.168.31.1: icmp_seq=3 ttl=64 time=19.0 ms
+b64 bytes from 192.168.31.1: icmp_seq=4 ttl=64 time=19.2 ms
+b
+b--- 192.168.31.1 ping statistics ---
+b4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+brtt min/avg/max/mdev = 17.668/19.356/21.530/1.388 ms
+b0
+Cycle Times: 2, Passed: 2, Failed: 0
+Cycle Times: 3
+b64 bytes from 192.168.31.1: icmp_seq=1 ttl=64 time=18.2 ms
+b64 bytes from 192.168.31.1: icmp_seq=2 ttl=64 time=19.1 ms
+b64 bytes from 192.168.31.1: icmp_seq=3 ttl=64 time=18.9 ms
+b64 bytes from 192.168.31.1: icmp_seq=4 ttl=64 time=17.3 ms
+b
+b--- 192.168.31.1 ping statistics ---
+b4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+brtt min/avg/max/mdev = 17.342/18.430/19.187/0.717 ms
+b0
+Cycle Times: 3, Passed: 3, Failed: 0
+Total Cycle Times: 3, Passed: 3, Failed: 0
