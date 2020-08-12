@@ -7,6 +7,7 @@ Created on 2020/07/09
 '''
 
 import os
+import sys
 import time
 import subprocess
 from subprocess import check_output
@@ -136,8 +137,8 @@ class airplane_wlan_single(object):
     def backup_log(self):
         now = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
         os.system('mkdir ' + now)
-        os.system('mv *.log ' + now + '/')
-        os.system('mv *.jpg ' + now + '/')
+        os.system('cp *.log ' + now + '/')
+        os.system('cp *.jpg ' + now + '/')
 
 
 if __name__ == '__main__':
@@ -149,8 +150,10 @@ if __name__ == '__main__':
     airplane = airplane_wlan_single()
     airplane.kill_extension_file('log')
     airplane.kill_extension_file('jpg')
-    cycle_time = int(input('Please input the \'Cycle Times\' you want : '))
-    gateway = input('Please input the gateway : ')
+    #cycle_time = int(input('Please input the \'Cycle Times\' you want : '))
+    #gateway = input('Please input the gateway : ')
+    cycle_time = int(sys.argv[1])
+    gateway = sys.argv[2]
     for cycle in range(cycle_time):
         airplane.adb_command_set('svc power stayon true')
         os.system('echo ' + 'Cycle Times: ' + str(cycle + 1) + ' >> ping_server.log')
