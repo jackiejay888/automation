@@ -76,11 +76,11 @@ echo 'MSG end' >> $log_patch/$project_name"_"$fun"_"$now.log &
 
 /data/testtool/stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M --timeout ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
 
-if [ "$cpu" == "sdm660" ] ; then
-echo 'No busybox mpstat information'
-else
- busybox mpstat -P ALL 2 ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
-fi
+#if [ "$cpu" == "sdm660" ] ; then
+#echo 'No busybox mpstat information'
+#else
+/data/testtool/busybox mpstat -P ALL 2 ${1} >> $log_patch/$project_name"_"$fun"_"$now.log &
+#fi
 
 delaysec=$(($1+5))
 
