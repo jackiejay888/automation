@@ -55,6 +55,8 @@ class reboot_check_py(object):
 
 
 if __name__ == '__main__':
+	os.system('adb kill-server')
+	os.system('adb shell am start -n com.example.bootcounter/com.example.bootcounter.MainActivity')
 	reboot_check_py = reboot_check_py()
 	reboot_check_py.create_log()
 	reboot_check_py.check()
