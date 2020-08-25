@@ -204,6 +204,7 @@ if __name__ == '__main__':
 		os.system('del /f /q *.csv')
 		os.system('del /f /q *.html')
 		os.system('del /f /q *.ini')
+		os.system('del /f /q *.png')
 		os.system('adb devices')
 		os.system('adb disconnect')
 		parser_log = parser_log()
@@ -215,6 +216,7 @@ if __name__ == '__main__':
 		parser_log.copy_log_file('..\\android\\testtool\\*.log', '.')
 		parser_log.copy_log_file('..\\android\\*.log', '.')
 		parser_log.copy_log_file('..\\android\\ini\\*.ini', '.')
+		parser_log.copy_log_file('..\\android\\testtool\\*.png', '.')
 		current_time = parser_log.log_parser()
 		folder_name = parser_log.folder_name()
 		os.system('mkdir backup\\' + folder_name)
@@ -223,10 +225,12 @@ if __name__ == '__main__':
 		parser_log.copy_log_file('*.csv', 'backup\\' + folder_name)
 		parser_log.copy_log_file('*.html', 'backup\\' + folder_name)
 		parser_log.copy_log_file('*.ini', 'backup\\' + folder_name)
+		parser_log.copy_log_file('*.png', 'backup\\' + folder_name)
 		parser_log.delete_local_file('*.log')
 		parser_log.delete_local_file('*.txt')
 		parser_log.delete_local_file('*.csv')
 		parser_log.delete_local_file('*.html')
 		parser_log.delete_local_file('*.ini')
+		parser_log.delete_local_file('*.png')
 	except Exception as e:
 		raise e
