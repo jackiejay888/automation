@@ -59,7 +59,7 @@ class reboot_check_py(object):
 			return True
 
 	def screenshot(self, reboot_times):
-		screen_time = 'airplane_' + reboot_times + '.png'
+		screen_time = 'reboot_' + reboot_times + '.png'
 		self.screen(
 			r'adb shell /system/bin/screencap -p /mnt/sdcard/' + screen_time)
 		self.screen(r'adb pull /mnt/sdcard/' + screen_time +
