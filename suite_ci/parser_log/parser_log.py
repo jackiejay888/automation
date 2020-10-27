@@ -18,7 +18,11 @@ import pandas as pd
 from subprocess import check_output
 
 parameter_setting = configparser.ConfigParser()
-parameter_setting.read('..\\android\\ini\\parameter_setting.ini', encoding='utf-8')
+
+if len(sys.argv) == 1:
+	parameter_setting.read('..\\' + 'android' + '\\ini\\parameter_setting.ini', encoding='utf-8')
+else:
+	parameter_setting.read('..\\' + sys.argv[1] + '\\ini\\parameter_setting.ini', encoding='utf-8')
 
 class parser_log(object):
 
