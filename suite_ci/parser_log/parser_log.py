@@ -2,6 +2,7 @@
 '''
 Created on 2020/03/20
 Modified on 2020/03/23
+Join the linux function on 2020/11/03
 
 @author: ZL Chen
 @title: Parser Log
@@ -20,9 +21,12 @@ from subprocess import check_output
 parameter_setting = configparser.ConfigParser()
 
 if len(sys.argv) == 2:
-	parameter_setting.read('..\\' + 'android' + '\\ini\\parameter_setting.ini', encoding='utf-8')
+	parameter_setting.read(
+		'..\\' + 'android' + '\\ini\\parameter_setting.ini', encoding='utf-8')
 else:
-	parameter_setting.read('..\\' + sys.argv[2] + '\\ini\\parameter_setting.ini', encoding='utf-8')
+	parameter_setting.read(
+		'..\\' + sys.argv[2] + '\\ini\\parameter_setting.ini', encoding='utf-8')
+
 
 class parser_log(object):
 
@@ -30,8 +34,10 @@ class parser_log(object):
 		try:
 			cmds = ['adb', 'shell', shell_cmds]
 			# print(cmds)
-			stdout = subprocess.Popen(cmds, stdout=subprocess.PIPE).communicate()[0].rstrip()
-			lines = stdout.splitlines()
+			stdout = subprocess.Popen(
+				cmds, stdout=subprocess.PIPE).communicate()[0].rstrip()
+			# lines = stdout.splitlines()
+			stdout.splitlines()
 			# print('stdout......', stdout)
 			# print('lines.......', lines)
 			pass
@@ -48,7 +54,8 @@ class parser_log(object):
 	# Parser the DUT's file log by adb command
 	def adbparser_outside_file_exist(self, testcase_list):
 		try:
-			project_name_open = open('..\\android\\project_name.log', 'r', encoding='utf-8')
+			project_name_open = open(
+				'..\\android\\project_name.log', 'r', encoding='utf-8')
 			project_name = project_name_open.read().split('\n')
 			for loop in range(len(project_name)):
 				# print(len(project_name))
@@ -62,7 +69,7 @@ class parser_log(object):
 	def copy_log_file(self, source_path, distination_path):
 		os.system('copy /y ' + source_path + ' ' + distination_path)
 
-	def log_parser(self):
+	def log_parser(self, protocol):
 		try:
 			file_log_open = open('project_name.log', 'r', encoding='utf-8')
 			file_log = file_log_open.read().split('\n')
@@ -89,9 +96,9 @@ class parser_log(object):
 					writer.writerow(['Pass', passed])
 					writer.writerow(['Fail', failed])
 					writer.writerow(['Exception', exceptioned])
-					print('Total: ' + str(passed + failed + exceptioned) + '\n' + \
-							'Pass: ' + str(passed) + ', Fail: ' + str(failed) + \
-							', Exception: ' + str(exceptioned) + '\n-------------------------------------------------\n')
+					print('Total: ' + str(passed + failed + exceptioned) + '\n' +
+						  'Pass: ' + str(passed) + ', Fail: ' + str(failed) +
+						  ', Exception: ' + str(exceptioned) + '\n-------------------------------------------------\n')
 					break
 				#-------------#
 				content_log_open = open(file_log[loop], 'r', encoding='utf-8')
@@ -113,8 +120,8 @@ class parser_log(object):
 						'********************************\n')
 					# 新增簡易總表 PASS #
 					writer.writerow([file_log[loop].split('.log')[0], 'Pass'])
-					print('' + file_log[loop].split('.log')[0] + '\t(Pass)\n'+ \
-						'-------------------------------------------------\n')
+					print('' + file_log[loop].split('.log')[0] + '\t(Pass)\n' +
+						  '-------------------------------------------------\n')
 					passed += 1
 					#-------------#
 				elif 'FAIL' in content_log:
@@ -130,8 +137,8 @@ class parser_log(object):
 						'********************************\n')
 					# 新增簡易總表 FAIL #
 					writer.writerow([file_log[loop].split('.log')[0], 'Fail'])
-					print('' + file_log[loop].split('.log')[0] + '\t(Fail)\n'+ \
-						'-------------------------------------------------\n')
+					print('' + file_log[loop].split('.log')[0] + '\t(Fail)\n' +
+						  '-------------------------------------------------\n')
 					failed += 1
 					#-------------#
 				else:
@@ -146,9 +153,10 @@ class parser_log(object):
 						'---The Shell Script is EXCEPTION.---\n' +
 						'********************************\n')
 					# 新增簡易總表 EXCEPTION #
-					writer.writerow([file_log[loop].split('.log')[0], 'Exception'])
+					writer.writerow(
+						[file_log[loop].split('.log')[0], 'Exception'])
 					print(
-						'' + file_log[loop].split('.log')[0] + '\t(Exception)\n'+ \
+						'' + file_log[loop].split('.log')[0] + '\t(Exception)\n' +
 						'-------------------------------------------------\n')
 					exception += 1
 					#-------------#
@@ -162,15 +170,24 @@ class parser_log(object):
 			pd.set_option('display.width', 1000)
 			pd.set_option('colheader_justify', 'left')
 			df = pd.read_csv('summary_' + timer + '.csv')
-			df.to_html('summary_' + timer + '.html', index = False)
+			df.to_html('summary_' + timer + '.html', index=False)
 			#-------------#
-			# ADB push the file to devices
-			os.system('adb push ' + 'report_' + timer + '.txt' +
-									' /data/testtool/')
-			os.system('adb push ' + 'summary_' + timer + '.csv' +
-									' /data/testtool/')
-			os.system('adb push ' + 'summary_' + timer + '.html' +
-									' /data/testtool/')
+			# Push the file to devices
+			if protocol == 'adb':
+				os.system('adb push ' + 'report_' + timer + '.txt' +
+						  ' /data/testtool/')
+				os.system('adb push ' + 'summary_' + timer + '.csv' +
+						  ' /data/testtool/')
+				os.system('adb push ' + 'summary_' + timer + '.html' +
+						  ' /data/testtool/')
+			# SSH push the file to devices
+			if protocol == 'ssh':
+				os.system('.\\..\\linux\\app\\scp.exe -o StrictHostKeyChecking=no ' +
+						  '-r report_' + timer + '.txt' + ' root@' + sys.argv[1] + ':/data/testtool')
+				os.system('.\\..\\linux\\app\\scp.exe -o StrictHostKeyChecking=no ' +
+						  '-r summary_' + timer + '.csv' + ' root@' + sys.argv[1] + ':/data/testtool')
+				os.system('.\\..\\linux\\app\\scp.exe -o StrictHostKeyChecking=no ' +
+						  '-r summary_' + timer + '.html' + ' root@' + sys.argv[1] + ':/data/testtool')
 			file_log_open.close()
 			return timer
 		except Exception as e:
@@ -186,7 +203,7 @@ class parser_log(object):
 
 	def delete_local_file(self, filename):
 		os.system('del /f /q ' + filename)
-		print('del /f /q ' + filename)	
+		print('del /f /q ' + filename)
 
 	def finddevices_set(self):
 		try:
@@ -201,6 +218,7 @@ class parser_log(object):
 		except Exception as e:
 			raise e
 
+
 if __name__ == '__main__':
 	try:
 		os.system('del /f /q *.log')
@@ -209,32 +227,67 @@ if __name__ == '__main__':
 		os.system('del /f /q *.html')
 		os.system('del /f /q *.ini')
 		os.system('del /f /q *.png')
-		os.system('adb devices')
-		os.system('adb disconnect')
-		parser_log = parser_log()
-		j = parser_log.finddevices_set()
-		if j is False:
-			print('False')
-			os.system('adb connect ' + sys.argv[1])
-		os.system('adb root')
-		parser_log.copy_log_file('..\\' + sys.argv[2] + '\\testtool\\*.log', '.')
-		parser_log.copy_log_file('..\\' + sys.argv[2] + '\\*.log', '.')
-		parser_log.copy_log_file('..\\' + sys.argv[2] + '\\ini\\*.ini', '.')
-		parser_log.copy_log_file('..\\' + sys.argv[2] + '\\testtool\\*.png', '.')
-		current_time = parser_log.log_parser()
-		folder_name = parser_log.folder_name()
-		os.system('mkdir backup\\' + folder_name)
-		parser_log.copy_log_file('*.log', 'backup\\' + folder_name)
-		parser_log.copy_log_file('*.txt', 'backup\\' + folder_name)
-		parser_log.copy_log_file('*.csv', 'backup\\' + folder_name)
-		parser_log.copy_log_file('*.html', 'backup\\' + folder_name)
-		parser_log.copy_log_file('*.ini', 'backup\\' + folder_name)
-		parser_log.copy_log_file('*.png', 'backup\\' + folder_name)
-		parser_log.delete_local_file('*.log')
-		parser_log.delete_local_file('*.txt')
-		parser_log.delete_local_file('*.csv')
-		parser_log.delete_local_file('*.html')
-		parser_log.delete_local_file('*.ini')
-		parser_log.delete_local_file('*.png')
+		parser = parser_log()
+		if len(sys.argv) == 2 or sys.argv[2] == 'android':
+			os.system('adb devices')
+			os.system('adb disconnect')
+			j = parser.finddevices_set()
+			if j is False:
+				print('False')
+				os.system('adb connect ' + sys.argv[1])
+			os.system('adb root')
+			if len(sys.argv) == 2:
+				parser.copy_log_file('..\\android\\testtool\\*.log', '.')
+				parser.copy_log_file('..\\android\\*.log', '.')
+				parser.copy_log_file('..\\android\\ini\\*.ini', '.')
+				parser.copy_log_file('..\\android\\testtool\\*.png', '.')
+			else:
+				parser.copy_log_file(
+					'..\\' + sys.argv[2] + '\\testtool\\*.log', '.')
+				parser.copy_log_file('..\\' + sys.argv[2] + '\\*.log', '.')
+				parser.copy_log_file(
+					'..\\' + sys.argv[2] + '\\ini\\*.ini', '.')
+				parser.copy_log_file(
+					'..\\' + sys.argv[2] + '\\testtool\\*.png', '.')
+			current_time = parser.log_parser('adb')
+			folder_name = parser.folder_name()
+			os.system('mkdir backup\\' + folder_name)
+			parser.copy_log_file('*.log', 'backup\\' + folder_name)
+			parser.copy_log_file('*.txt', 'backup\\' + folder_name)
+			parser.copy_log_file('*.csv', 'backup\\' + folder_name)
+			parser.copy_log_file('*.html', 'backup\\' + folder_name)
+			parser.copy_log_file('*.ini', 'backup\\' + folder_name)
+			parser.copy_log_file('*.png', 'backup\\' + folder_name)
+			parser.delete_local_file('*.log')
+			parser.delete_local_file('*.txt')
+			parser.delete_local_file('*.csv')
+			parser.delete_local_file('*.html')
+			parser.delete_local_file('*.ini')
+			parser.delete_local_file('*.png')
+		elif sys.argv[2] == 'linux':
+			parser.copy_log_file(
+				'..\\' + sys.argv[2] + '\\testtool\\*.log', '.')
+			parser.copy_log_file('..\\' + sys.argv[2] + '\\*.log', '.')
+			parser.copy_log_file(
+				'..\\' + sys.argv[2] + '\\ini\\*.ini', '.')
+			parser.copy_log_file(
+				'..\\' + sys.argv[2] + '\\testtool\\*.png', '.')
+			current_time = parser.log_parser('ssh')
+			folder_name = parser.folder_name()
+			os.system('mkdir backup\\' + folder_name)
+			parser.copy_log_file('*.log', 'backup\\' + folder_name)
+			parser.copy_log_file('*.txt', 'backup\\' + folder_name)
+			parser.copy_log_file('*.csv', 'backup\\' + folder_name)
+			parser.copy_log_file('*.html', 'backup\\' + folder_name)
+			parser.copy_log_file('*.ini', 'backup\\' + folder_name)
+			parser.copy_log_file('*.png', 'backup\\' + folder_name)
+			parser.delete_local_file('*.log')
+			parser.delete_local_file('*.txt')
+			parser.delete_local_file('*.csv')
+			parser.delete_local_file('*.html')
+			parser.delete_local_file('*.ini')
+			parser.delete_local_file('*.png')
+		else:
+			print('The environment isn\'t android or linux')
 	except Exception as e:
 		raise e
