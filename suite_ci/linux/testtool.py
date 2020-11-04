@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-Created on 2020/03/21
-Modified on 2020/03/26
-Add the class on 2020/04/09
-Modified the log_export method on 2020/04/10
+Created on 2020/10/26
 
 @author: ZL Chen
-@title: testtool adb command merge
+@title: testtool ssh and scp command merge
 '''
 
 import os
@@ -19,38 +16,10 @@ from subprocess import check_output
 # parameter_setting.ini
 parameter_value = {}
 parameter_setting = configparser.ConfigParser()
-parameter_setting.read('.\ini\\parameter_setting.ini', encoding='utf-8')
+parameter_setting.read('.\\ini\\parameter_setting.ini', encoding='utf-8')
 
 
 class testtool(object):
-
-	def adb_shell_cmd(self, shell_cmds):
-		try:
-			os.system('adb shell ' + shell_cmds)
-			pass
-		except Exception as e:
-			raise e
-
-	def adb_push_cmd(self, shell_cmds):
-		try:
-			os.system('adb push ' + shell_cmds)
-			pass
-		except Exception as e:
-			raise e
-
-	def adb_pull_cmd(self, shell_cmds):
-		try:
-			os.system('adb pull ' + shell_cmds)
-			pass
-		except Exception as e:
-			raise e
-
-	def adb_cmd(self, cmds):
-		try:
-			os.system('adb ' + cmds)
-			pass
-		except Exception as e:
-			raise e
 
 	def adb_shell_split(self, j):
 		# 如果 adb shell 做字串處理
@@ -74,7 +43,10 @@ class testtool(object):
 		try:
 			# 把 Enable 的 .sh 存入 project_name.log
 			for sh in range(len(device_check_value)):
-				self.adb_shell_cmd('\"cd /data/testtool; ls ' + device_check_value[sh] + '.sh\"' + ' >> project_name.log')
+				os.system(self._ssh() + 'root@' +
+						  sys.argv[1] + ' \"cd /data/testtool; ls ' + device_check_value[sh] + '.sh\"' + ' >> project_name.log')
+				print(self._ssh() + 'root@' +
+					  sys.argv[1] + ' \"cd /data/testtool; ls ' + device_check_value[sh] + '.sh\"' + ' >> project_name.log')
 
 			self.adb_shell_split(j)
 
@@ -92,11 +64,10 @@ class testtool(object):
 				alist = []  # 宣告空 list
 				# 判斷有幾個 key 並且透過 config.get 出 value
 				for p in range(len(parameter_setting.options(device_check_value_sh))):  # 判斷有幾個 key
-					value = parameter_setting.get(device_check_value_sh, parameter_setting.options(
-								device_check_value_sh)[p])  # 取出指定的 key value
+					value = parameter_setting.get(device_check_value_sh, parameter_setting.options(device_check_value_sh)[p])  # 取出指定的 key value
 					alist.append(value)  # key value 寫入 alist
 
-				if alist == []: # 如果 key is none
+				if alist == []:  # 如果 key is none
 					alist.append('none')
 
 				# 取出字串內容寫入 temp.log
@@ -108,29 +79,29 @@ class testtool(object):
 
 				value_parameter = ''  # 宣告空字串
 				for n in range(len(temp)):  # 判斷幾個值
-					if temp[n] == 'none ': # 如果 temp[0] 為 none 回傳 ''
+					if temp[n] == 'none ':  # 如果 temp[0] 為 none 回傳 ''
 						value_parameter = ''
 						break
 					value_parameter = value_parameter + temp[n]  # Value 字串合併
 				temp_open.close()
 
 				if project_name[loop] == '':
-					raise
+					raise ValueError('The system is raised.')
 
 				# 執行字串斷行
 				cr_delete = 'sed -i \'s/\\r$//g\''
-				self.adb_shell_cmd(cr_delete + ' ' + '/data/testtool/' + project_name[loop])
-				print(cr_delete + ' ' + '/data/testtool/' + project_name[loop])
+				os.system(self._ssh() + 'root@' + sys.argv[1] + ' \"' + cr_delete + ' /data/testtool/' + project_name[loop] + '\"')
+				print(self._ssh() + 'root@' + sys.argv[1] + ' \"' + cr_delete + ' /data/testtool/' + project_name[loop] + '\"')
 
 				# 執行腳本 (帶入 config 指定 value)
-				self.adb_shell_cmd('/data/testtool/' + project_name[loop] + ' ' + value_parameter)
-				print('/data/testtool/' + project_name[loop] + ' ' + value_parameter)
+				os.system(self._ssh() + 'root@' + sys.argv[1] + ' \"/data/testtool/' + project_name[loop] + '\"' + ' ' + value_parameter)
+				print(self._ssh() + 'root@' + sys.argv[1] + ' \"/data/testtool/' + project_name[loop] + '\"' + ' ' + value_parameter)
 
 				os.system('del /f /q temp.log')
 				alist.clear()
 
-			self.adb_shell_cmd(
-				'\"cd /data/testtool; ls *.log\"' + ' > project_name.log')
+			os.system(self._ssh() + 'root@' + sys.argv[1] + ' \"cd /data/testtool; ls *.log\" > project_name.log')
+			print(self._ssh() + 'root@' + sys.argv[1] + ' \"cd /data/testtool; ls *.log\" > project_name.log')
 
 			self.adb_shell_split(j)
 
@@ -140,8 +111,8 @@ class testtool(object):
 				# print(project_name[loop])
 				if project_name[loop] == '':
 					break
-				self.adb_pull_cmd('/data/testtool/' + project_name[loop] + ' testtool/')
-				print('/data/testtool/' + project_name[loop] + ' testtool/')
+				os.system(self._scp() + 'root@' + sys.argv[1] + ':/data/testtool/' + project_name[loop] + ' .\\testtool\\')
+				print(self._scp() + 'root@' + sys.argv[1] + ':/data/testtool/' + project_name[loop] + ' .\\testtool\\')
 		except Exception as e:
 			raise e
 
@@ -151,49 +122,47 @@ class testtool(object):
 			for py in range(len(device_check_py_value)):
 				# 判斷有幾個 key 並且透過 config.get 出 value
 				total_value = ''
-				for p in range(len(parameter_setting.options(device_check_py_value[py]))):  # 判斷有幾個 key
+				# 判斷有幾個 key
+				for p in range(len(parameter_setting.options(device_check_py_value[py]))):
 					value = parameter_setting.get(device_check_py_value[py], parameter_setting.options(
-								device_check_py_value[py])[p])  # 取出指定的 key value
+						device_check_py_value[py])[p])  # 取出指定的 key value
 					total_value += ' ' + value
 				# print(total_value)
 				os.system('echo testtool\\' + device_check_py_value[py] + '.pyc' + total_value + ' >> testtool\\py.bat')
 		else:
-			pass	
+			pass
 		os.system('testtool\\py.bat')
 
-	def finddevices_set(self):
-		try:
-			adb_ouput = check_output(["adb", "devices"])
-			devices_id = str(adb_ouput.split()[-2])
-			if devices_id == 'b\'devices\'':
-				print('Not Find a new device.')
-				return False
-			else:
-				print('Find a new device.')
-				return True
-		except Exception as e:
-			raise e
+	def taskkill(self, name):
+		os.system('taskkill /f /im ' + name)
+
+	def _ssh(self):
+		return '.\\app\\ssh.exe -o StrictHostKeyChecking=no '
+
+	def _scp(self):
+		return '.\\app\\scp.exe -o StrictHostKeyChecking=no '
+
+	def ssh_root(self, ssh_cmd):
+		os.system('.\\app\\ssh.exe -o StrictHostKeyChecking=no ' + ssh_cmd)
+
+	def scp_root(self, scp_cmd):
+		os.system('.\\app\\scp.exe -o StrictHostKeyChecking=no ' + scp_cmd)
+
 
 if __name__ == '__main__':
 	try:
 		os.system('del /f /q testtool\\*.log')
 		os.system('del /f /q *.log')
-		os.system('del /f /q adb.exe')
 		testtool = testtool()
-		testtool.adb_cmd('kill-server')
-		testtool.adb_cmd('start-server')
-		testtool.adb_cmd('devices')
-		j = testtool.finddevices_set()
-		if j is False:
-			testtool.adb_cmd('connect ' + sys.argv[1])
-		testtool.adb_cmd('root')
-		testtool.adb_shell_cmd('rm -rf /data/testtool')
-		testtool.adb_shell_cmd('mkdir /data/testtool')
-		os.system('adb push testtool /data/')
-		testtool.adb_shell_cmd('chmod 777 /data/testtool/*')
+		testtool.taskkill('ssh.exe')
+		testtool.taskkill('scp.exe')
+		testtool.ssh_root('root@' + sys.argv[1] + ' \"rm -rf /data\"')
+		testtool.ssh_root('root@' + sys.argv[1] + ' \"mkdir /data"')
+		testtool.scp_root('-r testtool root@' + sys.argv[1] + ':/data')
+		testtool.ssh_root('root@' + sys.argv[1] + ' \"chmod a+x /data/testtool/*\"')
 		device_check = Device_check()
 		device_check_value = device_check.verify()
-		testtool.log_export(device_check_value, j)
+		testtool.log_export(device_check_value, False)
 		device_check_py_value = device_check.verify_py()
 		testtool.log_export_py(device_check_py_value)
 	except Exception as e:
