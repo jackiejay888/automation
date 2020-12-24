@@ -29,6 +29,7 @@ class pasta(object):
 		options.add_argument("start-maximized")
 		driver = webdriver.Chrome(options=options, executable_path="chromedriver.exe")
 		driver.get(pasta_url)
+		sleep(5)
 
 	def run(self, number):
 		self.click(By.ID, "start")
