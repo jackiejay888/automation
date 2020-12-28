@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 Created on 2020/12/25
-Finished on 2020/12/25
+Finished on 2020/12/28
 
 @author: ZL Chen
 @title: The iDesign task create.
@@ -10,6 +10,7 @@ Finished on 2020/12/25
 import os
 import sys
 import time
+import datetime
 import configparser
 from time import sleep
 from selenium import webdriver
@@ -22,10 +23,11 @@ from selenium.webdriver.support.ui import Select
 config = configparser.ConfigParser()
 config.read('idesign_register.ini')
 current_time = time.strftime("%m%d", time.localtime())
-date_current_time = time.strftime("%Y-%m-%d", time.localtime())
+date_current_time = str(datetime.date.today())
+date_current_time_future = str(datetime.date.today() + datetime.timedelta(days=int(config.get('idesign', 'days'))-1))
 
 class idesign_register(object):
-
+	
 	def initial(self):
 		global driver
 		idesign_url = "http://idesign.advantech.com/iDesignMVC3/LoginController/"
@@ -43,52 +45,46 @@ class idesign_register(object):
 		self.click(By.NAME, "password")
 		driver.find_element_by_name("password").send_keys(sys.argv[1])
 		self.click(By.XPATH, "//*[@id='idesign-login-view']/div[2]/div/div/div/div/div[3]/button")
-
 		# Switch to My project list
 		self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/a")
 		self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/ul/li[1]/a/span")
-
 		# New request
 		self.click(By.XPATH, "//*[@id='idesign-filter-and-table-view']/form/div[3]/div/div/table/tbody/tr/td[10]/a/img")
-		
 		# Request Information
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[4]/div/select/option[7]")
-		driver.find_element_by_xpath("(//input[@type='text'])[3]").send_keys("DQA_ZL_" + current_time)
+		driver.find_element_by_xpath("(//input[@type='text'])[3]").send_keys("DQA_" + config.get('idesign', 'name') + "_" + current_time)
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[5]/div/div/div[2]/button")
 		self.click(By.XPATH, "//*[@id='header-and-sidebar-view']/div/section/main")
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[6]/div/select/option[6]")
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[7]/div/div/div[2]")
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[7]/div/div/div[3]/ul/li/span/span")
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[8]/div/select/option")
-
 		# ACL_DQA_SAG
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[10]/div/select/option[10]")
 		driver.find_element_by_name("ACL_DQA_SAGSample_Quantity").send_keys("1")
 		Select(driver.find_element_by_name("ACL_DQA_SAGTest_team_leader")).select_by_visible_text("raymond.huang@advantech.com.tw")
-		# driver.find_elements_by_name("ACL_DQA_SAGEstimate_Start_Date_").send_keys(date_current_time)
-		# driver.find_elements_by_name("ACL_DQA_SAGEstimate_Start_Date_").send_keys(date_current_time)
-
+		driver.find_element_by_name("ACL_DQA_SAGEstimate_Start_Date_").send_keys(date_current_time)
+		driver.find_element_by_name("ACL_DQA_SAGEstimate_End_Date").send_keys(date_current_time_future)
 		# PCB Information
 		self.click(By.XPATH, "//*[@id='pcbInfoCard']/div[2]/div/div[1]/input")
-
 		# Test Information
 		driver.find_element_by_name("Test_Description").send_keys("DQA weekly non-project task management")
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/i")
-		
-		for delete in range(5):
-			print('Delete the ', delete+1, 'times.')
+		for delete in range(int(config.get('idesign', 'members'))):
 			self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/div/div[2]/div[1]/span[1]/i")
-		# self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/i[2]")
-		
-		sleep(1)
-		# self.click(By.XPATH, "//*[@id='idesign-request-form-view']/form/div/div[2]/div[3]/div/button")
-
+			print('Delete the ', delete+1, 'times.')
+		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/div/div[1]")
+		driver.find_element_by_name("Request_Member_").clear()
+		driver.find_element_by_name("Request_Member_").send_keys(config.get('idesign', 'email'))
+		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/div/div[3]/ul/li[1]/span")
+		sleep(2)
+		self.click(By.NAME, "cont")
 		# Check the request if finished or not.
 			# Switch to My project list
 		self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/a")
 		self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/ul/li[1]/a/span")
 		self.click(By.XPATH, "//*[@id='idesign-filter-and-table-view']/form/div[3]/div[1]/div/table/tbody/tr/td[11]/a/img")
-		sleep(5)
+		sleep(2)
 		driver.save_screenshot(date_current_time + '.png')
 
 	def click(self, by, parameter_list):
@@ -99,14 +95,14 @@ class idesign_register(object):
 			raise
 
 	def quit(self):
-		sleep(2)
+		sleep(1)
 		driver.quit()
 
 if __name__ == "__main__":
 	print(
 		'''
-		Created on 2020/12/25 14:00 P.M.
-		Finished on 2020/12/25 16:00 P.M.
+		Created on 2020/12/25
+		Finished on 2020/12/28
 		@author: ZL Chen
 		@title: The iDesign task create.
 		'''
