@@ -79,13 +79,13 @@ class idesign_register(object):
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/div/div[3]/ul/li[1]/span")
 		sleep(2)
 		self.click(By.NAME, "cont")
-		# Check the request if finished or not.
-			# Switch to My project list
-		self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/a")
-		self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/ul/li[1]/a/span")
-		self.click(By.XPATH, "//*[@id='idesign-filter-and-table-view']/form/div[3]/div[1]/div/table/tbody/tr/td[11]/a/img")
-		sleep(2)
-		driver.save_screenshot(date_current_time + '.png')
+		# # Check the request if finished or not.
+		# 	# Switch to My project list
+		# self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/a")
+		# self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/ul/li[1]/a/span")
+		# self.click(By.XPATH, "//*[@id='idesign-filter-and-table-view']/form/div[3]/div[1]/div/table/tbody/tr/td[11]/a/img")
+		# sleep(2)
+		# driver.save_screenshot(date_current_time + '.png')
 
 	def click(self, by, parameter_list):
 		try:
