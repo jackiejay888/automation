@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#sample : ./imx6_udisk.sh [usb p1]
-#usb p1 -> usb device part 1 , ex: sda1
+#sample : ./imx6_udisk.sh [project_name] [storage_part]
+#storage_part -> storage device partition , ex: sda1
 
 #arg and path
 projectName="$1"
 testTime=`date +%Y%m%d%H%M%S`
-testFun="Disk_RW"
+testFun="disk_rw"
 logPath="/data/testtool"
 testResult=0
 finallogPath=$logPath/$projectName'_'$testFun'_'$testTime.log
@@ -62,8 +62,6 @@ Test_ResultLog() {
 }
 
 #main
-Test_InitLog $2
-Test_Fun $2
-Test_ResultLog
-
-
+	Test_InitLog $2
+	Test_Fun $2
+	Test_ResultLog
