@@ -1,0 +1,17 @@
+Test case,Status
+dms_ba38_cpu_20210111091812,Pass
+dms_ba38_cpu_info_20210111091808,Pass
+dms_ba38_disk_rw_20210111092022,Pass
+dms_ba38_display_20210111091815,Pass
+dms_ba38_emmc_info_20210111091818,Pass
+dms_ba38_lan_ping_20210111091822,Pass
+dms_ba38_memory_20210111091829,Pass
+dms_ba38_memory_info_20210111091825,Pass
+dms_ba38_sd_info_20210111091909,Pass
+dms_ba38_usb_info_20210111092029,Pass
+dms_ba38_eth_iperf_py_20210111_172331,Pass
+ , 
+Total,11
+Pass,11
+Fail,0
+Exception,0

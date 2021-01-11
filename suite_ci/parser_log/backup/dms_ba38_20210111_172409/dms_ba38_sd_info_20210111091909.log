@@ -1,0 +1,18 @@
+MSG : 
+Test_Item : sd_info
+MSG end
+Test Info :
+Disk /dev/mmcblk0: 29.7 GiB, 31914983424 bytes, 62333952 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x2948ed91
+
+Device         Boot Start     End Sectors   Size Id Type
+/dev/mmcblk0p1 *     8192   56951   48760  23.8M  c W95 FAT32 (LBA)
+/dev/mmcblk0p2      57344 2031259 1973916 963.8M 83 Linux
+Test is completed!!!
+Result : 
+PASS
+Result end

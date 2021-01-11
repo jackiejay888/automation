@@ -1,0 +1,10 @@
+MSG : 
+Test_Item : cpu
+Test_Loading : 60 %
+Test_Time : 100 s
+MSG end
+Test Info :
+Test is completed!!!
+Result : 
+PASS
+Result end

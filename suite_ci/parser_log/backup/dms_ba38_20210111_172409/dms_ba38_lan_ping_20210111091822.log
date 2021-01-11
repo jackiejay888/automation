@@ -1,0 +1,12 @@
+MSG : 
+Test_Item : lan_ping
+Device : eth0
+IP : 192.168.99.101
+Target IP : 8.8.8.8
+MSG end
+Test Info :
+eth0 Ping test : [ Pass ]
+Test is completed!!!
+Result : 
+PASS
+Result end

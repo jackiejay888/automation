@@ -1,0 +1,49 @@
+MSG : 
+Test_Item : memory_info
+MSG end
+Test Info :
+MemTotal:        2054696 kB
+MemFree:         1984156 kB
+MemAvailable:    1960388 kB
+Buffers:            4488 kB
+Cached:            18228 kB
+SwapCached:            0 kB
+Active:            17916 kB
+Inactive:           8420 kB
+Active(anon):       3812 kB
+Inactive(anon):      368 kB
+Active(file):      14104 kB
+Inactive(file):     8052 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       1310720 kB
+HighFree:        1276572 kB
+LowTotal:         743976 kB
+LowFree:          707584 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               972 kB
+Writeback:             0 kB
+AnonPages:          3544 kB
+Mapped:             6296 kB
+Shmem:               572 kB
+Slab:              23680 kB
+SReclaimable:      11296 kB
+SUnreclaim:        12384 kB
+KernelStack:         792 kB
+PageTables:          260 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1027348 kB
+Committed_AS:      32204 kB
+VmallocTotal:     245760 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+Percpu:              184 kB
+CmaTotal:         131072 kB
+CmaFree:          122032 kB
+Test is completed!!!
+Result : 
+PASS
+Result end

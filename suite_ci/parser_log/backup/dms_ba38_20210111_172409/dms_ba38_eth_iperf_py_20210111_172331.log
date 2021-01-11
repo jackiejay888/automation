@@ -1,0 +1,16 @@
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  300 KByte
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to 192.168.99.101, TCP port 5001
+TCP window size:  300 KByte
+------------------------------------------------------------
+[  4] local 192.168.99.100 port 54244 connected with 192.168.99.101 port 5001
+[  5] local 192.168.99.100 port 5001 connected with 192.168.99.101 port 46008
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 5.0 sec  55.8 MBytes  93.5 Mbits/sec
+[  4]  0.0- 5.0 sec  55.9 MBytes  93.4 Mbits/sec
+[  5]  0.0- 5.0 sec  30.4 MBytes  51.0 Mbits/sec
+[  5]  0.0- 5.0 sec  30.5 MBytes  51.1 Mbits/sec
+PASS 
