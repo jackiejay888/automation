@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sample : ./imx6_cpuloading.sh [project_name] [cpu_loading] [test_time]
+#sample : ./imx6_cpu_loading.sh [project_name] [cpu_loading] [test_time]
 #project_name -> project name, ex: dms-ba38
 #cpu_loading -> assign cpu loading percentage, ex:60
 #test_time -> test time, ex:86400
@@ -8,7 +8,7 @@
 #arg and path
 projectName="$1"
 testTime=`date +%Y%m%d%H%M%S`
-testFun="cpu"
+testFun="cpu_loading"
 logPath="/data/testtool"
 testResult=0
 finallogPath=$logPath/$projectName'_'$testFun'_'$testTime.log

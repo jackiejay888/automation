@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sample : ./imx6_lan.sh [project_name] [network_dev] [target_ip]
+#sample : ./imx6_lan_ping.sh [project_name] [network_dev] [target_ip]
 #project_name -> project name, ex: dms-ba38
 #network_dev -> network device, ex: eth0
 #target_ip -> test target ip address, ex: www.google.com

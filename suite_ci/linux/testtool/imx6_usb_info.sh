@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sample : ./imx6_usbinfo.sh [project_name] [usb_device]
+#sample : ./imx6_usb_info.sh [project_name] [usb_device]
 #project_name -> project name, ex: dms-ba38
 #usb_device -> usb device, ex: sda
 

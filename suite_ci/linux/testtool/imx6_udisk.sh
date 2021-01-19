@@ -6,7 +6,7 @@
 #arg and path
 projectName="$1"
 testTime=`date +%Y%m%d%H%M%S`
-testFun="disk_rw"
+testFun="udisk"
 logPath="/data/testtool"
 testResult=0
 finallogPath=$logPath/$projectName'_'$testFun'_'$testTime.log

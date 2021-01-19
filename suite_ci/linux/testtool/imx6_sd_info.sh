@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sample : ./imx6_sdinfo.sh [project_name]
+#sample : ./imx6_sd_info.sh [project_name]
 #project_name -> project name, ex: dms-ba38
 
 #arg and path
