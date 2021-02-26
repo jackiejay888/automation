@@ -30,9 +30,14 @@ class CalTestCase(unittest.TestCase):
 		desired_caps = {}
 		desired_caps['platformName'] = 'Android'
 		desired_caps['platformVersion'] = '10'
+		# desired_caps['platformVersion'] = '9'
+		# desired_caps['platformVersion'] = '8.1.0'
 		desired_caps['deviceName'] = 'sda660_aim75'
+		# desired_caps['deviceName'] = 'sda660_q200'
+		# desired_caps['deviceName'] = 'usc130_160'
 		desired_caps['automationName'] = 'UiAutomator2'
 		desired_caps['appPackage'] = 'com.google.android.calculator'
+		# desired_caps['appPackage'] = 'com.android.calculator2'
 		desired_caps['appActivity'] = 'com.android.calculator2.Calculator'
 		global driver
 		driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
@@ -44,7 +49,8 @@ class CalTestCase(unittest.TestCase):
 	@take_screen_shot
 	def test_case_01_open(self):
 		text = driver.find_element_by_id('com.google.android.calculator:id/result_container').text
-		assert_equal(text, "")
+		# text = driver.find_element_by_id('com.android.calculator2:id/result').text
+		assert_equal(text, '')
 
 	@take_screen_shot
 	def test_case_02_plus(self):
@@ -59,7 +65,20 @@ class CalTestCase(unittest.TestCase):
 		sleep(1)
 		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/result_container"]').text
 		sleep(1)
-		# assert_equal(text,"3")
+		assert_equal(text, '3')
+
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_1').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/op_add').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_2').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/eq').click()
+		# sleep(1)
+		# text = driver.find_element_by_xpath('//*[@resource-id="com.android.calculator2:id/result"]').text
+		# sleep(1)
+		# assert_equal(text, '3')
 
 	@take_screen_shot
 	def test_case_03_sub(self):
@@ -72,9 +91,22 @@ class CalTestCase(unittest.TestCase):
 		sleep(1)
 		driver.find_element_by_id('com.google.android.calculator:id/eq').click()
 		sleep(1)
-		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/formula_container"]').text
+		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/result_container"]').text
 		sleep(1)
-		# assert_equal(text,"2")
+		assert_equal(text, '2')
+
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_5').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/op_sub').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_3').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/eq').click()
+		# sleep(1)
+		# text = driver.find_element_by_xpath('//*[@resource-id="com.android.calculator2:id/result"]').text
+		# sleep(1)
+		# assert_equal(text, '2')
 
 	@take_screen_shot
 	def test_case_04_mul(self):
@@ -87,9 +119,22 @@ class CalTestCase(unittest.TestCase):
 		sleep(1)
 		driver.find_element_by_id('com.google.android.calculator:id/eq').click()
 		sleep(1)
-		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/formula_container"]').text
+		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/result_container"]').text
 		sleep(1)
-		# assert_equal(text,"6")
+		assert_equal(text, '6')
+
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_2').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/op_mul').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_3').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/eq').click()
+		# sleep(1)
+		# text = driver.find_element_by_xpath('//*[@resource-id="com.android.calculator2:id/result"]').text
+		# sleep(1)
+		# assert_equal(text, '6')
 
 	@take_screen_shot
 	def test_case_05_div(self):
@@ -102,9 +147,22 @@ class CalTestCase(unittest.TestCase):
 		sleep(1)
 		driver.find_element_by_id('com.google.android.calculator:id/eq').click()
 		sleep(1)
-		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/formula_container"]').text
+		text = driver.find_element_by_xpath('//*[@resource-id="com.google.android.calculator:id/result_container"]').text
 		sleep(1)
-		# assert_equal(text,"3")
+		assert_equal(text, '3')
+
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_9').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/op_div').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/digit_3').click()
+		# sleep(1)
+		# driver.find_element_by_id('com.android.calculator2:id/eq').click()
+		# sleep(1)
+		# text = driver.find_element_by_xpath('//*[@resource-id="com.android.calculator2:id/result"]').text
+		# sleep(1)
+		# assert_equal(text, '3')
 
 
 if __name__ == '__main__':
