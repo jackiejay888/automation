@@ -30,9 +30,7 @@ class CalTestCase(unittest.TestCase):
 		desired_caps = {}
 		desired_caps['platformName'] = 'Android'
 		desired_caps['platformVersion'] = '10'
-		# desired_caps['platformVersion'] = '9'
 		desired_caps['deviceName'] = 'sda660_aim75'
-		# desired_caps['deviceName'] = 'sda660_q200'
 		desired_caps['automationName'] = 'UiAutomator2'
 		desired_caps['appPackage'] = 'com.google.android.calculator'
 		desired_caps['appActivity'] = 'com.android.calculator2.Calculator'
