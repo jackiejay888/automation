@@ -3,7 +3,7 @@
 Created on 2020/02/19
 
 @author: ZL Chen
-@title: Unittest by appium server.
+@title: Unittest calculator for android 10 by appium server.
 '''
 
 from appium import webdriver

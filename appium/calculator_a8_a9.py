@@ -3,7 +3,7 @@
 Created on 2020/02/19
 
 @author: ZL Chen
-@title: Unittest by appium server.
+@title: Unittest calculator for android 8.1 and 9 by appium server.
 '''
 
 from appium import webdriver
@@ -29,10 +29,10 @@ class CalTestCase(unittest.TestCase):
 	def setUpClass(self):
 		desired_caps = {}
 		desired_caps['platformName'] = 'Android'
-		desired_caps['platformVersion'] = '9'
-		# desired_caps['platformVersion'] = '8.1.0'
-		desired_caps['deviceName'] = 'sda660_q200'
-		# desired_caps['deviceName'] = 'usc130_160'
+		# desired_caps['platformVersion'] = '9'
+		desired_caps['platformVersion'] = '8.1.0'
+		# desired_caps['deviceName'] = 'sda660_q200'
+		desired_caps['deviceName'] = 'usc130_160'
 		desired_caps['automationName'] = 'UiAutomator2'
 		desired_caps['appPackage'] = 'com.android.calculator2'
 		desired_caps['appActivity'] = 'com.android.calculator2.Calculator'
