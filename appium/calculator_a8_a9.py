@@ -110,7 +110,8 @@ class CalTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-	os.system('del *.png *.html')
+	os.system('adb shell killall atx-agent')
+	# os.system('del *.png *.html')
 	report_dir = r'CalculatorTest.html'
 	re_open = open(report_dir, 'wb')
 	suite = unittest.TestLoader().loadTestsFromTestCase(CalTestCase)

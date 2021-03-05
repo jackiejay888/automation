@@ -6,8 +6,6 @@ Created on 2020/03/05
 @title: Unittest by appium server.
 '''
 
-# import unittest
-# import HtmlTestRunner
 from appium import webdriver
 from nose.tools import *
 from HTMLTestRunner import *
@@ -80,7 +78,8 @@ class Clock(unittest.TestCase):
 		assert_equal(text, "8:30 AM")
 
 if __name__ == '__main__':
-	os.system('del *.png *.html')
+	os.system('adb shell killall atx-agent')
+	# os.system('del *.png *.html')
 	report_dir = r'clock_app.html'
 	re_open = open(report_dir,'wb')
 	suite = unittest.TestLoader().loadTestsFromTestCase(Clock)
