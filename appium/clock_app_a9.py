@@ -89,6 +89,6 @@ if __name__ == '__main__':
 	re_open = open(report_dir,'wb')
 	suite = unittest.TestLoader().loadTestsFromTestCase(Clock)
 	runner = HTMLTestRunner(stream=re_open,
-							title=u'Android ClockAppTest',
+							title=u'Automated testing of android environment by ZL',
 							description=u'The test report as below.')
 	runner.run(suite)
