@@ -72,7 +72,8 @@ class Clock(unittest.TestCase):
 		time.sleep(1)
 		driver.find_element_by_xpath('//*[@resource-id="android:id/button1"]').click()
 		time.sleep(3)
-		driver.find_element_by_xpath('//*[@text="On"]').click()
+		# driver.find_element_by_xpath('//*[@text="On"]').click()
+		driver.find_element_by_xpath('//*[@text="ON"]').click()
 		time.sleep(3)
 		text = driver.find_element_by_xpath('//*[@text="8:30 AM"]').text
 		assert_equal(text, "8:30 AM")
