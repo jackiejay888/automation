@@ -12,6 +12,7 @@ log="zl_ping_tool.log"
 
 # Function
 Ping_Initial() {
+	rm -rf $log
 	if [[ $1 != "" ]];
 	then
 	 	echo "IP address or Host name is: " $1
