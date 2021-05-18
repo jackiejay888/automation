@@ -59,5 +59,6 @@ set datetime=%nowDate% %nowHour%:%nowMinute%:%nowSecond%
 @REM >>%log% set /p=%datetime% <nul&ping -n 1 %ip_address% | findstr "Request timed out." >> %log%
 >>%log% set /p=%datetime% <nul&ping -n 1 %ip_address% >> %log%
 echo. >> %log%
-sleep 1
+@REM sleep 1
+timeout /t 1
 goto top
