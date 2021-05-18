@@ -44,6 +44,7 @@ set /p ip_address=Please input the ip address or host name:
 @REM set log="log.csv"
 set log="zl_ping_tool.log"
 echo Ping for windows environemnt. >> %log%
+echo. >> %log%
 @REM echo Date,Time,Status >> %log%
 :top
 @REM set nowDate=%date:~6,4%/%date:~0,2%/%date:~3,2%
@@ -57,5 +58,6 @@ set datetime=%nowDate% %nowHour%:%nowMinute%:%nowSecond%
 @REM >>%log% echo %datetime%&ping -n 1 %ip_address% | findstr "Reply from" >> %log%
 @REM >>%log% set /p=%datetime% <nul&ping -n 1 %ip_address% | findstr "Request timed out." >> %log%
 >>%log% set /p=%datetime% <nul&ping -n 1 %ip_address% >> %log%
-@REM sleep 1
+echo. >> %log%
+sleep 1
 goto top
