@@ -38,8 +38,8 @@ Ping() {
 }
 
 # Main
-	echo "Ping for windows environment."
-	echo "Ping for windows environment." >> $log
+	echo "Ping for linux environment."
+	echo "Ping for linux environment." >> $log
 	echo "You can tap the \"Ctrl+C\" button to interrupt the system."
 	echo -n "Please input the ip address or host name: "
 	read ip
