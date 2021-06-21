@@ -51,7 +51,7 @@ class idesign_register(object):
 		# New request
 		self.click(By.XPATH, "//*[@id='idesign-filter-and-table-view']/form/div[3]/div/div/table/tbody/tr/td[10]/a/img")
 		# Request Information
-		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[4]/div/select/option[7]")
+		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[4]/div/select/option[6]")
 		driver.find_element_by_xpath("(//input[@type='text'])[3]").send_keys("DQA_" + config.get('idesign', 'name') + "_" + current_time)
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[5]/div/div/div[2]/button")
 		self.click(By.XPATH, "//*[@id='header-and-sidebar-view']/div/section/main")
