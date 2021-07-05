@@ -79,6 +79,7 @@ class idesign_register(object):
 		self.click(By.XPATH, "//*[@id='requestInfoCard']/div[3]/div/div/div[3]/ul/li[1]/span")
 		sleep(2)
 		self.click(By.NAME, "cont")
+		driver.switch_to.alert.accept()
 		# # Check the request if finished or not.
 		# 	# Switch to My project list
 		# self.click(By.XPATH, "//*[@id='idesign-sidebar']/nav/ul/li[3]/a")
